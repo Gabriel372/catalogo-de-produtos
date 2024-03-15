@@ -1,25 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header';
+import LoginPage from './pages/LoginPage';
+import AdmRegister from './pages/AdmRegister'
+import ProductRegister from './pages/ProductRegister';
+import ProductShowPublic from './pages/ProductShowPublic';
+import ProductView from './pages/ProductView';
+import { BrowserRouter,Routes,Route} from 'react-router-dom'
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import {CatalogContextProvider} from './components/CatalogContext'
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CatalogContextProvider>
+
+<BrowserRouter>
+<Header/>
+<ToastContainer />
+
+<Routes>
+<Route  path='/' element={<LoginPage/>}/>
+<Route  path='/AdmRegister' element={<AdmRegister/>}/>
+<Route  path='/ProductRegister' element={<ProductRegister/>}/>
+<Route  path='/ProductShowPublic' element={<ProductShowPublic/>}/>
+<Route  path='/ProductView' element={<ProductView/>}/>
+
+</Routes>
+</BrowserRouter>
+
+
+    </CatalogContextProvider>
   );
 }
 
