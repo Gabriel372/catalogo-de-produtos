@@ -15,8 +15,6 @@ export function CatalogContextProvider({children}:Props) {
 
   const [AdmIsLoggedin, setAdmIsLoggedin] = useState<boolean>(false);
 
-//   const [BoxMember,setBoxMember] = useState<Array<IMember>>([]);
-
   useEffect( () => { 
     GetAdmToBox() ;
   },[])
