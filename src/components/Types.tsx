@@ -60,3 +60,14 @@ export type TBoxProduct = {
 BoxProduct:Array<Tproduct>;
 setBoxProduct:React.Dispatch<React.SetStateAction<Array<Tproduct>>>; 
 }
+export type TmodDelProduct = {
+modalIsOpen:boolean 
+deleteTarget:undefined | Tproduct
+}
+
+export type TstateModDel = {
+ModalDel:TmodDelProduct;
+setModalDel:React.Dispatch<React.SetStateAction<TmodDelProduct>>; 
+}
+
+
