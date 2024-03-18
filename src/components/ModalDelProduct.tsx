@@ -15,7 +15,7 @@ async function ClickDelProductInFirebase() {
         await deleteDoc(userDoc);
         DeleteProductInBox();
     } catch (error) {
-        console.error("Erro ao excluir o membro:", error);
+        console.error("Erro ao excluir:", error);
 } }
 
 function DeleteProductInBox() {
