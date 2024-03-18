@@ -13,12 +13,12 @@ async function ClickDelProductInFirebase() {
     try {
         const userDoc = doc(db, "ProductCDP",`${ModalDel.deleteTarget?.id}`)
         await deleteDoc(userDoc);
-        DeleteAdmInBox();
+        DeleteProductInBox();
     } catch (error) {
         console.error("Erro ao excluir o membro:", error);
 } }
 
-function DeleteAdmInBox() {
+function DeleteProductInBox() {
 setBoxProduct(BoxProduct.filter((item)=> item.id !== ModalDel.deleteTarget?.id));
 setMsgLoadBtn(false);
 setModalDel({modalIsOpen:false,deleteTarget:undefined});
