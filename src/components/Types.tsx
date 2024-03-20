@@ -69,5 +69,21 @@ export type TstateModDel = {
 ModalDel:TmodDelProduct;
 setModalDel:React.Dispatch<React.SetStateAction<TmodDelProduct>>; 
 }
+export type TFormEdit = {
+formIsOpen:boolean    
+hasProductToUpdt:boolean
+}
+
+export type TstateFormEdit = {
+product:Tproduct    
+FormEdit:TFormEdit;
+setFormEdit:React.Dispatch<React.SetStateAction<TFormEdit>>; 
+}
+export type TstateProductEdit = {
+FormEdit:TFormEdit;
+setFormEdit:React.Dispatch<React.SetStateAction<TFormEdit>>; 
+ProductEdit:Tproduct;
+setProductEdit:React.Dispatch<React.SetStateAction<Tproduct>>; 
+}
 
 
