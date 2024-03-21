@@ -15,11 +15,11 @@ return<div>
 
 <p className='text-lg font-semibold'>{product.name}</p>
 <p >R$: <span className='text-lg font-bold text-red-800'>{AddZeroToPrice(product.price)}</span> </p>
-<p className='text-sm'>Descriçao: <span className='font-semibold'>Coxinha de frango</span></p>
 
 {product.description && 
-<p>Descriçao:  {product.description}</p>
-}
+<p className='text-sm'>Descriçao:  
+  <span className='font-semibold'> {product.description} </span>
+  </p>}
 
 
 

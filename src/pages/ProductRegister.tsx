@@ -6,6 +6,7 @@ import {  addDoc, collection } from "firebase/firestore";
 import {db} from '../components/firebase'
 import { CatalogContext } from '../components/CatalogContext';
 import { toast } from 'react-toastify';
+import ImgRegisterProduct from '../components/ImgRegisterProduct'
 
 function ProductRegister() {
 const [Product, setProduct] = useState<Tproduct>(
@@ -45,7 +46,13 @@ toast.success("cadastrado com sucesso",{position:'top-center', theme: "dark",}) 
 return<div className="sm:w-auto mx-auto sm:max-w-[1100px] px-2 flex flex-col items-center  min-h-[calc(95vh)] ">
    <h1 className="font-bold block w-full text-center text-2xl">Cadastrar produto</h1>
 
+<div className="flex flex-col content-around border rounded-lg bg-gray-200 w-full max-w-[350px] p-2 mx-1 mt-5" >
+<ImgRegisterProduct/>
 <FormProductRegister Product={Product} setProduct={setProduct} MsgBtnWait={MsgBtnWait} setMsgBtnWait={setMsgBtnWait}/>
+
+</div>
+
+
 </div>    
 }
 

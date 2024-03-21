@@ -31,30 +31,29 @@ setProduct(prevState => ({...prevState,nanoId:nanoid()}));
 }  
 
 
-    return<form onSubmit={ClickRegist}
-    className="flex flex-col content-around border rounded-lg bg-gray-200 w-full max-w-[350px] p-2 max-h-[400px] h-full mx-1 mt-5"  >
+    return<form onSubmit={ClickRegist}>
     <ToastContainer />
       
    <label className="flex flex-col mb-2">
-   Digite o nome do produto 
+   Digite o nome
    <input autoFocus type="text" name="name" placeholder="nome" value={Product.name}
    onChange={ChangeInput} className="rounded-full px-3 py-1"/>
    </label>
 
 
    <label className="flex flex-col ">
-    Digite o valor do produto
+    Digite o valor
    <input onChange={ChangeInput}   type="number" name="price" placeholder="valor" value={Product.price}
    className="rounded-full px-3 py-1" />
    </label>
    
    <label className="flex flex-col ">
-    Digite a descriçao do produto
+    Digite a descriçao
    <input onChange={ChangeInput}   type="text" name="description" placeholder="descrição" value={Product.description}
    className="rounded-full px-3 py-1" />
    </label>
    
-   <button className="bg-red-600 text-white rounded-full py-1 cursor-pointer hover:bg-red-700">
+   <button className="bg-red-600 text-white rounded-full py-1 cursor-pointer hover:bg-red-700 w-full">
    {MsgBtnWait ? <p className='flex justify-center align-middle'>
    <CgSpinner  className='text-2xl mr-1 animate-spin'/>Aguarde</p>   :
    'Cadastrar'}</button>

@@ -1,8 +1,6 @@
 import {CatalogContext} from '../components/CatalogContext'
 import { useState,useContext,useEffect } from 'react';
 import {TBoxProduct,Tproduct} from '../components/Types'
-import RegistredImgProduct from '../components/RegistredImgProduct';
-import RegistredDataDescript from '../components/RegistredDataProduct';
 import RegistredCardProduct from '../components/RegistredCardProduct';
 import ModalDelProduct from '../components/ModalDelProduct'
 import {TmodDelProduct} from '../components/Types'
@@ -18,7 +16,7 @@ return <div>
 <div>
 
 {BoxProduct.length > 0 ?
-<ul className='w-screen650:flex w-screen650:flex-col w-screen650:items-center 
+<ul className='w-screen650:grid w-screen650:grid-cols-1 w-screen650:max-w-[300px] m-auto mb-10
  w-screen800:grid-cols-2 grid-cols-3   grid gap-3' >{BoxProduct.map((product)=>(
 <RegistredCardProduct product={product} ModalDel={ModalDel} setModalDel={setModalDel}/>
 ))}

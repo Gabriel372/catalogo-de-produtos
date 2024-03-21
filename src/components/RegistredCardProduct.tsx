@@ -1,7 +1,7 @@
 import RegistredImgProduct from "./RegistredImgProduct"
 import RegistredDataProduct from "./RegistredDataProduct"
 import RegistredFormProduct from "./RegistredFormProduct"
-import {TmodDelProduct, Tproduct,TstateFormEdit,TFormEdit} from './Types'
+import {TmodDelProduct, Tproduct,TFormEdit} from './Types'
 import { BsTrash } from "react-icons/bs";
 import { SlPencil } from "react-icons/sl";
 import { useContext,useEffect,useState } from 'react';
@@ -17,10 +17,9 @@ const [FormEdit,setFormEdit] = useState<TFormEdit>({formIsOpen:false,hasProductT
 
 
     return<li key={product.id} className={`border rounded-lg bg-gray-200 p-1 shadow-xl max-w-[350px] ${FormEdit.formIsOpen && 'invisible'}`}
-      >
-    <RegistredImgProduct/>
-{/* {FormEdit.formIsOpen ? <RegistredFormProduct FormEdit={FormEdit} setFormEdit={setFormEdit} product={product}/>
-:<RegistredDataProduct product={product}/>}  */}
+      >    
+      <RegistredImgProduct/>
+
 {FormEdit.formIsOpen && <RegistredFormProduct FormEdit={FormEdit} setFormEdit={setFormEdit} product={product}/>}
 <RegistredDataProduct product={product}/>
 

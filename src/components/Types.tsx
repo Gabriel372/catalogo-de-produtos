@@ -85,5 +85,14 @@ setFormEdit:React.Dispatch<React.SetStateAction<TFormEdit>>;
 ProductEdit:Tproduct;
 setProductEdit:React.Dispatch<React.SetStateAction<Tproduct>>; 
 }
-
-
+export type TRegistImg = {
+    show:string;
+    filename:Blob | null
+    formatIsLandscape:boolean | undefined
+    hasFormatImgToCheck:boolean
+    fileIsLoading:boolean
+}
+export type TstateImgUpload = {
+ ImgUpload:TRegistImg;
+setImgUpload:React.Dispatch<React.SetStateAction<TRegistImg>>; 
+}

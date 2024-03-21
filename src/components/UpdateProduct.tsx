@@ -1,14 +1,12 @@
-import {Tproduct, TstateFormEdit,TstateProductEdit,TBoxProduct} from './Types'
-import { useContext,useEffect,useState } from 'react';
+import {TstateProductEdit,TBoxProduct} from './Types'
+import { useContext,useEffect } from 'react';
 import { db } from './firebase';
 import { doc,updateDoc } from "firebase/firestore";
 import { CatalogContext } from '../components/CatalogContext';
-import {  ToastContainer,toast } from "react-toastify";
+import {  toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-
-
-function UpdateProduct({FormEdit,setFormEdit,ProductEdit}:TstateProductEdit ) {
+function UpdateProduct({FormEdit,setFormEdit,ProductEdit,setProductEdit}:TstateProductEdit ) {
     const { BoxProduct,setBoxProduct } = useContext(CatalogContext) as TBoxProduct
 
 useEffect(() => {
@@ -29,12 +27,13 @@ async function UpdtProductInFirebase() {
 }
 
 function UpdateProductInBox() {
-    setBoxProduct(prevState => prevState.map(product => 
+    setBoxProduct(BoxProduct.map(product => 
         product.id === ProductEdit?.id ? ProductEdit : product
       ));
-    //setProductEdit({name:'',price:'',description:'',image:'',formatImg:'',nanoId:'',id:''});
     toast.success("Editado com sucesso",{position:'top-center', theme: "dark",}) ; 
+    setProductEdit({name:'',price:'',description:'',image:'',formatImg:'',nanoId:'',id:''});
     setFormEdit({formIsOpen:false,hasProductToUpdt:false}); 
+   // setFormEdit({formIsOpen:true,hasProductToUpdt:false}); 
     }
 
 return <>
