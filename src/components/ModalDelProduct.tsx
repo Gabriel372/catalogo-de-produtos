@@ -1,5 +1,5 @@
-import {TmodDelProduct, TstateModDel,TBoxProduct} from './Types'
-import { useContext,useEffect,useState } from 'react';
+import { TstateModDel,TBoxProduct} from './Types'
+import { useContext,useState } from 'react';
 import { CatalogContext } from '../components/CatalogContext';
 import { db } from '../components/firebase';
 import { doc, deleteDoc } from "firebase/firestore";
@@ -23,6 +23,8 @@ setBoxProduct(BoxProduct.filter((item)=> item.id !== ModalDel.deleteTarget?.id))
 setMsgLoadBtn(false);
 setModalDel({modalIsOpen:false,deleteTarget:undefined});
 }
+
+
 
 return <div>
 {ModalDel.modalIsOpen && 

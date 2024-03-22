@@ -1,7 +1,6 @@
 import FormProductRegister from '../components/FormProductRegister'
 import { useContext,useEffect,useState } from 'react';
-import { nanoid } from 'nanoid';
-import {Tproduct,TadmIsLoggedin,TBoxProduct} from '../components/Types'
+import {Tproduct,TBoxProduct} from '../components/Types'
 import {  addDoc, collection } from "firebase/firestore"; 
 import {db} from '../components/firebase'
 import { CatalogContext } from '../components/CatalogContext';
@@ -12,18 +11,20 @@ function ProductRegister() {
 const [Product, setProduct] = useState<Tproduct>(
 {name:'',price:'',description:'',image:'',formatImg:'',nanoId:'',id:''});
 const [MsgBtnWait, setMsgBtnWait] = useState<boolean>(false);
-const { BoxProduct,setBoxProduct } = useContext(CatalogContext) as TBoxProduct
+const { setBoxProduct } = useContext(CatalogContext) as TBoxProduct
+const [InputHasValue,setInputHasValue] = useState<boolean>(false)
 
 useEffect(() => {
-    if (MsgBtnWait) {
-        PostProductToFirebase()  }
-
+if (InputHasValue) {
+PostProductToFirebase()   
+}
 else if (Product.id !== '') {
 InsertProductInBox();    
 }
-}, [MsgBtnWait,Product]) ;    
+}, [InputHasValue,Product]) ;    
 
 async function PostProductToFirebase() {
+setInputHasValue(false)    
 try { 
 const docRef = await addDoc(collection(db,"ProductCDP"),Product);
 setProduct((prevState => ({...prevState,id:docRef.id})));
@@ -47,7 +48,8 @@ return<div className="sm:w-auto mx-auto sm:max-w-[1100px] px-2 flex flex-col ite
    <h1 className="font-bold block w-full text-center text-2xl">Cadastrar produto</h1>
 
 <div className="flex flex-col content-around border rounded-lg bg-gray-200 w-full max-w-[350px] p-2 mx-1 mt-5" >
-<ImgRegisterProduct/>
+<ImgRegisterProduct Product={Product} setProduct={setProduct} MsgBtnWait={MsgBtnWait} 
+setMsgBtnWait={setMsgBtnWait} InputHasValue={InputHasValue} setInputHasValue={setInputHasValue}/>
 <FormProductRegister Product={Product} setProduct={setProduct} MsgBtnWait={MsgBtnWait} setMsgBtnWait={setMsgBtnWait}/>
 
 </div>

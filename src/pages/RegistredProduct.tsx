@@ -18,7 +18,7 @@ return <div>
 {BoxProduct.length > 0 ?
 <ul className='w-screen650:grid w-screen650:grid-cols-1 w-screen650:max-w-[300px] m-auto mb-10
  w-screen800:grid-cols-2 grid-cols-3   grid gap-3' >{BoxProduct.map((product)=>(
-<RegistredCardProduct product={product} ModalDel={ModalDel} setModalDel={setModalDel}/>
+<RegistredCardProduct key={product.id} product={product} ModalDel={ModalDel} setModalDel={setModalDel}/>
 ))}
 
 </ul>

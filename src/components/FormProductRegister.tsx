@@ -3,7 +3,6 @@ import { ToastContainer, toast } from "react-toastify";
 import { CgSpinner } from "react-icons/cg";
 import {nanoid} from "nanoid";
 
-
 function FormProductRegister({Product,setProduct,MsgBtnWait,setMsgBtnWait}:TstateProduct) {
 
 function ClickRegist(e: React.FormEvent<HTMLFormElement>) {
@@ -22,15 +21,12 @@ setMsgBtnWait(true)
 }             
 }
          
-
 function ChangeInput(e:React.ChangeEvent<HTMLInputElement>) {
     setProduct(PrevState => ({...PrevState,[e.target.name]: e.target.value})) 
     if (e.target.name === 'price') {
 setProduct(prevState => ({...prevState,nanoId:nanoid()}));  
 }
 }  
-
-
     return<form onSubmit={ClickRegist}>
     <ToastContainer />
       

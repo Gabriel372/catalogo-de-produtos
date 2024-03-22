@@ -55,7 +55,14 @@ setProduct:React.Dispatch<React.SetStateAction<Tproduct>>;
 MsgBtnWait:boolean
 setMsgBtnWait:React.Dispatch<React.SetStateAction<boolean>>;
 }
-
+export type TstateProductForm = {
+Product:Tproduct;
+setProduct:React.Dispatch<React.SetStateAction<Tproduct>>;
+MsgBtnWait:boolean
+setMsgBtnWait:React.Dispatch<React.SetStateAction<boolean>>;
+InputHasValue:boolean;
+setInputHasValue:React.Dispatch<React.SetStateAction<boolean>>; 
+}
 export type TBoxProduct = {
 BoxProduct:Array<Tproduct>;
 setBoxProduct:React.Dispatch<React.SetStateAction<Array<Tproduct>>>; 
@@ -91,8 +98,17 @@ export type TRegistImg = {
     formatIsLandscape:boolean | undefined
     hasFormatImgToCheck:boolean
     fileIsLoading:boolean
+    hasInputFileToClean:boolean
 }
 export type TstateImgUpload = {
  ImgUpload:TRegistImg;
 setImgUpload:React.Dispatch<React.SetStateAction<TRegistImg>>; 
 }
+export type TModDel = {
+    product:Tproduct
+    ModalDel:TmodDelProduct;
+    setModalDel:React.Dispatch<React.SetStateAction<TmodDelProduct>>; 
+}
+export type TproductProp = {
+product:Tproduct
+   }

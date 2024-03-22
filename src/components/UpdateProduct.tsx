@@ -37,8 +37,6 @@ function UpdateProductInBox() {
     }
 
 return <>
-{/* <button onClick={()=>console.log(ProductEdit)}>TESTE</button> */}
-
 </>    
 }
 
