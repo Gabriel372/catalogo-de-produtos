@@ -10,7 +10,8 @@ function RegistredCardProduct({setModalDel,ModalDel,product}:TModDel ) {
 const [FormEdit,setFormEdit] = useState<TFormEdit>({formIsOpen:false,hasProductToUpdt:false})
 
 
-    return<li key={product.id} className={`border rounded-lg bg-gray-200 p-1 shadow-xl max-w-[350px] ${FormEdit.formIsOpen && 'invisible'}`}
+    return<li key={product.id} className={`border rounded-lg bg-gray-200 p-1 shadow-xl max-w-[350px] 
+    card transform transition-transform duration-200 hover:-translate-y-2.5 ${FormEdit.formIsOpen && 'invisible'}`}
       >    
       <RegistredImgProduct product={product}/>
 

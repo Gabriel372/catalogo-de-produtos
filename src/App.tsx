@@ -1,15 +1,16 @@
-import React from 'react';
 import Header from './components/Header';
 import LoginPage from './pages/LoginPage';
 import AdmRegister from './pages/AdmRegister'
 import ProductRegister from './pages/ProductRegister';
 import ProductShowPublic from './pages/ProductShowPublic';
 import RegistredProduct from './pages/RegistredProduct';
-import { BrowserRouter,Routes,Route} from 'react-router-dom'
+import { BrowserRouter,Routes,Route,useLocation} from 'react-router-dom'
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {CatalogContextProvider} from './components/CatalogContext'
-
+import './components/transitions.css'
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { motion } from "framer-motion";
 
 function App() {
   return (
@@ -35,3 +36,4 @@ function App() {
 }
 
 export default App;
+

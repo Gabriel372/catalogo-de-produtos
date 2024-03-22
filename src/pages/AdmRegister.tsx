@@ -7,6 +7,8 @@ import { useState,useContext,useEffect } from 'react';
 import FormAdmRegist from '../components/FormAdmRegist'
 import {  addDoc, collection } from "firebase/firestore"; 
 import {db} from '../components/firebase'
+import { motion } from 'framer-motion';
+import { pageVariants,pageTransition } from "../components/AnimationMotion";
 
 
 function AdmRegister() {
@@ -47,7 +49,9 @@ navigate('/ProductRegister') ;
 }
 
 
-    return  <div className="px-1">
+return  (
+<motion.div initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
+    <div className="px-1">
 <div className="flex mt-1">
 <Link to='/' className="h-[30px] w-[25px] mt-1 ml-1">
  <IoArrowBackSharp />
@@ -66,6 +70,10 @@ navigate('/ProductRegister') ;
     </div>
     <button onClick={()=> console.log(AdmToStorage)}>TESTE</button>  
     </div> 
+</motion.div>
+
+    )
+
       
 }
 

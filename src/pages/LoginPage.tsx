@@ -5,6 +5,9 @@ import {TboxAdm,TadmLog} from '../components/Types'
 import { useState,useContext,useEffect } from 'react';
 import {CatalogContext} from '../components/CatalogContext'
 import FormAdmLog from '../components/FormAdmLog'
+import { motion } from 'framer-motion';
+import { pageVariants,pageTransition } from "../components/AnimationMotion";
+
 
 function LoginPage() {
   const {  BoxAdm } = useContext(CatalogContext) as TboxAdm;
@@ -42,7 +45,10 @@ navigate('/ProductRegister');
 }
 
 
-return <div className=" ">
+return (
+  <motion.div initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
+
+<div className=" ">
       <button onClick={()=> console.log(AdmLog)}>TESTE</button>  
 
  {/* <ToastContainer /> */}
@@ -61,7 +67,11 @@ return <div className=" ">
 
 </div>  
 </div> 
-  
-}
+
+
+  </motion.div>
+);
+};
+
 
 export default LoginPage

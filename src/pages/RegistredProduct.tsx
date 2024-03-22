@@ -4,14 +4,20 @@ import {TBoxProduct,Tproduct} from '../components/Types'
 import RegistredCardProduct from '../components/RegistredCardProduct';
 import ModalDelProduct from '../components/ModalDelProduct'
 import {TmodDelProduct} from '../components/Types'
+import { motion } from 'framer-motion';
+import { pageVariants,pageTransition } from "../components/AnimationMotion";
 
 
 function RegistredProduct() {
 const {  BoxProduct,setBoxProduct } = useContext(CatalogContext) as TBoxProduct;
 const [ModalDel,setModalDel] = useState<TmodDelProduct>({modalIsOpen:false,deleteTarget:undefined})
 
-return <div>
+return (
+    <motion.div initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
+ 
+ <div>
 <div className='sm:w-auto mx-auto max-w-[1100px] px-2 flex  flex-col min-h-[calc(95vh)] '>
+
 <h3 className='text-2xl text-center my-2'>Produtos Cadastrados</h3>
 <div>
 
@@ -22,10 +28,8 @@ return <div>
 ))}
 
 </ul>
-
 :
 <p>sem produtos cadastrados no momento</p>
-
 }
 
 </div>
@@ -35,6 +39,9 @@ return <div>
 <ModalDelProduct ModalDel={ModalDel} setModalDel={setModalDel}/>
 
 </div>
+  </motion.div>
+
+)
 
 }
 
