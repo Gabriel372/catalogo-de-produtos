@@ -21,10 +21,10 @@ function App() {
 <ToastContainer />
 
 <Routes>
-<Route  path='/' element={<LoginPage/>}/>
+ <Route  path='/' element={<ProductShowPublic/>}/>
+<Route  path='/LoginPage' element={<LoginPage/>}/>
 <Route  path='/AdmRegister' element={<AdmRegister/>}/>
 <Route  path='/ProductRegister' element={<ProductRegister/>}/>
-<Route  path='/ProductShowPublic' element={<ProductShowPublic/>}/>
 <Route  path='/RegistredProduct' element={<RegistredProduct/>}/>
 
 </Routes>

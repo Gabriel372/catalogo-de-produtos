@@ -11,11 +11,11 @@ const [FormEdit,setFormEdit] = useState<TFormEdit>({formIsOpen:false,hasProductT
 
 
     return<li key={product.id} className={`border rounded-lg bg-gray-200 p-1 shadow-xl max-w-[350px] 
-    card transform transition-transform duration-200 hover:-translate-y-2.5 ${FormEdit.formIsOpen && 'invisible'}`}
+    card transform transition-transform duration-200 hover:-translate-y-1.5 h-full ${FormEdit.formIsOpen && 'invisible'}`}
       >    
-      <RegistredImgProduct product={product}/>
 
 {FormEdit.formIsOpen && <RegistredFormProduct FormEdit={FormEdit} setFormEdit={setFormEdit} product={product}/>}
+<RegistredImgProduct product={product}/> 
 <RegistredDataProduct product={product}/>
 
 {!FormEdit.formIsOpen &&

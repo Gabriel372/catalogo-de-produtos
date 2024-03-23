@@ -3,11 +3,9 @@ import { TproductProp } from "./Types"
 function RegistredImgProduct({product}:TproductProp) {
 
   return <div className="flex justify-center">
-  <div className={`${product.image === '' ? ' flex justify-center items-center h-[150px] w-[150px] bg-white rounded-lg border  mb-2 ' :
-  'max-w-[270px] max-h-[200px] flex justify-center items-start   bg-white rounded-lg border  mb-2 overflow-hidden '}`}>
-
-    {/* <div className={`${product.image === '' ? ' flex justify-center items-center h-[150px] w-[150px] bg-white rounded-lg border  mb-2 ' :
-  `${product.formatImg === 'landscape' ? '' :'' } `}`}> */}
+  <div className={`flex justify-center bg-white rounded-lg border  mb-2
+  ${product.image === '' ? ' items-center h-[150px] w-[150px]' :
+  'max-w-[270px] max-h-[200px] items-start overflow-hidden'}`}>
 
 {product.image === '' ?
 <span className=' text-gray-400'>Sem foto</span>:

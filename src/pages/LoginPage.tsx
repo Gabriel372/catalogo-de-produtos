@@ -49,7 +49,6 @@ return (
   <motion.div initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
 
 <div className=" ">
-      <button onClick={()=> console.log(AdmLog)}>TESTE</button>  
 
  {/* <ToastContainer /> */}
 

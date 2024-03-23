@@ -2,6 +2,10 @@ import { Link,useNavigate } from 'react-router-dom';
 import { useState,useEffect,useContext } from 'react';
 import { CatalogContext } from './CatalogContext';
 import {TadmIsLoggedin} from './Types'
+import MenuOutside from './MenuOutside'
+
+import { FaShoppingBasket } from "react-icons/fa";
+import { RiLoginBoxLine } from "react-icons/ri";
 
 function Header() {
 const AdmLoged = sessionStorage.getItem('admStorage');
@@ -19,13 +23,15 @@ function CheckStatusPageForNavigate() {
         setAdmIsLoggedin(true);
       navigate(ActualPage);
         } 
-    else{navigate('/');  }  }
+else if (!adm && !ActualPage && !AdmIsLoggedin) {
+    navigate('/LoginPage');  
+}
+}
     
 function SaveActualPage(page:string) {
     sessionStorage.setItem('ActualPage',page)
   }
   
-
 function RemoveAdmEpage() {
     sessionStorage.removeItem('ActualPage');  
     sessionStorage.removeItem('admStorage');  
@@ -33,11 +39,13 @@ function RemoveAdmEpage() {
 }
 
     return <header className="bg-black text-white">
-    <nav className="w-full sm:w-auto mx-auto sm:max-w-[1100px] px-2 flex flex-row justify-between h-[calc(13vh)] items-center">
-        <span>icon</span>
+    <nav className="w-full sm:w-auto mx-auto max-w-[1100px] px-2 flex flex-row justify-between h-[calc(13vh)] items-center">
+ <Link to='./' className='text-red-400 text-3xl ml-2'>
+<FaShoppingBasket />
+        </Link>
 
 {AdmIsLoggedin && <div className="text-xl">
-<Link onClick={()=>SaveActualPage('/ProductShowPublic')} to='/ProductShowPublic' 
+<Link onClick={()=>SaveActualPage('/')} to='/' 
 className='mr-2 p-1 rounded-md hover:bg-gray-700'>Ver produtos</Link> 
 
 <Link onClick={()=>SaveActualPage('/RegistredProduct')} to='/RegistredProduct'
@@ -46,10 +54,13 @@ className='mr-2 p-1 rounded-md hover:bg-gray-700'>Ver produtos</Link>
 <Link onClick={()=>SaveActualPage('/ProductRegister')} to='/ProductRegister'
  className='mr-2 p-1 rounded-md hover:bg-gray-700'>Cadastrar Produtos</Link> 
 
-{/* <Link  to='/AdmRegister' className='mr-2 p-1 rounded-md hover:bg-gray-700'>Cadastrar admin</Link>        */}
-<Link onClick={RemoveAdmEpage} to='/' className='mr-2 p-1 rounded-md hover:bg-gray-700'>Sair</Link> 
+
+<Link onClick={RemoveAdmEpage} to='/LoginPage' className='mr-2 p-1 rounded-md hover:bg-gray-700'>
+ sair </Link> 
+
 </div>}
 
+{!AdmIsLoggedin &&<Link to='/LoginPage' className=' text-2xl'><RiLoginBoxLine /></Link> }
 
 </nav>
 
