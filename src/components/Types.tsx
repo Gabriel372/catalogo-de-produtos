@@ -3,8 +3,16 @@ export type Tadm = {
 name:string 
 email:string ;
 password:string ;
+celphone:string;
+titlePage:string;
+addresStore:string;
 nanoId:string
 id:string
+isLoggedIn:boolean;
+acceptPayCredit:boolean
+acceptPayDebit:boolean
+acceptPayMoney:boolean
+acceptPayPix:boolean
 }
 export type TadmLog = {
     email: string;
@@ -111,4 +119,9 @@ export type TModDel = {
 }
 export type TproductProp = {
 product:Tproduct
-   }
+}
+export type TadmOn = {
+AdmOn:Tadm | undefined;
+setAdmOn:React.Dispatch<React.SetStateAction<Tadm | undefined>>; 
+}
+

@@ -12,7 +12,7 @@ export const CatalogContext = createContext({});
 export function CatalogContextProvider({children}:Props) {  
   const [BoxAdm,setBoxAdm] = useState<Array<Tadm>>([]);
   const [BoxProduct,setBoxProduct] = useState<Array<Tproduct>>([]);
-
+  const [AdmOn, setAdmOn] = useState<Tadm | undefined>(undefined);
   const [AdmIsLoggedin, setAdmIsLoggedin] = useState<boolean>(false);
 
   useEffect( () => { 
@@ -34,7 +34,7 @@ setBoxProduct(data)
 
 
   return (
-    <CatalogContext.Provider value={{ BoxAdm,AdmIsLoggedin,BoxProduct,setBoxAdm,setAdmIsLoggedin,setBoxProduct}}>
+    <CatalogContext.Provider value={{ BoxAdm,AdmIsLoggedin,BoxProduct,AdmOn,setAdmOn,setBoxAdm,setAdmIsLoggedin,setBoxProduct}}>
       {children}
     </CatalogContext.Provider>
   );

@@ -1,43 +1,50 @@
 import { Link,useNavigate } from 'react-router-dom';
 import { useState,useEffect,useContext } from 'react';
 import { CatalogContext } from './CatalogContext';
-import {TadmIsLoggedin} from './Types'
+import {TadmIsLoggedin,TadmOn,TboxAdm} from './Types'
 import MenuOutside from './MenuOutside'
 
 import { FaShoppingBasket } from "react-icons/fa";
 import { RiLoginBoxLine } from "react-icons/ri";
 
 function Header() {
-const AdmLoged = sessionStorage.getItem('admStorage');
 const { AdmIsLoggedin,setAdmIsLoggedin } = useContext(CatalogContext) as TadmIsLoggedin
 const ActualPage = sessionStorage.getItem('ActualPage')?.replace(/\/%22|\/\//g, '') || '/';
 const navigate = useNavigate();
+const [AdmGetOut,setAdmGetOut] = useState<boolean>(false)
+const { AdmOn, setAdmOn, BoxAdm } = useContext(CatalogContext) as TadmOn & TboxAdm;
+
+const admOnNanoId = sessionStorage.getItem('admOnNanoId')
+const result = BoxAdm.find( (adm) => ( JSON.stringify(adm.nanoId) === admOnNanoId  ) )  ;      
+
 
 useEffect( () => { 
 CheckStatusPageForNavigate()
-},[AdmIsLoggedin,ActualPage ])
+},[AdmIsLoggedin,ActualPage,AdmGetOut ])
 
 function CheckStatusPageForNavigate() {
-    let adm = sessionStorage.getItem('admStorage');
-    if (adm && ActualPage) { 
-        setAdmIsLoggedin(true);
+    if (admOnNanoId && ActualPage) { 
+ setAdmOn(BoxAdm.find( (adm) => ( JSON.stringify(adm.nanoId) === admOnNanoId  ) ) )       
+setAdmIsLoggedin(true);
       navigate(ActualPage);
         } 
-else if (!adm && !ActualPage && !AdmIsLoggedin) {
+else if (AdmGetOut) {
     navigate('/LoginPage');  
 }
+else{    navigate('/'); }
 }
     
+function RemoveAdmEpage() {
+    sessionStorage.removeItem('ActualPage');  
+    sessionStorage.removeItem('admOnNanoId'); 
+    setAdmGetOut(true);
+    setAdmIsLoggedin(false);
+}
+
 function SaveActualPage(page:string) {
     sessionStorage.setItem('ActualPage',page)
   }
   
-function RemoveAdmEpage() {
-    sessionStorage.removeItem('ActualPage');  
-    sessionStorage.removeItem('admStorage');  
-    setAdmIsLoggedin(false);
-}
-
     return <header className="bg-black text-white">
     <nav className="w-full sm:w-auto mx-auto max-w-[1100px] px-2 flex flex-row justify-between h-[calc(13vh)] items-center">
  <Link to='./' className='text-red-400 text-3xl ml-2'>

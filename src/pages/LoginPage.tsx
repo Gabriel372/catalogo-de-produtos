@@ -38,7 +38,7 @@ else if (!EmailAdmIsOk && !PasswordAdmIsOk) {
   toast.error("Esse administrador não está cadstrado",{position:'top-center', }) ; 
 }
 else if (AdmIsOk) {
-sessionStorage.setItem('admStorage',JSON.stringify(AdmIsOk));
+sessionStorage.setItem('admOnNanoId',JSON.stringify(AdmIsOk.nanoId));
 sessionStorage.setItem('ActualPage','/ProductRegister') ;
 navigate('/ProductRegister');
 }  
