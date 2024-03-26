@@ -1,9 +1,13 @@
-import {TstateProduct} from './Types'
+import {TstateProduct,TadmOn} from './Types'
 import { ToastContainer, toast } from "react-toastify";
 import { CgSpinner } from "react-icons/cg";
 import {nanoid} from "nanoid";
+import { CatalogContext } from './CatalogContext';
+import { useState,useEffect,useContext } from 'react';
 
 function FormProductRegister({Product,setProduct,MsgBtnWait,setMsgBtnWait}:TstateProduct) {
+    const { AdmOn} = useContext(CatalogContext) as TadmOn
+
 
 function ClickRegist(e: React.FormEvent<HTMLFormElement>) {
  e.preventDefault();
@@ -23,8 +27,8 @@ setMsgBtnWait(true)
          
 function ChangeInput(e:React.ChangeEvent<HTMLInputElement>) {
     setProduct(PrevState => ({...PrevState,[e.target.name]: e.target.value})) 
-    if (e.target.name === 'price') {
-setProduct(prevState => ({...prevState,nanoId:nanoid()}));  
+    if (e.target.name === 'price' && AdmOn) {
+setProduct(prevState => ({...prevState,nanoIdAdm:AdmOn.nanoId,nanoId:nanoid()}));  
 }
 }  
     return<form onSubmit={ClickRegist}>

@@ -8,7 +8,6 @@ titlePage:string;
 addresStore:string;
 nanoId:string
 id:string
-isLoggedIn:boolean;
 acceptPayCredit:boolean
 acceptPayDebit:boolean
 acceptPayMoney:boolean
@@ -54,6 +53,7 @@ price:string ;
 description:string ;
 image:string
 formatImg:string  
+nanoIdAdm:string
 nanoId:string
 id:string
 }
@@ -124,4 +124,11 @@ export type TadmOn = {
 AdmOn:Tadm | undefined;
 setAdmOn:React.Dispatch<React.SetStateAction<Tadm | undefined>>; 
 }
-
+export type TformTitle = {
+IsOpen:boolean
+inputValue:string
+}
+export type TstateFormTitle = {
+Form:TformTitle
+setForm:React.Dispatch<React.SetStateAction<TformTitle>>; 
+}

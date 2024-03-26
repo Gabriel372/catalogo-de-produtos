@@ -13,7 +13,7 @@ import { pageVariants,pageTransition } from "../components/AnimationMotion";
 function AdmRegister() {
 const [AdmToStorage, setAdmToStorage] = useState<Tadm>({
  name: '',email: '',password: '',celphone:'',titlePage:'',addresStore:'',
- nanoId:'',id:'',isLoggedIn:false,acceptPayCredit:false,acceptPayDebit:false,
+ nanoId:'',id:'',acceptPayCredit:false,acceptPayDebit:false,
  acceptPayMoney:false,acceptPayPix:false}); 
 const [MsgWaitBtn,setMsgWaitBtn] = useState<boolean>(false);
 const navigate = useNavigate();
@@ -41,7 +41,7 @@ setMsgWaitBtn(false);
 function InsertAdmInBox() {
 setAdmToStorage({
 name: '',email: '',password: '',celphone:'',titlePage:'',addresStore:'',
-nanoId:'',id:'',isLoggedIn:false,acceptPayCredit:false,acceptPayDebit:false,
+nanoId:'',id:'',acceptPayCredit:false,acceptPayDebit:false,
 acceptPayMoney:false,acceptPayPix:false}); 
 setMsgWaitBtn(false);
 AdmLogin();

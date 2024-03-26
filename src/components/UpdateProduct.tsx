@@ -31,7 +31,7 @@ function UpdateProductInBox() {
         product.id === ProductEdit?.id ? ProductEdit : product
       ));
     toast.success("Editado com sucesso",{position:'top-center', theme: "dark",}) ; 
-    setProductEdit({name:'',price:'',description:'',image:'',formatImg:'',nanoId:'',id:''});
+    setProductEdit({name:'',price:'',description:'',image:'',formatImg:'',nanoIdAdm:'',nanoId:'',id:''});
     setFormEdit({formIsOpen:false,hasProductToUpdt:false}); 
    // setFormEdit({formIsOpen:true,hasProductToUpdt:false}); 
     }

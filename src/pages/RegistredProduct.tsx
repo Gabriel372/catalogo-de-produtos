@@ -6,7 +6,7 @@ import ModalDelProduct from '../components/ModalDelProduct'
 import {TmodDelProduct} from '../components/Types'
 import { motion } from 'framer-motion';
 import { pageVariants,pageTransition } from "../components/AnimationMotion";
-
+import Title from '../components/Title';
 
 function RegistredProduct() {
 const {  BoxProduct,setBoxProduct } = useContext(CatalogContext) as TBoxProduct;
@@ -18,7 +18,8 @@ return (
  <div>
 <div className='sm:w-auto mx-auto max-w-[1100px] px-2 flex  flex-col min-h-[calc(95vh)] '>
 
-<h3 className='text-2xl text-center my-2'>Produtos Cadastrados</h3>
+<Title/>
+
 <div>
 
 {BoxProduct.length > 0 ?

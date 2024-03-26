@@ -28,7 +28,7 @@ setProductEdit(prevState => ({...prevState,[e.target.name]:e.target.value}));
 }
 function CloseForm(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
  e.preventDefault();
- setProductEdit({name:'',price:'',description:'',image:'',formatImg:'',nanoId:'',id:''});
+ setProductEdit({name:'',price:'',description:'',image:'',formatImg:'',nanoIdAdm:'',nanoId:'',id:''});
  setFormEdit({formIsOpen:false,hasProductToUpdt:false}); 
 }
 

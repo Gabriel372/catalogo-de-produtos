@@ -11,6 +11,8 @@ import {CatalogContextProvider} from './components/CatalogContext'
 import './components/transitions.css'
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { motion } from "framer-motion";
+import Footer from './components/Footer';
+
 
 function App() {
   return (
@@ -28,6 +30,7 @@ function App() {
 <Route  path='/RegistredProduct' element={<RegistredProduct/>}/>
 
 </Routes>
+<Footer/>
 </BrowserRouter>
 
 

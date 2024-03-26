@@ -13,10 +13,7 @@ const ActualPage = sessionStorage.getItem('ActualPage')?.replace(/\/%22|\/\//g, 
 const navigate = useNavigate();
 const [AdmGetOut,setAdmGetOut] = useState<boolean>(false)
 const { AdmOn, setAdmOn, BoxAdm } = useContext(CatalogContext) as TadmOn & TboxAdm;
-
 const admOnNanoId = sessionStorage.getItem('admOnNanoId')
-const result = BoxAdm.find( (adm) => ( JSON.stringify(adm.nanoId) === admOnNanoId  ) )  ;      
-
 
 useEffect( () => { 
 CheckStatusPageForNavigate()
@@ -26,7 +23,7 @@ function CheckStatusPageForNavigate() {
     if (admOnNanoId && ActualPage) { 
  setAdmOn(BoxAdm.find( (adm) => ( JSON.stringify(adm.nanoId) === admOnNanoId  ) ) )       
 setAdmIsLoggedin(true);
-      navigate(ActualPage);
+navigate(ActualPage);
         } 
 else if (AdmGetOut) {
     navigate('/LoginPage');  
@@ -54,23 +51,17 @@ function SaveActualPage(page:string) {
 {AdmIsLoggedin && <div className="text-xl">
 <Link onClick={()=>SaveActualPage('/')} to='/' 
 className='mr-2 p-1 rounded-md hover:bg-gray-700'>Ver produtos</Link> 
-
 <Link onClick={()=>SaveActualPage('/RegistredProduct')} to='/RegistredProduct'
  className='mr-2 p-1 rounded-md hover:bg-gray-700'>Produtos cadastrados</Link>      
-
 <Link onClick={()=>SaveActualPage('/ProductRegister')} to='/ProductRegister'
  className='mr-2 p-1 rounded-md hover:bg-gray-700'>Cadastrar Produtos</Link> 
-
-
 <Link onClick={RemoveAdmEpage} to='/LoginPage' className='mr-2 p-1 rounded-md hover:bg-gray-700'>
  sair </Link> 
-
 </div>}
 
 {!AdmIsLoggedin &&<Link to='/LoginPage' className=' text-2xl'><RiLoginBoxLine /></Link> }
 
 </nav>
-
     </header>
 }
 
