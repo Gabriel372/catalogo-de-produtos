@@ -12,8 +12,11 @@ export const CatalogContext = createContext({});
 export function CatalogContextProvider({children}:Props) {  
   const [BoxAdm,setBoxAdm] = useState<Array<Tadm>>([]);
   const [BoxProduct,setBoxProduct] = useState<Array<Tproduct>>([]);
-  const [AdmOn, setAdmOn] = useState<Tadm | undefined>(undefined);
   const [AdmIsLoggedin, setAdmIsLoggedin] = useState<boolean>(false);
+  const [AdmOn, setAdmOn] = useState<Tadm>({
+    name: '',email: '',password: '',celphone:'',titlePage:'',addresStore:'',
+    nanoId:'',id:'',acceptPayCredit:false,acceptPayDebit:false,
+    acceptPayMoney:false,acceptPayPix:false}); 
 
   useEffect( () => { 
     GetAdmToBox() ;

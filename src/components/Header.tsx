@@ -1,7 +1,7 @@
 import { Link,useNavigate } from 'react-router-dom';
 import { useState,useEffect,useContext } from 'react';
 import { CatalogContext } from './CatalogContext';
-import {TadmIsLoggedin,TadmOn,TboxAdm} from './Types'
+import {Tadm, TadmIsLoggedin,TadmOn,TboxAdm} from './Types'
 import MenuOutside from './MenuOutside'
 
 import { FaShoppingBasket } from "react-icons/fa";
@@ -14,14 +14,18 @@ const navigate = useNavigate();
 const [AdmGetOut,setAdmGetOut] = useState<boolean>(false)
 const { AdmOn, setAdmOn, BoxAdm } = useContext(CatalogContext) as TadmOn & TboxAdm;
 const admOnNanoId = sessionStorage.getItem('admOnNanoId')
+const foundAdm = BoxAdm.find((adm) => JSON.stringify(adm.nanoId) === admOnNanoId);
 
 useEffect( () => { 
-CheckStatusPageForNavigate()
-},[AdmIsLoggedin,ActualPage,AdmGetOut ])
+if (foundAdm) {
+    setAdmOn(foundAdm)    
+}    
+CheckStatusPageForNavigate();
+
+},[AdmIsLoggedin,ActualPage,AdmGetOut,foundAdm ])
 
 function CheckStatusPageForNavigate() {
-    if (admOnNanoId && ActualPage) { 
- setAdmOn(BoxAdm.find( (adm) => ( JSON.stringify(adm.nanoId) === admOnNanoId  ) ) )       
+if (admOnNanoId && ActualPage ) { 
 setAdmIsLoggedin(true);
 navigate(ActualPage);
         } 
@@ -62,6 +66,7 @@ className='mr-2 p-1 rounded-md hover:bg-gray-700'>Ver produtos</Link>
 {!AdmIsLoggedin &&<Link to='/LoginPage' className=' text-2xl'><RiLoginBoxLine /></Link> }
 
 </nav>
+<button onClick={()=> console.log(BoxAdm)}>TESTE</button>
     </header>
 }
 

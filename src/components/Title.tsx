@@ -5,31 +5,25 @@ import {TformTitle,TadmOn,TboxAdm} from './Types'
 import { CatalogContext } from './CatalogContext';
 
 function Title() {
-const [Form,setForm] = useState<TformTitle>({IsOpen:false,inputValue:''})
-const { AdmOn, setAdmOn, BoxAdm,setBoxAdm  } = useContext(CatalogContext) as TadmOn & TboxAdm;
-
+const { AdmOn } = useContext(CatalogContext) as TadmOn
+const [FormIsOpen,setFormIsOpen] = useState<boolean>(false)
 
     return (
    <div className="flex justify-center">
     
-  {Form.IsOpen ?
-<FormTitle Form={Form} setForm={setForm}/>
+  {FormIsOpen ?
+<FormTitle FormIsOpen={FormIsOpen} setFormIsOpen={setFormIsOpen}/>
 :
 <div className="flex flex-row justify-center">
-<h3 className='text-2xl text-center my-2'>Produtos Cadastrados</h3>
+<h3 className='text-2xl text-center my-2'>{AdmOn.titlePage}</h3>
 
-<button onClick={() => setForm( prevState => ({...prevState,IsOpen:true}))}
+<button onClick={() => setFormIsOpen(true)}
 className=" text-black ml-1" >
 <BsPencil/>
 </button>
-
 </div>
 
-
 }  
-
-
-
 
     </div>
 

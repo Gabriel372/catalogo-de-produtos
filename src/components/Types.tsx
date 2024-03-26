@@ -4,7 +4,7 @@ name:string
 email:string ;
 password:string ;
 celphone:string;
-titlePage:string;
+titlePage:string
 addresStore:string;
 nanoId:string
 id:string
@@ -121,14 +121,14 @@ export type TproductProp = {
 product:Tproduct
 }
 export type TadmOn = {
-AdmOn:Tadm | undefined;
-setAdmOn:React.Dispatch<React.SetStateAction<Tadm | undefined>>; 
+AdmOn:Tadm
+setAdmOn:React.Dispatch<React.SetStateAction<Tadm>>; 
 }
 export type TformTitle = {
 IsOpen:boolean
 inputValue:string
 }
 export type TstateFormTitle = {
-Form:TformTitle
-setForm:React.Dispatch<React.SetStateAction<TformTitle>>; 
+FormIsOpen:boolean
+setFormIsOpen:React.Dispatch<React.SetStateAction<boolean>>; 
 }
