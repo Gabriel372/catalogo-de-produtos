@@ -1,11 +1,11 @@
 import FormTitle from "./FormTitle"
 import { BsPencil } from "react-icons/bs";
-import { useState,useContext,useEffect } from 'react';
-import {TformTitle,TadmOn,TboxAdm} from './Types'
+import { useState,useContext } from 'react';
+import {TstateInfoCompany} from './Types'
 import { CatalogContext } from './CatalogContext';
 
 function Title() {
-const { AdmOn } = useContext(CatalogContext) as TadmOn
+const { InfoCompany } = useContext(CatalogContext) as TstateInfoCompany
 const [FormIsOpen,setFormIsOpen] = useState<boolean>(false)
 
     return (
@@ -15,7 +15,9 @@ const [FormIsOpen,setFormIsOpen] = useState<boolean>(false)
 <FormTitle FormIsOpen={FormIsOpen} setFormIsOpen={setFormIsOpen}/>
 :
 <div className="flex flex-row justify-center">
-<h3 className='text-2xl text-center my-2'>{AdmOn.titlePage}</h3>
+<h3 className='text-2xl text-center my-2'>
+{InfoCompany.titlePage ? InfoCompany.titlePage : <span className="text-2xl text-center my-2 text-gray-300">Digite seu titulo</span>}
+</h3>
 
 <button onClick={() => setFormIsOpen(true)}
 className=" text-black ml-1" >

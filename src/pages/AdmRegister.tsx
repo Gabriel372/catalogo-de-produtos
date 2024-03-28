@@ -1,9 +1,8 @@
 
 import { IoArrowBackSharp } from "react-icons/io5";
 import { Link,useNavigate } from 'react-router-dom';
-import {nanoid} from "nanoid";
-import { Tadm,Tstate } from "../components/Types";
-import { useState,useContext,useEffect } from 'react';
+import { Tadm } from "../components/Types";
+import { useState,useEffect } from 'react';
 import FormAdmRegist from '../components/FormAdmRegist'
 import {  addDoc, collection } from "firebase/firestore"; 
 import {db} from '../components/firebase'
@@ -11,10 +10,7 @@ import { motion } from 'framer-motion';
 import { pageVariants,pageTransition } from "../components/AnimationMotion";
 
 function AdmRegister() {
-const [AdmToStorage, setAdmToStorage] = useState<Tadm>({
- name: '',email: '',password: '',celphone:'',titlePage:'',addresStore:'',
- nanoId:'',id:'',acceptPayCredit:false,acceptPayDebit:false,
- acceptPayMoney:false,acceptPayPix:false}); 
+const [AdmToStorage, setAdmToStorage] = useState<Tadm>({name: '',email: '',password: '',nanoId:'',id:''}); 
 const [MsgWaitBtn,setMsgWaitBtn] = useState<boolean>(false);
 const navigate = useNavigate();
 
@@ -39,10 +35,7 @@ setMsgWaitBtn(false);
 }
 
 function InsertAdmInBox() {
-setAdmToStorage({
-name: '',email: '',password: '',celphone:'',titlePage:'',addresStore:'',
-nanoId:'',id:'',acceptPayCredit:false,acceptPayDebit:false,
-acceptPayMoney:false,acceptPayPix:false}); 
+setAdmToStorage({name: '',email: '',password: '',nanoId:'',id:''}); 
 setMsgWaitBtn(false);
 AdmLogin();
 }

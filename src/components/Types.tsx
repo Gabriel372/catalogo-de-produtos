@@ -3,16 +3,31 @@ export type Tadm = {
 name:string 
 email:string ;
 password:string ;
-celphone:string;
-titlePage:string
-addresStore:string;
 nanoId:string
 id:string
-acceptPayCredit:boolean
-acceptPayDebit:boolean
-acceptPayMoney:boolean
-acceptPayPix:boolean
 }
+export type TinfoCompany = {
+    titlePage:string
+    addresStore:string
+    servicePeriod:string
+    celphone:string
+    nanoId:string
+    id:string
+    acceptPayCredit:boolean
+    acceptPayDebit:boolean
+    acceptPayMoney:boolean
+    acceptPayPix:boolean
+}
+export type TformFooter = {
+    addresStore:string;
+    servicePeriod:string
+    celphone:string;
+    acceptPayCredit:boolean
+    acceptPayDebit:boolean
+    acceptPayMoney:boolean
+    acceptPayPix:boolean
+    }
+
 export type TadmLog = {
     email: string;
     password: string;
@@ -131,4 +146,18 @@ inputValue:string
 export type TstateFormTitle = {
 FormIsOpen:boolean
 setFormIsOpen:React.Dispatch<React.SetStateAction<boolean>>; 
+}
+export type TstateModalisOpen = {
+ModalIsOpen:boolean
+setModalIsOpen:React.Dispatch<React.SetStateAction<boolean>>; 
+}
+export type TstateInfoCompany = {
+InfoCompany:TinfoCompany
+setInfoCompany:React.Dispatch<React.SetStateAction<TinfoCompany>>; 
+}
+export type TstateModalFooter = {
+MsgBtnWait:boolean
+setMsgBtnWait:React.Dispatch<React.SetStateAction<boolean>>; 
+FormValue:TinfoCompany
+setFormValue:React.Dispatch<React.SetStateAction<TinfoCompany>>; 
 }
