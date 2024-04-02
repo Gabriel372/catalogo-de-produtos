@@ -9,15 +9,16 @@ import { storage } from "./firebase";
 
 function RegistredimgInput({Product,setProduct,Status,setStatus}:TstateEditProduct) {
 const inputFileRef = useRef<HTMLInputElement>(null);
+const ImgValuesEmpty = {show:'',filename:null,formatIsLandscape:undefined,hasFormatImgToCheck:false,fileIsLoading:false,hasInputFileToClean:false}
 const [ImgEdit, setImgEdit] = useState<TRegistImg>({show:Product.image,
 filename:null,formatIsLandscape:undefined,hasFormatImgToCheck:false,
 fileIsLoading:false,hasInputFileToClean:false});    
 
 useEffect(() => {    
 if (Status.msgBtnWait && ImgEdit.filename) {
- UploadImgMember(ImgEdit.fileIsLoading,Product.nanoId)   
+ UploadImgMember(ImgEdit.filename,Product.nanoId)   
 }    
-else if (Status.msgBtnWait && !ImgEdit.filename) {
+else if (Status.msgBtnWait &&  !Status.hasProductToUpdt) {
 setStatus(prevState => ({...prevState,hasProductToUpdt:true}));  
 }
 else if (ImgEdit.filename && ImgEdit.fileIsLoading) {
@@ -71,6 +72,7 @@ async function UploadImgMember(img:any,nanoId:number|string) {
     const snapshot = await uploadBytes(storageRef,img);
     const url = await getDownloadURL(snapshot.ref);
     setProduct(prevState => ({...prevState,image:`${url}`}));
+    setImgEdit(ImgValuesEmpty);
     setStatus(prevState => ({...prevState,hasProductToUpdt:true}));
     return url;}
 
@@ -121,7 +123,7 @@ hover:bg-gray-700 px-2 flex flex-row  items-center text-sm ml-2">
 Selecionar foto 
 </label>
 
-<button onClick={()=>console.log(Product)}>TESTE</button>
+{/* <button onClick={()=>console.log(Product)}>TESTE</button> */}
 </div>
 
 </div>

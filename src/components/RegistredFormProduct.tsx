@@ -5,6 +5,8 @@ import "react-toastify/dist/ReactToastify.css";
 import UpdateProduct from './UpdateProduct'
 import { IoClose } from "react-icons/io5";
 import { ToastContainer, toast } from "react-toastify";
+import { CgSpinner } from "react-icons/cg";
+
 
 function RegistredFormProduct({Product,setProduct,Status,setStatus}:TstateProductEdit) {
 
@@ -36,7 +38,7 @@ setProduct(prevState => ({...prevState,[e.target.name]:e.target.value}));
     <form  className='z-10' onSubmit={ClickUpdate}>
 
 <input  value={Product.name} onChange={ChangeInput}
-autoFocus type="text" name="name" placeholder="nome" className="rounded-full px-3 font-semibold py-0" />
+autoFocus type="text" name="name" placeholder="nome" className="rounded-full px-3 font-semibold py-0 w-full" />
 
 <label className="flex flex-col ">
  Valor do produto:
@@ -50,11 +52,16 @@ autoFocus type="text" name="name" placeholder="nome" className="rounded-full px-
 type="text" name="description" placeholder="descrição" className="rounded-full px-3 py-0" />
 </label>
 
-<div className='flex justify-end mt-1'>
+<button className="bg-black text-white rounded-full py-1 cursor-pointer hover:bg-gray-700  px-2  text-sm w-full mt-2">
+
+{Status.msgBtnWait ?<p className='flex justify-center align-middle'>
+   <CgSpinner  className='text-2xl mr-1 animate-spin'/>Aguarde</p> 
+:'Atualizar'}</button>
+
+{/* <label className='flex justify-end mt-1'>
 <button className="bg-black text-white rounded-full py-1 cursor-pointer hover:bg-gray-700  px-2  text-sm">
 {Status.msgBtnWait ? 'Aguarde...':'Atualizar'}</button>
-
-</div>
+</label> */}
 
     </form>  
 

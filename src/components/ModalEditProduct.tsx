@@ -6,7 +6,7 @@ import RegistredimgInput from "./RegistredimgInput";
 import { doc,updateDoc } from "firebase/firestore"; 
 import {db} from '../components/firebase'
 import { CatalogContext } from '../components/CatalogContext';
-import { toast } from 'react-toastify';
+import { toast,ToastContainer } from 'react-toastify';
 
 function ModalEditProduct({ModalEdit,setModalEdit}:TstateModEditProduct) {
 const [Product,setProduct] = useState<Tproduct>(ModalEdit.productEdit)
@@ -20,10 +20,8 @@ setModalEdit( prevState => ({...prevState,hasProductValueToPass:false}))  ;
 setProduct(ModalEdit.productEdit);
 }
 else if (Status.hasProductToUpdt) {
-setStatus( prevState => ({...prevState,hasProductToUpdt:false}))  ;
 UpdtProductInFirebase()
 }
-
 
 }, [ModalEdit,Status])
 
@@ -42,8 +40,10 @@ function UpdtBoxProduct() {
     let index = NewBox.findIndex(product => product.id === Product?.id);
     NewBox[index] = Product 
     setBoxProduct(NewBox);
- setTimeout(()=>{setStatus( (prevState) => ({...prevState,msgBtnWait:false}));
- toast.success("Editado com sucesso",{position:'top-center', theme: "dark",})},4000);
+ setTimeout(()=>{
+    toast.success("Editado com sucesso",{position:'bottom-center', theme: "dark",});
+    setStatus( (prevState) => ({...prevState,msgBtnWait:false,hasProductToUpdt:false}))
+},4000);
 }
 
 
@@ -53,14 +53,16 @@ setModalEdit({modalIsOpen:false,hasProductValueToPass:false,productEdit:EmptyVal
     }
 
 return (<div>
-
+    <ToastContainer />
 {ModalEdit.modalIsOpen &&
 
- <div className="w-screen bg-custom-black h-[100%] top-0 left-0 fixed justify-center align-middle flex"> 
+ <div className="w-screen bg-custom-black h-[100%] top-0 left-0 fixed justify-center align-middle flex"
+ onClick={()=> {setModalEdit( prevState => ({...prevState,modalIsOpen:false})) }}> 
 
 <div className='bg-opacity-50 flex justify-center items-center'>
 
-<div className=' rounded-md bg-gray-200 pt-0 p-2 flex flex-col justify-around'>
+<div className=' rounded-md bg-gray-200 pt-0 p-2 flex flex-col justify-around max-w-[350px]' 
+ onClick={(e)=> e.stopPropagation()}>
 <div className=" flex justify-between">
 
     <h3>Editar produto</h3>
