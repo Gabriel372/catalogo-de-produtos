@@ -6,7 +6,6 @@ import {db} from '../components/firebase'
 import { doc,updateDoc } from "firebase/firestore";
 import { useContext,useEffect,useState } from 'react';
 
-
 function FormTitle({FormIsOpen,setFormIsOpen}:TstateFormTitle) {
     const {InfoCompany, setInfoCompany  } = useContext(CatalogContext) as & TstateInfoCompany;
     const [MsgBtnWait, setMsgBtnWait] = useState<boolean>(false) 
@@ -23,16 +22,6 @@ useEffect(() => {
   }
 }, [HasInfoToUpdt, InfoCompany.titlePage, InputValue]);
 
-function clickSaveTitle(e: React.FormEvent<HTMLFormElement>){
-e.preventDefault();
-setMsgBtnWait(true);
-if (InfoCompany.titlePage === InputValue) {
-  setMsgBtnWait(false);
-  setFormIsOpen(false);
-}
-else { setHasInfoToUpdt(true);}
-}
-
 async function UpdtInfoCompanyInFirebase() {
     try {const docRef:any = InfoCompany ;
         const Source = doc(db, "InfoCompanyCDP", docRef.id);
@@ -44,6 +33,16 @@ setFormIsOpen(false);
         setMsgBtnWait(false) ;   
         setFormIsOpen(false);
 }
+}
+
+function clickSaveTitle(e: React.FormEvent<HTMLFormElement>){
+e.preventDefault();
+setMsgBtnWait(true);
+if (InfoCompany.titlePage === InputValue) {
+  setMsgBtnWait(false);
+  setFormIsOpen(false);
+}
+else { setHasInfoToUpdt(true);}
 }
 
 function ChangeInput(e:React.ChangeEvent<HTMLInputElement>) {

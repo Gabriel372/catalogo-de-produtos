@@ -11,7 +11,7 @@ import { pageVariants,pageTransition } from "../components/AnimationMotion";
 
 function ProductRegister() {
 const [Product, setProduct] = useState<Tproduct>(
-{name:'',price:'',description:'',image:'',formatImg:'',nanoIdAdm:'',nanoId:'',id:''});
+{name:'',price:'',description:'',image:'',formatImg:'',nanoId:'',id:''});
 const [MsgBtnWait, setMsgBtnWait] = useState<boolean>(false);
 const { setBoxProduct } = useContext(CatalogContext) as TBoxProduct
 const [InputHasValue,setInputHasValue] = useState<boolean>(false)
@@ -41,7 +41,7 @@ setMsgBtnWait(false);
 
 function InsertProductInBox() {
 setBoxProduct(prevState => [...prevState,Product]);  
-setProduct({name:'',price:'',description:'',image:'',formatImg:'',nanoIdAdm:'',nanoId:'',id:''});
+setProduct({name:'',price:'',description:'',image:'',formatImg:'',nanoId:'',id:''});
 toast.success("cadastrado com sucesso",{position:'top-center', theme: "dark",}) ; 
 }
 

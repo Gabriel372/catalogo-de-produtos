@@ -68,7 +68,7 @@ price:string ;
 description:string ;
 image:string
 formatImg:string  
-nanoIdAdm:string
+// nanoIdAdm:string
 nanoId:string
 id:string
 }
@@ -99,21 +99,16 @@ export type TstateModDel = {
 ModalDel:TmodDelProduct;
 setModalDel:React.Dispatch<React.SetStateAction<TmodDelProduct>>; 
 }
-export type TFormEdit = {
-formIsOpen:boolean    
+export type TstatusEdit = {
 hasProductToUpdt:boolean
+msgBtnWait:boolean
 }
 
-export type TstateFormEdit = {
-product:Tproduct    
-FormEdit:TFormEdit;
-setFormEdit:React.Dispatch<React.SetStateAction<TFormEdit>>; 
-}
 export type TstateProductEdit = {
-FormEdit:TFormEdit;
-setFormEdit:React.Dispatch<React.SetStateAction<TFormEdit>>; 
-ProductEdit:Tproduct;
-setProductEdit:React.Dispatch<React.SetStateAction<Tproduct>>; 
+Status:TstatusEdit;
+setStatus:React.Dispatch<React.SetStateAction<TstatusEdit>>; 
+Product:Tproduct;
+setProduct:React.Dispatch<React.SetStateAction<Tproduct>>; 
 }
 export type TRegistImg = {
     show:string;
@@ -130,6 +125,8 @@ setImgUpload:React.Dispatch<React.SetStateAction<TRegistImg>>;
 export type TModDel = {
     product:Tproduct
     ModalDel:TmodDelProduct;
+    ModalEdit:TmodEditProduct
+setModalEdit:React.Dispatch<React.SetStateAction<TmodEditProduct>>; 
     setModalDel:React.Dispatch<React.SetStateAction<TmodDelProduct>>; 
 }
 export type TproductProp = {
@@ -161,3 +158,21 @@ setMsgBtnWait:React.Dispatch<React.SetStateAction<boolean>>;
 FormValue:TinfoCompany
 setFormValue:React.Dispatch<React.SetStateAction<TinfoCompany>>; 
 }
+export type TmodEditProduct = {
+modalIsOpen:boolean
+productEdit:Tproduct
+hasProductValueToPass:boolean
+}
+export type TstateModEditProduct = {
+ModalEdit:TmodEditProduct
+setModalEdit:React.Dispatch<React.SetStateAction<TmodEditProduct>>; 
+}
+export type TstateEditProduct = {
+    Product:Tproduct
+    setProduct:React.Dispatch<React.SetStateAction<Tproduct>>; 
+    Status:TstatusEdit
+    setStatus:React.Dispatch<React.SetStateAction<TstatusEdit>>; 
+}
+
+
+
