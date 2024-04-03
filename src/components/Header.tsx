@@ -1,11 +1,10 @@
 import { Link,useNavigate } from 'react-router-dom';
 import { useState,useEffect,useContext } from 'react';
 import { CatalogContext } from './CatalogContext';
-import {Tadm, TadmIsLoggedin,TadmOn,TboxAdm} from './Types'
-import MenuOutside from './MenuOutside'
-
+import { TadmIsLoggedin,TadmOn,TboxAdm} from './Types'
 import { FaShoppingBasket } from "react-icons/fa";
 import { RiLoginBoxLine } from "react-icons/ri";
+import MenuMobile from './MenuMobile';
 
 function Header() {
 const { AdmIsLoggedin,setAdmIsLoggedin } = useContext(CatalogContext) as TadmIsLoggedin
@@ -47,12 +46,12 @@ function SaveActualPage(page:string) {
   }
   
     return <header className="bg-black text-white">
-    <nav className="w-full sm:w-auto mx-auto max-w-[1100px] px-2 flex flex-row justify-between h-[calc(13vh)] items-center">
+    <nav className="w-full sm:w-auto mx-auto max-w-[1100px] px-2 flex flex-row justify-between h-[calc(12vh)] items-center w-screen800:h-[calc(10vh)]">
  <Link to='./' className='text-red-400 text-3xl ml-2'>
 <FaShoppingBasket />
         </Link>
 
-{AdmIsLoggedin && <div className="text-xl">
+{AdmIsLoggedin && <div className="text-xl w-screen800:hidden">
 <Link onClick={()=>SaveActualPage('/')} to='/' 
 className='mr-2 p-1 rounded-md hover:bg-gray-700'>Ver produtos</Link> 
 <Link onClick={()=>SaveActualPage('/RegistredProduct')} to='/RegistredProduct'
@@ -65,8 +64,8 @@ className='mr-2 p-1 rounded-md hover:bg-gray-700'>Ver produtos</Link>
 
 {!AdmIsLoggedin &&<Link to='/LoginPage' className=' text-2xl'><RiLoginBoxLine /></Link> }
 
+{AdmIsLoggedin && <MenuMobile/>}
 </nav>
-<button onClick={()=> console.log(BoxAdm)}>TESTE</button>
     </header>
 }
 

@@ -1,4 +1,4 @@
-import { TstateModDel,TBoxProduct} from './Types'
+import { TstateModDel,TBoxProduct,TstateBoxProductIsEmpty} from './Types'
 import { useContext,useState } from 'react';
 import { CatalogContext } from '../components/CatalogContext';
 import { db } from '../components/firebase';
@@ -6,9 +6,8 @@ import { doc, deleteDoc } from "firebase/firestore";
 import { ref,deleteObject,getStorage } from 'firebase/storage';
 import { CgSpinner } from "react-icons/cg";
 
-
 function ModalDelProduct({ModalDel,setModalDel}:TstateModDel) {
-const { BoxProduct,setBoxProduct } = useContext(CatalogContext) as TBoxProduct
+const { BoxProduct,setBoxProduct,setBoxProductIsEmpty } = useContext(CatalogContext) as TBoxProduct & TstateBoxProductIsEmpty
 const [MsgLoadBtn,setMsgLoadBtn] = useState<boolean>(false)
 
 async function ClickDelProductInFirebase() {
@@ -22,6 +21,7 @@ async function ClickDelProductInFirebase() {
 } }
 
 function DeleteProductInBox() {
+BoxProduct.length === 1 && setBoxProductIsEmpty(true);
 setBoxProduct(BoxProduct.filter((item)=> item.nanoId !== ModalDel.deleteTarget?.nanoId));
 if (ModalDel.deleteTarget?.image) {
 DeleteImg()    
@@ -30,8 +30,6 @@ else{
 setMsgLoadBtn(false);
 setModalDel({modalIsOpen:false,deleteTarget:undefined});
 }
-
-
 }
 
 function DeleteImg() {

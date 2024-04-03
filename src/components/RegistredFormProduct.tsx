@@ -25,8 +25,16 @@ setStatus({hasProductToUpdt:false,msgBtnWait:true});
 }
 
 function ChangeInput(e:React.ChangeEvent<HTMLInputElement>) {
-setProduct(prevState => ({...prevState,[e.target.name]:e.target.value}));
+const { name, value } = e.target;
+if (name === 'name' && value.length < 34) {
+setProduct(prevState => ({...prevState,[e.target.name]:e.target.value}));}
+else if (name === 'price' && value.length < 20) {
+setProduct(prevState => ({...prevState,[e.target.name]:e.target.value}));} 
+else if (name === 'description' && value.length < 300) {
+  setProduct(prevState => ({...prevState,[e.target.name]:e.target.value}));} 
+console.log(value.length)
 }
+
 
     return <div >
 <div className='flex justify-between mb-1 z-10'>

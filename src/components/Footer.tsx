@@ -18,18 +18,18 @@ const infoIsEmpty = !InfoCompany.addresStore && !InfoCompany.celphone && !InfoCo
 function ShowInfoCompany() {
 return (
 <ul className="flex flex-col">
-{InfoCompany.addresStore && <li className="font-bold flex flex-row items-center">
-<PiMapPinBold className="mr-1 text-lg"/>
+{InfoCompany.addresStore && <li className="font-bold mb-1">
+<PiMapPinBold className="mr-1 text-lg inline"/>
 Endereço:<span className=" font-normal ml-1">{InfoCompany.addresStore} </span></li>}
 
-{InfoCompany.celphone && <li className="font-bold flex flex-row items-center"><BsWhatsapp className="mr-1"/>
+{InfoCompany.celphone && <li className="font-bold flex flex-row items-center mb-1"><BsWhatsapp className="mr-1"/>
 Peça pelo WhatsApp:<span className=" font-normal ml-1">{InfoCompany.celphone}</span></li>}
 
-{InfoCompany.servicePeriod && <li className="font-bold flex flex-row items-center"><LuAlarmClock  className="mr-1"/>
+{InfoCompany.servicePeriod && <li className="font-bold items-center mb-1"><LuAlarmClock  className="mr-1 inline"/>
 Horário de atendimento:<span className=" font-normal ml-1">{InfoCompany.servicePeriod}</span></li>}
 
-{hasPaymentMethod && <li className="font-bold flex flex-row items-center"><GiReceiveMoney className="mr-1 text-xl"/>Formas de pagamento:
- <div className=" font-normal ml-1">
+{hasPaymentMethod && <li className="font-bold flex"><GiReceiveMoney className="mr-1 text-xl inline"/>Formas de pagamento:
+ <div className=" font-normal ml-1 w-screen550:flex w-screen550:flex-col">
  {InfoCompany.acceptPayCredit && <span> Cartão de crédito</span>}   
  {InfoCompany.acceptPayDebit && <span> Cartão de débito</span>}   
  {InfoCompany.acceptPayMoney && <span> Dinheiro</span>}   
@@ -43,15 +43,21 @@ Horário de atendimento:<span className=" font-normal ml-1">{InfoCompany.service
 
 }
 
-return <footer className="bg-black text-white">
+return <footer className="bg-black text-white pb-3">
 
+<div  className="w-full sm:w-auto mx-auto max-w-[1100px] px-2 flex justify-between h-full max-h-[700px] flex-col ">
 
-<div  className="w-full sm:w-auto mx-auto max-w-[1100px] px-2 flex flex-row justify-between h-[calc(18vh)] items-center">
 {ShowInfoCompany()}
 
-{AdmIsLoggedin && <button onClick={()=>setModalIsOpen(true)} 
-className="border border-white rounded-full px-3 py-1 flex flex-row items-center ">
-<SlPencil className="mr-1"/>{infoIsEmpty && 'Editar informaçoes'} </button>}
+{AdmIsLoggedin &&
+<div>
+<button onClick={()=>setModalIsOpen(true)} 
+className='border border-white rounded-full px-3 py-1'>
+<SlPencil className="mr-1"/>{infoIsEmpty && 'Editar informaçoes'} </button>
+</div>
+}
+
+
 
 
 </div>

@@ -173,6 +173,9 @@ export type TstateEditProduct = {
     Status:TstatusEdit
     setStatus:React.Dispatch<React.SetStateAction<TstatusEdit>>; 
 }
-
+export type TstateBoxProductIsEmpty = {
+    BoxProductIsEmpty:boolean
+    setBoxProductIsEmpty:React.Dispatch<React.SetStateAction<boolean>>; 
+    }
 
 

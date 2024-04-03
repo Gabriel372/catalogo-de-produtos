@@ -5,8 +5,18 @@ import { CatalogContext } from './CatalogContext';
 
 function FormFooter({MsgBtnWait,setMsgBtnWait,FormValue,setFormValue}:TstateModalFooter) {
 const { AdmOn, InfoCompany,BoxAdm,setInfoCompany,setAdmOn,setBoxAdm} = useContext(CatalogContext) as TadmOn & TboxAdm & TstateInfoCompany ;
-
 const eventPayNames = ['acceptPayCredit', 'acceptPayDebit', 'acceptPayMoney', 'acceptPayPix']; 
+const [HasValueToPass,setHasValueToPass] = useState<boolean>(true)
+
+
+
+useEffect(() => {
+    if (HasValueToPass) {
+    setHasValueToPass(false);    
+    setFormValue(InfoCompany);    
+    }
+    }, [HasValueToPass]) 
+
 
 
 function ClickUpdate(e: React.FormEvent<HTMLFormElement>) {

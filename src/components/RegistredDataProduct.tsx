@@ -11,7 +11,7 @@ else {return value}
 
 
 
-return<div>
+return<div className=''>
 
 <p className='text-lg font-semibold'>{product.name}</p>
 <p >R$: <span className='text-lg font-bold text-red-800'>{AddZeroToPrice(product.price)}</span> </p>
@@ -20,9 +20,6 @@ return<div>
 <p className='text-sm'>Descriçao:  
   <span className='font-semibold'> {product.description} </span>
   </p>}
-
-
-
 
 </div>  
   }

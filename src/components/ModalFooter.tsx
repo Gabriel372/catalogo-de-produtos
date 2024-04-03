@@ -6,26 +6,17 @@ import { CatalogContext } from './CatalogContext';
 import { updateDoc,doc } from "firebase/firestore"; 
 import {db} from '../components/firebase';
 
-
 function ModalFooter({ModalIsOpen,setModalIsOpen}:TstateModalisOpen) {
 const [MsgBtnWait,setMsgBtnWait] = useState<boolean>(false)
 const {InfoCompany,setInfoCompany} = useContext(CatalogContext) as TstateInfoCompany ;
-
-const [FormValue,setFormValue] = useState<TinfoCompany>({
-    celphone:InfoCompany.celphone,
-    addresStore:InfoCompany.addresStore,
-    servicePeriod:InfoCompany.servicePeriod,
-    titlePage:InfoCompany.titlePage,
-    nanoId:'',id:InfoCompany.id,acceptPayCredit:InfoCompany.acceptPayCredit,
-    acceptPayDebit:InfoCompany.acceptPayDebit,acceptPayMoney:InfoCompany.acceptPayMoney,
-acceptPayPix:InfoCompany.acceptPayPix,});
+const EmptyValuesForm = {celphone:'',addresStore:'',servicePeriod:'',titlePage:'',nanoId:'',id:'',acceptPayCredit:false,acceptPayDebit:false,acceptPayMoney:false,acceptPayPix:false}
+const [FormValue,setFormValue] = useState<TinfoCompany>(EmptyValuesForm);
 
 useEffect(() => {
 if (MsgBtnWait) {
 UpdtFormValueInFirebase()    
 }
 }, [MsgBtnWait]) 
-
 
 async function UpdtFormValueInFirebase() {
     try {const docRef:any =  FormValue
@@ -40,15 +31,7 @@ async function UpdtFormValueInFirebase() {
 }
 
 function CloseModal() {
-setFormValue({
-    celphone:InfoCompany.celphone,
-    addresStore:InfoCompany.addresStore,
-    servicePeriod:InfoCompany.servicePeriod,
-    titlePage:InfoCompany.titlePage,
-    nanoId:'',id:InfoCompany.id,acceptPayCredit:InfoCompany.acceptPayCredit,
-    acceptPayDebit:InfoCompany.acceptPayDebit,acceptPayMoney:InfoCompany.acceptPayMoney,
-acceptPayPix:InfoCompany.acceptPayPix,});
-    
+setFormValue(EmptyValuesForm);    
 setModalIsOpen(false);    
 }
 
@@ -56,6 +39,7 @@ setModalIsOpen(false);
 return (<div >
 {ModalIsOpen && <div className='bg-custom-black fixed w-full h-full top-0 flex justify-center items-center text-black'
 onClick={()=>setModalIsOpen(false)}>
+
 
 <div className=' rounded-md bg-gray-200 max-w-[350px] pt-0 p-2 flex flex-col justify-around w-full'
 onClick={(e)=> e.stopPropagation()}>

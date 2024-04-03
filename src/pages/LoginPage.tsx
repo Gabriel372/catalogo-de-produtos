@@ -52,7 +52,7 @@ return (
 
  {/* <ToastContainer /> */}
 
-<div className="sm:w-auto mx-auto sm:max-w-[1100px] px-2 flex justify-center  min-h-[calc(95vh)] ">
+<div className="sm:w-auto mx-auto sm:max-w-[1100px] px-2 flex justify-center  min-h-[calc(68vh)] ">
 
 <div className="border rounded-lg bg-gray-200 w-full max-w-[350px] p-2 max-h-[400px] h-full mx-1 mt-5" >
 

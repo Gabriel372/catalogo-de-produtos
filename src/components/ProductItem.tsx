@@ -4,7 +4,7 @@ function ProductItem({ product }: { product: Tproduct }) {
 
 
 return (<li key={product.id} className='border rounded-lg bg-gray-200 p-1 shadow-xl max-w-[350px]
-card transform transition-transform duration-200 hover:-translate-y-2.5 '> 
+card transform transition-transform duration-200 hover:-translate-y-1 '> 
 
 <div className="flex justify-center">
   <div className={`flex justify-center bg-white rounded-lg border  mb-2

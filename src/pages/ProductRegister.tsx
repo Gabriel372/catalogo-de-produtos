@@ -1,6 +1,6 @@
 import FormProductRegister from '../components/FormProductRegister'
 import { useContext,useEffect,useState } from 'react';
-import {Tproduct,TBoxProduct} from '../components/Types'
+import {Tproduct,TBoxProduct,TstateBoxProductIsEmpty} from '../components/Types'
 import {  addDoc, collection } from "firebase/firestore"; 
 import {db} from '../components/firebase'
 import { CatalogContext } from '../components/CatalogContext';
@@ -13,7 +13,7 @@ function ProductRegister() {
 const [Product, setProduct] = useState<Tproduct>(
 {name:'',price:'',description:'',image:'',formatImg:'',nanoId:'',id:''});
 const [MsgBtnWait, setMsgBtnWait] = useState<boolean>(false);
-const { setBoxProduct } = useContext(CatalogContext) as TBoxProduct
+const { BoxProduct,setBoxProduct,setBoxProductIsEmpty } = useContext(CatalogContext) as TBoxProduct & TstateBoxProductIsEmpty
 const [InputHasValue,setInputHasValue] = useState<boolean>(false)
 
 useEffect(() => {
@@ -39,10 +39,11 @@ setMsgBtnWait(false);
  }
 }
 
-function InsertProductInBox() {
+function InsertProductInBox() {  
+BoxProduct.length === 0 && setBoxProductIsEmpty(false);    
 setBoxProduct(prevState => [...prevState,Product]);  
 setProduct({name:'',price:'',description:'',image:'',formatImg:'',nanoId:'',id:''});
-toast.success("cadastrado com sucesso",{position:'top-center', theme: "dark",}) ; 
+toast.success("cadastrado com sucesso",{position:'bottom-center', theme: "dark",}) 
 }
 
 
