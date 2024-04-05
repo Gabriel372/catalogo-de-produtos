@@ -11,7 +11,8 @@ else {return value}
 
 
 
-return<div className=''>
+return ( 
+<div className=' h-full max-h-36 flex flex-col justify-around' >
 
 <p className='text-lg font-semibold'>{product.name}</p>
 <p >R$: <span className='text-lg font-bold text-red-800'>{AddZeroToPrice(product.price)}</span> </p>
@@ -21,7 +22,12 @@ return<div className=''>
   <span className='font-semibold'> {product.description} </span>
   </p>}
 
-</div>  
+
+</div>
+)
+
+
+
   }
   
   export default RegistredDataProduct

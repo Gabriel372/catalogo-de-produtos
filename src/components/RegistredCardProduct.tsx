@@ -1,24 +1,23 @@
 import RegistredImgProduct from "./RegistredImgProduct"
 import RegistredDataProduct from "./RegistredDataProduct"
-import RegistredFormProduct from "./RegistredFormProduct"
-import {TstatusEdit,TModDel,Tproduct} from './Types'
+import {TModDel,TstateModeTheme} from './Types'
 import { BsTrash } from "react-icons/bs";
 import { SlPencil } from "react-icons/sl";
-import { useContext,useEffect,useState } from 'react';
-import RegistredImgEdit from "./RegistredImgEdit";
+import {useContext } from 'react';
+import { CatalogContext } from './CatalogContext';
 
-function RegistredCardProduct({setModalDel,ModalDel,product,ModalEdit,setModalEdit}:TModDel ) {
-const [ProductEdit,setProductEdit] = useState<Tproduct>(product)
 
-return<li key={product.id} className={`border rounded-lg bg-gray-200 p-1 shadow-xl max-w-[350px]
+function RegistredCardProduct({setModalDel,product,setModalEdit}:TModDel ) {
+  const { ModeTheme } = useContext(CatalogContext) as TstateModeTheme;
+  const ThemeForComponent = ModeTheme?.themeIsDark ? 'text-white bg-gray-800 duration-500':'bg-gray-200 duration-500  '
+
+return<li key={product.id} className={`${ThemeForComponent} rounded-lg  p-1 shadow-2xl max-w-[350px]
 card transform transition-transform duration-200 hover:-translate-y-1 h-full box-border max-h-100 flex flex-col justify-between pb-2`}>    
 
-<div >
 <RegistredImgProduct product={product}/> 
 <RegistredDataProduct product={product}/>
-</div>
 
-<div className="flex justify-around "> 
+<div className="flex justify-around mt-1"> 
     <button onClick={()=>setModalDel({modalIsOpen:true,deleteTarget:product})} 
     className="bg-red-600 text-white rounded-full py-1 cursor-pointer hover:bg-red-700 px-2 flex flex-row  items-center text-sm max-w-[120px]  w-full justify-center">
 <BsTrash className="mr-1" />Deletar</button>

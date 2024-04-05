@@ -176,6 +176,14 @@ export type TstateEditProduct = {
 export type TstateBoxProductIsEmpty = {
     BoxProductIsEmpty:boolean
     setBoxProductIsEmpty:React.Dispatch<React.SetStateAction<boolean>>; 
-    }
-
-
+}
+export type TmodeTheme = {
+themeIsDark:boolean
+hasValueThemeToGet:boolean
+styleDark:string
+styleLight:string
+}
+export type TstateModeTheme= {
+    ModeTheme:TmodeTheme
+    setModeTheme:React.Dispatch<React.SetStateAction<TmodeTheme>>; 
+}

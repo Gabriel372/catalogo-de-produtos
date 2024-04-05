@@ -1,13 +1,17 @@
-import { Tproduct } from "./Types"
+import { Tproduct,TstateModeTheme } from "./Types"
+import {CatalogContext} from '../components/CatalogContext'
+import { useContext } from 'react';
 
 function ProductItem({ product }: { product: Tproduct }) {
+const { ModeTheme } = useContext(CatalogContext) as TstateModeTheme;
+const ThemeForComponent = ModeTheme?.themeIsDark ? 'text-white bg-gray-800 duration-500':'bg-gray-200 duration-500  '
 
 
-return (<li key={product.id} className='border rounded-lg bg-gray-200 p-1 shadow-xl max-w-[350px]
-card transform transition-transform duration-200 hover:-translate-y-1 '> 
+return (<li key={product.id} className={`${ThemeForComponent} rounded-lg bg-gray-200 p-1 max-w-[350px] shadow-2xl
+card transform transition-transform duration-200 hover:-translate-y-1 flex flex-col justify-around `}> 
 
 <div className="flex justify-center">
-  <div className={`flex justify-center bg-white rounded-lg border  mb-2
+  <div className={`flex justify-center bg-white rounded-lg mb-2
   ${product.image === '' ? ' items-center h-[150px] w-[150px]' :
   'max-w-[270px] max-h-[200px] items-start overflow-hidden'}`}>
 

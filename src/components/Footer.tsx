@@ -1,7 +1,7 @@
 import ModalFooter from "./ModalFooter"
 import { CatalogContext } from './CatalogContext';
 import { useState,useContext } from 'react';
-import {TstateInfoCompany,TadmIsLoggedin} from './Types'
+import {TstateInfoCompany,TadmIsLoggedin,TstateModeTheme} from './Types'
 import { SlPencil } from "react-icons/sl";
 import { PiMapPinBold } from "react-icons/pi";
 import { BsWhatsapp } from "react-icons/bs";
@@ -9,15 +9,16 @@ import { LuAlarmClock } from "react-icons/lu";
 import { GiReceiveMoney } from "react-icons/gi";
 
 function Footer() {
-const {InfoCompany ,AdmIsLoggedin} = useContext(CatalogContext) as TstateInfoCompany & TadmIsLoggedin
+const {InfoCompany ,AdmIsLoggedin,ModeTheme} = useContext(CatalogContext) as TstateInfoCompany & TadmIsLoggedin & TstateModeTheme
 const [ModalIsOpen, setModalIsOpen] = useState<boolean>(false) 
 const hasPaymentMethod = InfoCompany.acceptPayCredit || InfoCompany.acceptPayDebit || InfoCompany.acceptPayMoney || InfoCompany.acceptPayPix ;   
 const infoIsEmpty = !InfoCompany.addresStore && !InfoCompany.celphone && !InfoCompany.servicePeriod &&
 !InfoCompany.acceptPayCredit && !InfoCompany.acceptPayDebit && !InfoCompany.acceptPayMoney && !InfoCompany.acceptPayPix ;   
+const ThemeForComponent = ModeTheme?.themeIsDark ? 'text-white bg-gray-800 duration-500':'bg-gray-200 duration-500  '
 
 function ShowInfoCompany() {
 return (
-<ul className="flex flex-col">
+<ul className={`flex flex-col`}>
 {InfoCompany.addresStore && <li className="font-bold mb-1">
 <PiMapPinBold className="mr-1 text-lg inline"/>
 Endereço:<span className=" font-normal ml-1">{InfoCompany.addresStore} </span></li>}
@@ -43,7 +44,7 @@ Horário de atendimento:<span className=" font-normal ml-1">{InfoCompany.service
 
 }
 
-return <footer className="bg-black text-white pb-3">
+return <footer className={`${ThemeForComponent} pb-3 `}>
 
 <div  className="w-full sm:w-auto mx-auto max-w-[1100px] px-2 flex justify-between h-full max-h-[700px] flex-col ">
 

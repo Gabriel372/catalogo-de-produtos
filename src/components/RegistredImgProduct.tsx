@@ -3,7 +3,7 @@ import { TproductProp } from "./Types"
 function RegistredImgProduct({product}:TproductProp) {
 
   return <div className="flex justify-center">
-  <div className={`flex justify-center bg-white rounded-lg border  mb-2
+  <div className={`flex justify-center bg-white rounded-lg mb-2
   ${product.image === '' ? ' items-center h-[150px] w-[150px]' :
   'max-w-[270px] max-h-[200px] items-start overflow-hidden'}`}>
 

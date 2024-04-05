@@ -1,18 +1,22 @@
 
 import { IoArrowBackSharp } from "react-icons/io5";
 import { Link,useNavigate } from 'react-router-dom';
-import { Tadm } from "../components/Types";
-import { useState,useEffect } from 'react';
+import { Tadm,TstateModeTheme } from "../components/Types";
+import { useState,useEffect,useContext } from 'react';
 import FormAdmRegist from '../components/FormAdmRegist'
 import {  addDoc, collection } from "firebase/firestore"; 
 import {db} from '../components/firebase'
 import { motion } from 'framer-motion';
 import { pageVariants,pageTransition } from "../components/AnimationMotion";
+import {CatalogContext} from '../components/CatalogContext'
+
 
 function AdmRegister() {
 const [AdmToStorage, setAdmToStorage] = useState<Tadm>({name: '',email: '',password: '',nanoId:'',id:''}); 
 const [MsgWaitBtn,setMsgWaitBtn] = useState<boolean>(false);
 const navigate = useNavigate();
+const {  ModeTheme } = useContext(CatalogContext) as TstateModeTheme
+const ThemeForContainer = ModeTheme?.themeIsDark ? 'bg-black duration-500 text-white':'bg-white duration-500'
 
 
 useEffect(() => {
@@ -48,8 +52,8 @@ navigate('/ProductRegister') ;
 
 return  (
 <motion.div initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
-    <div className="px-1">
-<div className="flex mt-1">
+    <div className={`${ThemeForContainer} px-1`}>
+<div className={`${ThemeForContainer} flex pt-1`}>
 <Link to='/' className="h-[30px] w-[25px] mt-1 ml-1">
  <IoArrowBackSharp />
  </Link>

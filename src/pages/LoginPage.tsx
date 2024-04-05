@@ -1,7 +1,7 @@
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link,useNavigate } from 'react-router-dom';
-import {TboxAdm,TadmLog} from '../components/Types'
+import {TboxAdm,TadmLog,TstateModeTheme } from '../components/Types'
 import { useState,useContext,useEffect } from 'react';
 import {CatalogContext} from '../components/CatalogContext'
 import FormAdmLog from '../components/FormAdmLog'
@@ -10,9 +10,12 @@ import { pageVariants,pageTransition } from "../components/AnimationMotion";
 
 
 function LoginPage() {
-  const {  BoxAdm } = useContext(CatalogContext) as TboxAdm;
+  const {  BoxAdm,ModeTheme } = useContext(CatalogContext) as TboxAdm & TstateModeTheme
   const [AdmLog,setAdmLog] = useState<TadmLog>({email:'',password:'',msgBtnWait:false});
   const navigate = useNavigate();
+  const ThemeForContainer = ModeTheme?.themeIsDark ? 'bg-black duration-500 text-white':'bg-white duration-500'
+  const ThemeForComponent = ModeTheme?.themeIsDark ? 'text-white bg-gray-800 duration-500':'bg-gray-200 duration-500  '
+
 
   useEffect( () => { 
 if (AdmLog.msgBtnWait) {
@@ -29,13 +32,13 @@ const PasswordAdmIsOk = BoxAdm.find((adm)=> adm.password === AdmLog.password );
 
 
 if (!EmailAdmIsOk && PasswordAdmIsOk) {
-  toast.error("Email incorreto",{position:'top-center', }) ; 
+  toast.error("Email incorreto",{position:'bottom-center', }) ; 
 }
 else if (!PasswordAdmIsOk && EmailAdmIsOk) {
-  toast.error("Senha incorreta",{position:'top-center', }) ; 
+  toast.error("Senha incorreta",{position:'bottom-center', }) ; 
 }
 else if (!EmailAdmIsOk && !PasswordAdmIsOk) {
-  toast.error("Esse administrador não está cadstrado",{position:'top-center', }) ; 
+  toast.error("Esse administrador não está cadstrado",{position:'bottom-center', }) ; 
 }
 else if (AdmIsOk) {
 sessionStorage.setItem('admOnNanoId',JSON.stringify(AdmIsOk.nanoId));
@@ -48,13 +51,13 @@ navigate('/ProductRegister');
 return (
   <motion.div initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
 
-<div className=" ">
+<div className={`${ThemeForContainer} `}>
 
  {/* <ToastContainer /> */}
 
 <div className="sm:w-auto mx-auto sm:max-w-[1100px] px-2 flex justify-center  min-h-[calc(68vh)] ">
 
-<div className="border rounded-lg bg-gray-200 w-full max-w-[350px] p-2 max-h-[400px] h-full mx-1 mt-5" >
+<div className={`${ThemeForComponent}  rounded-lg w-full max-w-[350px] p-2 max-h-[400px] h-full mx-1 mt-5 shadow-2xl`} >
 
 <FormAdmLog AdmLog={AdmLog} setAdmLog={setAdmLog}/>
 

@@ -12,17 +12,22 @@ import './components/transitions.css'
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { motion } from "framer-motion";
 import Footer from './components/Footer';
-
+import {useState,useContext} from "react";
+import { CatalogContext } from './components/CatalogContext';
+import { TstateModeTheme } from './components/Types';
 
 function App() {
-  return (
-    <CatalogContextProvider>
+const {ModeTheme,setModeTheme} = useContext(CatalogContext) as TstateModeTheme ;
 
+  return (  <div className={ModeTheme && ModeTheme.themeIsDark ? ' styleDark':'styleLight'}>
+
+    <CatalogContextProvider>
 <BrowserRouter>
 <Header/>
 <ToastContainer />
 
 <Routes>
+
  <Route  path='/' element={<ProductShowPublic/>}/>
 <Route  path='/LoginPage' element={<LoginPage/>}/>
 <Route  path='/AdmRegister' element={<AdmRegister/>}/>
@@ -30,11 +35,13 @@ function App() {
 <Route  path='/RegistredProduct' element={<RegistredProduct/>}/>
 
 </Routes>
+
+
 <Footer/>
 </BrowserRouter>
-
-
     </CatalogContextProvider>
+</div>
+
   );
 }
 

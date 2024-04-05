@@ -1,19 +1,24 @@
 import { Link,useNavigate } from 'react-router-dom';
 import { useState,useEffect,useContext } from 'react';
 import { CatalogContext } from './CatalogContext';
-import { TadmIsLoggedin,TadmOn,TboxAdm} from './Types'
+import { TadmIsLoggedin,TadmOn,TboxAdm,TstateModeTheme} from './Types'
 import { FaShoppingBasket } from "react-icons/fa";
 import { RiLoginBoxLine } from "react-icons/ri";
 import MenuMobile from './MenuMobile';
+import BtnToggleMode from './BtnToggleMode';
+
 
 function Header() {
 const { AdmIsLoggedin,setAdmIsLoggedin } = useContext(CatalogContext) as TadmIsLoggedin
 const ActualPage = sessionStorage.getItem('ActualPage')?.replace(/\/%22|\/\//g, '') || '/';
 const navigate = useNavigate();
 const [AdmGetOut,setAdmGetOut] = useState<boolean>(false)
-const { AdmOn, setAdmOn, BoxAdm } = useContext(CatalogContext) as TadmOn & TboxAdm;
+const { AdmOn,ModeTheme,setModeTheme ,setAdmOn, BoxAdm } = useContext(CatalogContext) as TadmOn & TboxAdm & TstateModeTheme;
 const admOnNanoId = sessionStorage.getItem('admOnNanoId')
 const foundAdm = BoxAdm.find((adm) => JSON.stringify(adm.nanoId) === admOnNanoId);
+const ThemeForComponent = ModeTheme?.themeIsDark ? 'text-white bg-gray-800 duration-500':'bg-gray-200 duration-500  '
+
+
 
 useEffect( () => { 
 if (foundAdm) {
@@ -45,11 +50,13 @@ function SaveActualPage(page:string) {
     sessionStorage.setItem('ActualPage',page)
   }
   
-    return <header className="bg-black text-white">
+    return <header className={ThemeForComponent}>
     <nav className="w-full sm:w-auto mx-auto max-w-[1100px] px-2 flex flex-row justify-between h-[calc(12vh)] items-center w-screen800:h-[calc(10vh)]">
  <Link to='./' className='text-red-400 text-3xl ml-2'>
 <FaShoppingBasket />
         </Link>
+
+<BtnToggleMode/>
 
 {AdmIsLoggedin && <div className="text-xl w-screen800:hidden">
 <Link onClick={()=>SaveActualPage('/')} to='/' 

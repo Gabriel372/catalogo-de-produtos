@@ -1,7 +1,7 @@
 import { createContext, useState,ReactNode,useEffect } from 'react';
 import { collection, getDocs } from "firebase/firestore";
 import {db} from './firebase';
-import { Tadm,Tproduct,TinfoCompany } from './Types';
+import { Tadm,Tproduct,TinfoCompany,TmodeTheme } from './Types';
 
 interface  Props {
   children:ReactNode
@@ -14,22 +14,22 @@ export function CatalogContextProvider({children}:Props) {
   const [BoxProduct,setBoxProduct] = useState<Array<Tproduct>>([]);
   const [AdmIsLoggedin, setAdmIsLoggedin] = useState<boolean>(false);
   const [BoxProductIsEmpty, setBoxProductIsEmpty] = useState<boolean>(false);
-  // const [HaveProductInBox, setBoxProductIsEmpty] = useState<boolean>(false);
-
+  const [ModeTheme, setModeTheme] = useState<TmodeTheme>({themeIsDark:false,hasValueThemeToGet:true,styleDark:'styleDark',styleLight:'styleLight'});
 const [AdmOn, setAdmOn] = useState<Tadm>({name: '',email: '',password: '',nanoId:'',id:''}); 
 const [InfoCompany,setInfoCompany] = useState<TinfoCompany>({
 titlePage:'',addresStore:'',servicePeriod:'', celphone:'',
 nanoId:'',id:'',acceptPayCredit:false,acceptPayDebit:false,
 acceptPayMoney:false,acceptPayPix:false,});
+const ActualThemeIsDark =  JSON.parse(localStorage.getItem('ActualThemeIsDark') || 'null')
+
+
 
   useEffect( () => { 
     GetAdmToBox() ;
-// if (BoxProduct.length > 0) {
-//   setBoxProductIsEmpty(true)
-// }
   },[])
 
   async function GetAdmToBox() {
+    setModeTheme((prevState) => ({ ...prevState,themeIsDark:ActualThemeIsDark}) );
     const querySnapshot = await getDocs(collection(db, "AdmCDP"));
     const data:any = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })  );
   setBoxAdm(data);
@@ -51,8 +51,8 @@ setInfoCompany(data[0])
 }
 
   return (
-    <CatalogContext.Provider value={{ BoxAdm,AdmIsLoggedin,BoxProduct,AdmOn,InfoCompany,BoxProductIsEmpty,
-   setBoxProductIsEmpty,setInfoCompany,setAdmOn,setBoxAdm,setAdmIsLoggedin,setBoxProduct}}>
+    <CatalogContext.Provider value={{ BoxAdm,AdmIsLoggedin,BoxProduct,AdmOn,InfoCompany,BoxProductIsEmpty,ModeTheme,
+   setModeTheme,setBoxProductIsEmpty,setInfoCompany,setAdmOn,setBoxAdm,setAdmIsLoggedin,setBoxProduct}}>
       {children}
     </CatalogContext.Provider>
   );

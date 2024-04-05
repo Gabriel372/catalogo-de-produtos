@@ -1,6 +1,6 @@
 import {CatalogContext} from '../components/CatalogContext'
-import { useState,useContext,useEffect } from 'react';
-import {TBoxProduct,Tproduct} from '../components/Types'
+import { useState,useContext } from 'react';
+import {TBoxProduct,TstateModeTheme} from '../components/Types'
 import RegistredCardProduct from '../components/RegistredCardProduct';
 import ModalDelProduct from '../components/ModalDelProduct'
 import {TmodDelProduct,TmodEditProduct,TstateBoxProductIsEmpty} from '../components/Types'
@@ -10,15 +10,16 @@ import Title from '../components/Title';
 import ModalEditProduct from '../components/ModalEditProduct';
 
 function RegistredProduct() {
-const {  BoxProduct,setBoxProduct,BoxProductIsEmpty } = useContext(CatalogContext) as TBoxProduct & TstateBoxProductIsEmpty
+const {  BoxProduct,BoxProductIsEmpty,ModeTheme } = useContext(CatalogContext) as TBoxProduct & TstateBoxProductIsEmpty & TstateModeTheme
 const [ModalDel,setModalDel] = useState<TmodDelProduct>({modalIsOpen:false,deleteTarget:undefined})
 const EmptyValues = {name:'',price:'',description:'',image:'',formatImg:'',nanoId:'',id:''}
 const [ModalEdit,setModalEdit] = useState<TmodEditProduct>({modalIsOpen:false,hasProductValueToPass:false,productEdit:EmptyValues})
+const ThemeForContainer = ModeTheme?.themeIsDark ? 'bg-black duration-500 text-white':'bg-white duration-500'
 
 return (<div>
     <motion.div initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
  
- <div>
+ <div className={`${ThemeForContainer} w-full`}>
 <div className='sm:w-auto mx-auto max-w-[1100px] px-2 flex  flex-col min-h-[calc(60vh)] '>
 
 <Title/>

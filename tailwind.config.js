@@ -5,7 +5,20 @@ module.exports = {
     extend: {
       backgroundColor: {
         'custom-black': 'rgba(0, 0, 0, 0.5)'
-      }
+      },
+// styleMode:{
+// 'styleDark':{
+// 'bg-black':{},
+// 'text-white': {},
+// },
+
+// 'styleLight':{
+//   'bg-white':{},
+//   'text-black': {},
+//   },
+//   'styleTeste':'bg-black text-white'
+// }
+
     },
     screens: {
       'w-screen800': {'max': '800px'},
@@ -36,6 +49,38 @@ module.exports = {
     },
 
   },
-  plugins: [],
+  plugins: [
+    function({ addUtilities }) {
+      const newUtilities = {
+        '.componentDark': {
+          backgroundColor: 'rgba(31, 41, 55)',
+          color: 'white',
+          transition: 'all',
+          transitionDuration: '500ms',
+        },
+        '.componentLight': {
+          backgroundColor: 'rgba(229, 231, 235)',
+          color: 'black',
+          transition: 'all',
+          transitionDuration: '500ms',
+        },
+        // 'containerDark': {
+        //   backgroundColor: 'black',
+        //   color: 'white',
+        //   transition: 'all',
+        //   transitionDuration: '500ms',
+        // },
+        // 'containerLight': {
+        //   backgroundColor: 'white',
+        //   color: 'black',
+        //   transition: 'all',
+        //   transitionDuration: '500ms',
+        // },
+      }
+
+      addUtilities(newUtilities)
+    }
+
+  ],
 }
 

@@ -1,9 +1,14 @@
 import {nanoid} from "nanoid";
-import { TadmToStorage } from "../components/Types";
+import { TadmToStorage,TstateModeTheme } from "../components/Types";
 import {  ToastContainer,toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {CatalogContext} from '../components/CatalogContext'
+import { useContext } from "react";
 
 function FormAdmRegist({AdmToStorage,setAdmToStorage,MsgWaitBtn,setMsgWaitBtn }:TadmToStorage ) {
+  const {  ModeTheme } = useContext(CatalogContext) as TstateModeTheme
+  const ThemeForComponent = ModeTheme?.themeIsDark ? 'text-white bg-gray-800 duration-500':'bg-gray-200 duration-500  '
+
 
 function ClickNewAdm (e: React.FormEvent<HTMLFormElement>) {  
  e.preventDefault();
@@ -15,7 +20,6 @@ toast.error("Prencha todos os campos.",{position:'top-center', }) ;
 else {console.log('ok')
 setMsgWaitBtn(true) ;
 }
-// const EmailAdmIsRepeated = BoxAdm.find((adm)=>adm.email ===  AdmToStorage.email )
 
   } 
 
@@ -27,7 +31,7 @@ setAdmToStorage(prevState => ({...prevState,nanoId:nanoid()}));
 
  }
 
-return     <form onSubmit={ClickNewAdm} className="flex flex-col content-around border rounded-lg bg-gray-200 w-full max-w-[350px] p-2 max-h-[400px] h-full  mt-5">
+return     <form onSubmit={ClickNewAdm} className={`${ThemeForComponent} flex flex-col content-around rounded-lg bg-gray-200 w-full max-w-[350px] p-2 max-h-[400px] h-full  mt-5`}>
 <ToastContainer/>
 <label className="flex flex-col ">
  Digite seu nome

@@ -59,13 +59,13 @@ onClick={(e)=> e.stopPropagation()}>
 <div className='flex flex-row justify-around'>
 
 {MsgLoadBtn ? 
-<button className='bg-gray-300 text-gray-500 rounded-full py-1 max-w-[120px] w-full border border-gray-400 border-1 cursor-default' 
+<button className='bg-gray-300 text-gray-500 rounded-full py-1 w-full border border-gray-400 border-1 cursor-default max-w-32' 
  >Não</button>  
 :
 <button className='bg-black text-white rounded-full py-1 cursor-pointer hover:bg-gray-700 max-w-[120px] w-full' 
 onClick={()=>setModalDel({modalIsOpen:false,deleteTarget:undefined})} >Não</button>  }
 
-<button className='bg-red-600 text-white rounded-full py-1 cursor-pointer hover:bg-red-700 w-full max-w-[120px] ml-1'
+<button className='bg-red-600 text-white rounded-full py-1 cursor-pointer hover:bg-red-700 w-full max-w-[120px] ml-2'
 onClick={ClickDelProductInFirebase}>
 {MsgLoadBtn ? <span className=' flex flex-row px-2'><CgSpinner  className='text-2xl mr-1 animate-spin'/>Aguarde</span>:'sim'}    
 </button>  
