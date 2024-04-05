@@ -18,7 +18,6 @@ const navigate = useNavigate();
 const {  ModeTheme } = useContext(CatalogContext) as TstateModeTheme
 const ThemeForContainer = ModeTheme?.themeIsDark ? 'bg-black duration-500 text-white':'bg-white duration-500'
 
-
 useEffect(() => {
 if (MsgWaitBtn) {
 PostAdmInFirebase()  }

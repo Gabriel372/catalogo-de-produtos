@@ -1,12 +1,15 @@
-import {useRef,useEffect  } from 'react'
+import {useRef,useEffect,useContext  } from 'react'
 import { BsFilePersonFill } from "react-icons/bs";
 import { FaTrashAlt } from "react-icons/fa";
-import { TRegistImg,TstateImgUpload } from "./Types"
+import { TRegistImg,TstateImgUpload,TstateModeTheme } from "./Types"
 import heic2any from 'heic2any';
+import { CatalogContext } from './CatalogContext';
 
 function ImgInputProduct({ImgUpload,setImgUpload}:TstateImgUpload,{}) {
 const inputFileRef = useRef<HTMLInputElement>(null);
-   
+const { ModeTheme } = useContext(CatalogContext) as TstateModeTheme 
+const ThemeForDiv = ModeTheme.themeIsDark ? 'bg-gray-500 text-gray-700':'bg-white text-gray-400'   
+
 useEffect(() => {
 if (ImgUpload.filename && ImgUpload.fileIsLoading) {
 setImgUpload(prevState => ({...prevState,fileIsLoading:false}));  
@@ -62,10 +65,10 @@ onChange={(event)=>ChangeImg(event)}  ref={inputFileRef}/>
 
 {!ImgUpload.fileIsLoading &&
 <div className={`${ImgUpload.show  === '' ?
-' flex justify-center items-center h-[150px] w-[150px] bg-white rounded-lg border  mb-2 ':
+`${ThemeForDiv} flex justify-center items-center h-[150px] w-[150px] rounded-lg  mb-2 `:
 ' flex justify-center items-start   bg-white rounded-lg border  mb-2 overflow-hidden max-w-[270px] max-h-[200px]'}`}>
 {ImgUpload.show === '' ?
-<span className=' text-gray-400'>Sem foto</span>:
+<span className=''>Sem foto</span>:
  <img src={ImgUpload.show} alt="Foto" className={`${ImgUpload.show !== '' && ImgUpload.formatIsLandscape ? 'max-w-[280px]':'max-h-[250px]'}`}/>
 }    
 </div>}

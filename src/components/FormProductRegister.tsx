@@ -1,4 +1,4 @@
-import {TstateProduct,TadmOn} from './Types'
+import {TstateProduct,TadmOn,TstateModeTheme} from './Types'
 import { ToastContainer, toast } from "react-toastify";
 import { CgSpinner } from "react-icons/cg";
 import {nanoid} from "nanoid";
@@ -6,8 +6,8 @@ import { CatalogContext } from './CatalogContext';
 import { useState,useEffect,useContext } from 'react';
 
 function FormProductRegister({Product,setProduct,MsgBtnWait,setMsgBtnWait}:TstateProduct) {
-    const { AdmOn} = useContext(CatalogContext) as TadmOn
-
+    const { ModeTheme,AdmOn} = useContext(CatalogContext) as TadmOn & TstateModeTheme
+    const ThemeForInput = ModeTheme?.themeIsDark ? 'bg-gray-900 border-solid border-gray-600 border duration-500':'border border-solid border-gray-300  duration-500'
 
 function ClickRegist(e: React.FormEvent<HTMLFormElement>) {
  e.preventDefault();
@@ -37,21 +37,20 @@ setProduct(prevState => ({...prevState,nanoId:nanoid()}));
    <label className="flex flex-col mb-2">
    Digite o nome
    <input autoFocus type="text" name="name" placeholder="nome" value={Product.name}
-   onChange={ChangeInput} className="rounded-full px-3 py-1"/>
+   onChange={ChangeInput} className={`${ThemeForInput} rounded-full px-3 py-1`}/>
    </label>
 
 
    <label className="flex flex-col ">
     Digite o valor
    <input onChange={ChangeInput}   type="number" name="price" placeholder="valor" value={Product.price}
-   className="rounded-full px-3 py-1" />
+  className={`${ThemeForInput} rounded-full px-3 py-1`} />
    </label>
    
-   <label className="flex flex-col mb-2
-   ">
+   <label className="flex flex-col mb-2">
     Digite a descriçao
    <input onChange={ChangeInput}   type="text" name="description" placeholder="descrição" value={Product.description}
-   className="rounded-full px-3 py-1" />
+   className={`${ThemeForInput} rounded-full px-3 py-1`} />
    </label>
    
    <button className="bg-red-600 text-white rounded-full py-1 cursor-pointer hover:bg-red-700 w-full">

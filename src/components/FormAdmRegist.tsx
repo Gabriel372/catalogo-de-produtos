@@ -8,7 +8,7 @@ import { useContext } from "react";
 function FormAdmRegist({AdmToStorage,setAdmToStorage,MsgWaitBtn,setMsgWaitBtn }:TadmToStorage ) {
   const {  ModeTheme } = useContext(CatalogContext) as TstateModeTheme
   const ThemeForComponent = ModeTheme?.themeIsDark ? 'text-white bg-gray-800 duration-500':'bg-gray-200 duration-500  '
-
+  const ThemeForInput = ModeTheme?.themeIsDark ? 'bg-gray-900 border-solid border-gray-600 border duration-500':'border border-solid border-gray-300  duration-500'
 
 function ClickNewAdm (e: React.FormEvent<HTMLFormElement>) {  
  e.preventDefault();
@@ -31,23 +31,27 @@ setAdmToStorage(prevState => ({...prevState,nanoId:nanoid()}));
 
  }
 
-return     <form onSubmit={ClickNewAdm} className={`${ThemeForComponent} flex flex-col content-around rounded-lg bg-gray-200 w-full max-w-[350px] p-2 max-h-[400px] h-full  mt-5`}>
+return     <form onSubmit={ClickNewAdm} 
+className={`${ThemeForComponent} flex flex-col content-around rounded-lg bg-gray-200 w-full max-w-[350px] p-2 max-h-[400px] h-full  mt-5 shadow-2xl`}>
 <ToastContainer/>
 <label className="flex flex-col ">
  Digite seu nome
-<input onChange={ChangeInput} autoFocus type="text" name="name" placeholder="nome" className="rounded-full px-3 py-1" />
+<input onChange={ChangeInput} autoFocus type="text" name="name" placeholder="nome" 
+className={`${ThemeForInput}  rounded-full px-3 py-1`} />
 </label>
 
 
 <label className="flex flex-col ">
  Digite seu e-mail
-<input onChange={ChangeInput} type="email" name="email" placeholder="e-mail" className="rounded-full px-3 py-1" />
+<input onChange={ChangeInput} type="email" name="email" placeholder="e-mail" 
+className={`${ThemeForInput}  rounded-full px-3 py-1`} />
 
 </label>
 
 <label className="flex flex-col mb-2">
 Digite sua senha   
-<input onChange={ChangeInput} type="password" name="password" placeholder="senha" className="rounded-full px-3 py-1"/>
+<input onChange={ChangeInput} type="password" name="password" placeholder="senha" 
+className={`${ThemeForInput}  rounded-full px-3 py-1`} />
 
 </label>
 
