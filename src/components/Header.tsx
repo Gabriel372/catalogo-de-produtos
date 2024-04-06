@@ -16,7 +16,7 @@ const [AdmGetOut,setAdmGetOut] = useState<boolean>(false)
 const { AdmOn,ModeTheme,setModeTheme ,setAdmOn, BoxAdm } = useContext(CatalogContext) as TadmOn & TboxAdm & TstateModeTheme;
 const admOnNanoId = sessionStorage.getItem('admOnNanoId')
 const foundAdm = BoxAdm.find((adm) => JSON.stringify(adm.nanoId) === admOnNanoId);
-const ThemeForComponent = ModeTheme?.themeIsDark ? 'text-white bg-gray-800 duration-500':'bg-gray-200 duration-500  '
+const ThemeForComponent = ModeTheme?.themeIsDark ? 'text-white bg-neutral-800 duration-500':'bg-gray-200 duration-500  '
 
 
 
@@ -60,13 +60,14 @@ function SaveActualPage(page:string) {
 
 {AdmIsLoggedin && <div className="text-xl w-screen800:hidden">
 <Link onClick={()=>SaveActualPage('/')} to='/' 
-className='mr-2 p-1 rounded-md hover:bg-gray-700'>Ver produtos</Link> 
+className={`${ModeTheme.themeIsDark ? 'hover:bg-gray-700':'hover:bg-gray-300' } mr-2 p-1 rounded-md `}>Ver produtos</Link> 
 <Link onClick={()=>SaveActualPage('/RegistredProduct')} to='/RegistredProduct'
- className='mr-2 p-1 rounded-md hover:bg-gray-700'>Produtos cadastrados</Link>      
+className={`${ModeTheme.themeIsDark ? 'hover:bg-gray-700':'hover:bg-gray-300' } mr-2 p-1 rounded-md `}>Produtos cadastrados</Link>      
 <Link onClick={()=>SaveActualPage('/ProductRegister')} to='/ProductRegister'
- className='mr-2 p-1 rounded-md hover:bg-gray-700'>Cadastrar Produtos</Link> 
-<Link onClick={RemoveAdmEpage} to='/LoginPage' className='mr-2 p-1 rounded-md hover:bg-gray-700'>
- sair </Link> 
+ className={`${ModeTheme.themeIsDark ? 'hover:bg-gray-700':'hover:bg-gray-300' } mr-2 p-1 rounded-md `}>Cadastrar Produtos</Link> 
+<Link onClick={RemoveAdmEpage} to='/LoginPage' 
+className={`${ModeTheme.themeIsDark ? 'hover:bg-gray-700':'hover:bg-gray-300' } mr-2 p-1 rounded-md `}>
+ Sair </Link> 
 </div>}
 
 {!AdmIsLoggedin &&<Link to='/LoginPage' className=' text-2xl'><RiLoginBoxLine /></Link> }

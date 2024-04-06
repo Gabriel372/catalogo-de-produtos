@@ -16,8 +16,6 @@ function ToggleTheme() {
     return (
         <div className=" shadow-slate-200">
             <DarkModeToggle onChange={ToggleTheme} checked={ModeTheme.themeIsDark} size={50} />
-            <button onClick={()=>console.log(ModeTheme  ) }>TESTE</button>
-
         </div>
     )
 

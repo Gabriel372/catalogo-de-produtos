@@ -14,8 +14,7 @@ function LoginPage() {
   const [AdmLog,setAdmLog] = useState<TadmLog>({email:'',password:'',msgBtnWait:false});
   const navigate = useNavigate();
   const ThemeForContainer = ModeTheme?.themeIsDark ? 'bg-black duration-500 text-white':'bg-white duration-500'
-  const ThemeForComponent = ModeTheme?.themeIsDark ? 'text-white bg-gray-800 duration-500':'bg-gray-200 duration-500  '
-
+  const ThemeForComponent = ModeTheme?.themeIsDark ? 'border border-gray-700 text-white bg-neutral-800 duration-500':'bg-gray-200 duration-500 border border-gray-300'
 
   useEffect( () => { 
 if (AdmLog.msgBtnWait) {

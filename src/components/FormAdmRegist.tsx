@@ -7,8 +7,8 @@ import { useContext } from "react";
 
 function FormAdmRegist({AdmToStorage,setAdmToStorage,MsgWaitBtn,setMsgWaitBtn }:TadmToStorage ) {
   const {  ModeTheme } = useContext(CatalogContext) as TstateModeTheme
-  const ThemeForComponent = ModeTheme?.themeIsDark ? 'text-white bg-gray-800 duration-500':'bg-gray-200 duration-500  '
   const ThemeForInput = ModeTheme?.themeIsDark ? 'bg-gray-900 border-solid border-gray-600 border duration-500':'border border-solid border-gray-300  duration-500'
+  const ThemeForComponent = ModeTheme?.themeIsDark ? 'border border-gray-700 text-white bg-neutral-800 duration-500':'bg-gray-200 duration-500 border border-gray-300'
 
 function ClickNewAdm (e: React.FormEvent<HTMLFormElement>) {  
  e.preventDefault();

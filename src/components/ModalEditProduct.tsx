@@ -1,4 +1,4 @@
-import { Tproduct, TstateModEditProduct,TstatusEdit,TBoxProduct } from "./Types"
+import { Tproduct, TstateModEditProduct,TstatusEdit,TBoxProduct,TstateModeTheme } from "./Types"
 import { useState,useContext,useEffect } from 'react';
 import { IoClose } from "react-icons/io5";
 import RegistredFormProduct from "./RegistredFormProduct";
@@ -12,7 +12,9 @@ function ModalEditProduct({ModalEdit,setModalEdit}:TstateModEditProduct) {
 const [Product,setProduct] = useState<Tproduct>(ModalEdit.productEdit)
 const [Status,setStatus] = useState<TstatusEdit>({msgBtnWait:false,hasProductToUpdt:false})
 const EmptyValues = {name:'',price:'',description:'',image:'',formatImg:'',nanoId:'',id:''}
-const { setBoxProduct,BoxProduct } = useContext(CatalogContext) as TBoxProduct
+const { ModeTheme,setBoxProduct,BoxProduct } = useContext(CatalogContext) as TBoxProduct & TstateModeTheme
+const ThemeForModal = ModeTheme?.themeIsDark ? 'text-white bg-neutral-700 duration-500 border border-gray-600':'bg-gray-200 duration-500  '
+
 
 useEffect( () => { 
 if (ModalEdit.hasProductValueToPass) {
@@ -56,12 +58,12 @@ return (<div>
     <ToastContainer />
 {ModalEdit.modalIsOpen &&
 
- <div className="w-screen bg-custom-black h-[100%] top-0 left-0 fixed justify-center align-middle flex"
+ <div className="w-screen bg-custom-black h-[100%] top-0 left-0 fixed justify-center align-middle flex py-1"
  onClick={()=> {setModalEdit( prevState => ({...prevState,modalIsOpen:false})) }}> 
 
 <div className='bg-opacity-50 flex justify-center items-center'>
 
-<div className=' rounded-md bg-gray-200 pt-0 p-2 flex flex-col justify-around max-w-[350px]' 
+<div className={`${ThemeForModal} rounded-md pt-1 p-2 flex flex-col justify-around max-w-[350px]  h-screen500:h-full h-screen500:overflow-y-scroll`} 
  onClick={(e)=> e.stopPropagation()}>
 <div className=" flex justify-between">
 

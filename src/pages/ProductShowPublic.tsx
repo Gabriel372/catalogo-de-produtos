@@ -15,7 +15,7 @@ return  (
 
 <div className={`${ThemeForContainer} w-full`}>
 
-<div className={` sm:w-auto mx-auto max-w-[1100px] px-2 flex  flex-col min-h-[calc(68vh)]`}>
+<div className={` sm:w-auto mx-auto max-w-[1100px] px-2 flex  flex-col min-h-[calc(68vh)] pb-2`}>
 
 
 <h3 className='text-2xl text-center my-2'>{InfoCompany.titlePage}</h3>
@@ -23,7 +23,7 @@ return  (
 <div>
 
 {BoxProduct.length > 0 &&
-<ul className='w-screen650:grid w-screen650:grid-cols-1 w-screen650:max-w-[300px] m-auto mb-10
+<ul className='w-screen650:grid w-screen650:grid-cols-1 w-screen650:max-w-[300px] m-auto
  w-screen800:grid-cols-2 grid-cols-3   grid gap-3' >
   {BoxProduct.map((product)=>(
    <ProductItem key={product.nanoId} product={product}/>   

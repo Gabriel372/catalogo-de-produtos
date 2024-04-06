@@ -9,7 +9,7 @@ import { CatalogContext } from './CatalogContext';
 
 function RegistredCardProduct({setModalDel,product,setModalEdit}:TModDel ) {
   const { ModeTheme } = useContext(CatalogContext) as TstateModeTheme;
-  const ThemeForComponent = ModeTheme?.themeIsDark ? 'text-white bg-gray-800 duration-500':'bg-gray-200 duration-500  '
+  const ThemeForComponent = ModeTheme?.themeIsDark ? 'border border-gray-700 text-white bg-neutral-800 duration-500':'bg-gray-200 duration-500 border border-gray-300'
 
 return<li key={product.id} className={`${ThemeForComponent} rounded-lg  p-1 shadow-2xl max-w-[350px]
 card transform transition-transform duration-200 hover:-translate-y-1 h-full box-border max-h-100 flex flex-col justify-between pb-2`}>    

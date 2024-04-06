@@ -20,14 +20,14 @@ return (<div>
     <motion.div initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
  
  <div className={`${ThemeForContainer} w-full`}>
-<div className='sm:w-auto mx-auto max-w-[1100px] px-2 flex  flex-col min-h-[calc(60vh)] '>
+<div className='sm:w-auto mx-auto max-w-[1100px] px-2 flex  flex-col min-h-[calc(60vh)] pb-2'>
 
 <Title/>
 
 <div>
 
 {BoxProduct.length > 0 &&
-<ul className='w-screen650:grid w-screen650:grid-cols-1 w-screen650:max-w-[300px] m-auto mb-10
+<ul className='w-screen650:grid w-screen650:grid-cols-1 w-screen650:max-w-[300px] m-auto
  w-screen800:grid-cols-2 grid-cols-3   grid gap-3' >{BoxProduct.map((product)=>(
 <RegistredCardProduct key={product.id} product={product} ModalDel={ModalDel} setModalDel={setModalDel}
 ModalEdit={ModalEdit} setModalEdit={setModalEdit}/>

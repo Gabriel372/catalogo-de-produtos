@@ -76,18 +76,19 @@ onChange={(event)=>ChangeImg(event)}  ref={inputFileRef}/>
 {ImgUpload.fileIsLoading && <p className="IRMmsgLoad">Carregando foto ...</p> }
 
 
-<div className='flex flex-row justify-around w-full'>
+<div className='flex flex-row justify-around w-full w-screen300:flex-col items-center'>
 
-<button className='flex flex-row bg-red-600 text-white rounded-full py-1 hover:bg-red-700  px-2 items-center'
+<button className='flex flex-row bg-red-600 text-white rounded-full py-1 hover:bg-red-700  px-2 items-center max-w-36 justify-center'
 onClick={RemoveImg}>
-<FaTrashAlt />
-<span className="IRMspanRemovePhoto">Remover foto</span>
+<span className="flex flex-row items-center"><FaTrashAlt />Remover foto</span>
 </button>
 
-<label htmlFor='file-input' className=" bg-black  text-white rounded-full py-1 cursor-pointer 
-hover:bg-gray-700 px-2 flex flex-row  items-center text-sm">
-<BsFilePersonFill className='IRMiconPhoto'/>
+<label htmlFor='file-input' className="bg-black  text-white rounded-full py-1 cursor-pointer
+hover:bg-gray-700 px-2 flex flex-row  items-center text-sm h-9 max-w-44 w-screen300:mt-1 w-screen300:mr-1 ml-2 w-screen300:ml-0">
+<span className="flex flex-row items-center" >
+<BsFilePersonFill className=' mr-1'/>
 Selecionar foto 
+</span>
 </label>
 
 

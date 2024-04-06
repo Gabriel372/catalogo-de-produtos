@@ -25,7 +25,7 @@ setMsgBtnWait(true)
 }             
 }
          
-function ChangeInput(e:React.ChangeEvent<HTMLInputElement>) {
+function ChangeInput(e:React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     setProduct(PrevState => ({...PrevState,[e.target.name]: e.target.value})) 
     if (e.target.name === 'price') {
 setProduct(prevState => ({...prevState,nanoId:nanoid()}));  
@@ -41,16 +41,16 @@ setProduct(prevState => ({...prevState,nanoId:nanoid()}));
    </label>
 
 
-   <label className="flex flex-col ">
+   <label className="flex flex-col mb-2">
     Digite o valor
    <input onChange={ChangeInput}   type="number" name="price" placeholder="valor" value={Product.price}
   className={`${ThemeForInput} rounded-full px-3 py-1`} />
    </label>
    
-   <label className="flex flex-col mb-2">
+   <label className="flex flex-col mb-3">
     Digite a descriçao
-   <input onChange={ChangeInput}   type="text" name="description" placeholder="descrição" value={Product.description}
-   className={`${ThemeForInput} rounded-full px-3 py-1`} />
+    <textarea  value={Product.description} onChange={ChangeInput}
+ name="description" placeholder="descrição" className={`${ThemeForInput} rounded-xl px-3 py-0 resize-none`} />
    </label>
    
    <button className="bg-red-600 text-white rounded-full py-1 cursor-pointer hover:bg-red-700 w-full">

@@ -14,7 +14,7 @@ const [ModalIsOpen, setModalIsOpen] = useState<boolean>(false)
 const hasPaymentMethod = InfoCompany.acceptPayCredit || InfoCompany.acceptPayDebit || InfoCompany.acceptPayMoney || InfoCompany.acceptPayPix ;   
 const infoIsEmpty = !InfoCompany.addresStore && !InfoCompany.celphone && !InfoCompany.servicePeriod &&
 !InfoCompany.acceptPayCredit && !InfoCompany.acceptPayDebit && !InfoCompany.acceptPayMoney && !InfoCompany.acceptPayPix ;   
-const ThemeForComponent = ModeTheme?.themeIsDark ? 'text-white bg-gray-800 duration-500':'bg-gray-200 duration-500  '
+const ThemeForComponent = ModeTheme?.themeIsDark ? 'text-white bg-neutral-800 duration-500':'bg-gray-200 duration-500  '
 
 function ShowInfoCompany() {
 return (
@@ -29,11 +29,15 @@ Peça pelo WhatsApp:<span className=" font-normal ml-1">{InfoCompany.celphone}</
 {InfoCompany.servicePeriod && <li className="font-bold items-center mb-1"><LuAlarmClock  className="mr-1 inline"/>
 Horário de atendimento:<span className=" font-normal ml-1">{InfoCompany.servicePeriod}</span></li>}
 
-{hasPaymentMethod && <li className="font-bold flex"><GiReceiveMoney className="mr-1 text-xl inline"/>Formas de pagamento:
- <div className=" font-normal ml-1 w-screen550:flex w-screen550:flex-col">
- {InfoCompany.acceptPayCredit && <span> Cartão de crédito</span>}   
- {InfoCompany.acceptPayDebit && <span> Cartão de débito</span>}   
- {InfoCompany.acceptPayMoney && <span> Dinheiro</span>}   
+{hasPaymentMethod && <li className="font-bold flex flex-row w-screen600:flex-col mb-2">
+ <span >
+<GiReceiveMoney className="mr-1 text-xl inline"/>Formas de pagamento:
+ </span>
+
+ <div className=" font-normal ml-1">
+ {InfoCompany.acceptPayCredit && <span> Cartão de crédito,</span>}   
+ {InfoCompany.acceptPayDebit && <span> Cartão de débito,</span>}   
+ {InfoCompany.acceptPayMoney && <span> Dinheiro,</span>}   
  {InfoCompany.acceptPayPix && <span> Pix</span>}  
  </div>
  
@@ -44,7 +48,7 @@ Horário de atendimento:<span className=" font-normal ml-1">{InfoCompany.service
 
 }
 
-return <footer className={`${ThemeForComponent} pb-3 `}>
+return <footer className={`${ThemeForComponent} pb-3 pt-2`}>
 
 <div  className="w-full sm:w-auto mx-auto max-w-[1100px] px-2 flex justify-between h-full max-h-[700px] flex-col ">
 
@@ -53,7 +57,7 @@ return <footer className={`${ThemeForComponent} pb-3 `}>
 {AdmIsLoggedin &&
 <div>
 <button onClick={()=>setModalIsOpen(true)} 
-className='border border-white rounded-full px-3 py-1'>
+className={`${!ModeTheme.themeIsDark && 'border-black'}  border  rounded-full px-3 py-1`}>
 <SlPencil className="mr-1"/>{infoIsEmpty && 'Editar informaçoes'} </button>
 </div>
 }

@@ -1,4 +1,4 @@
-import { TstateModDel,TBoxProduct,TstateBoxProductIsEmpty} from './Types'
+import { TstateModDel,TBoxProduct,TstateBoxProductIsEmpty,TstateModeTheme} from './Types'
 import { useContext,useState } from 'react';
 import { CatalogContext } from '../components/CatalogContext';
 import { db } from '../components/firebase';
@@ -7,8 +7,9 @@ import { ref,deleteObject,getStorage } from 'firebase/storage';
 import { CgSpinner } from "react-icons/cg";
 
 function ModalDelProduct({ModalDel,setModalDel}:TstateModDel) {
-const { BoxProduct,setBoxProduct,setBoxProductIsEmpty } = useContext(CatalogContext) as TBoxProduct & TstateBoxProductIsEmpty
+const { ModeTheme,BoxProduct,setBoxProduct,setBoxProductIsEmpty } = useContext(CatalogContext) as TBoxProduct & TstateBoxProductIsEmpty & TstateModeTheme
 const [MsgLoadBtn,setMsgLoadBtn] = useState<boolean>(false)
+const ThemeForModal = ModeTheme?.themeIsDark ? 'text-white bg-neutral-700 duration-500 border border-gray-600':'bg-gray-200 duration-500  '
 
 async function ClickDelProductInFirebase() {
    setMsgLoadBtn(true);
@@ -51,7 +52,7 @@ return <div>
 <div className='bg-custom-black fixed w-full h-full top-0 flex justify-center items-center'
 onClick={()=>setModalDel(prevState=>({...prevState,modalIsOpen:false}))}>
 
-<div className=' rounded-md bg-gray-200 h-[110px] pt-0 p-2 flex flex-col justify-around'
+<div className={`${ThemeForModal} rounded-md h-[110px] pt-0 p-2 flex flex-col justify-around`}
 onClick={(e)=> e.stopPropagation()}>
 
 <h4 className='text-lg font-semibold'>Deseja deletar esse Produto ?</h4>
