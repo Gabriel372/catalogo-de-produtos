@@ -44,8 +44,8 @@ return (<div >
 onClick={()=>setModalIsOpen(false)}>
 
 
-<div className={`${ThemeForModal} rounded-md max-w-[350px] pt-0 p-2 flex flex-col justify-around w-full
- h-screen450:h-full h-screen450:overflow-y-scroll`}
+<div className={`${ThemeForModal} rounded-md pt-0 p-2 flex flex-col justify-around
+ h-screen450:h-full h-screen450:overflow-y-scroll w-full mx-1 max-w-[450px]`}
 onClick={(e)=> e.stopPropagation()}>
 
 <div className=" flex flex-row justify-between ">
@@ -55,7 +55,7 @@ onClick={(e)=> e.stopPropagation()}>
 <IoClose className=" text-2xl"/></button>
 
 </div>
-<p>Preencha somente informaçõoes que deseja exibir</p>
+<p className=' mb-1'>*Preencha somente informaçõoes que deseja exibir</p>
 
     <FormFooter MsgBtnWait={MsgBtnWait} setMsgBtnWait={setMsgBtnWait} 
     FormValue={FormValue} setFormValue={setFormValue}/>

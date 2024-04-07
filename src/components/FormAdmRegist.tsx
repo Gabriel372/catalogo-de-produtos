@@ -15,7 +15,7 @@ function ClickNewAdm (e: React.FormEvent<HTMLFormElement>) {
  const {name,email,password,nanoId,id} = AdmToStorage ;
 const AdmIsComplete = name && email && password ; 
 if (!AdmIsComplete) {
-toast.error("Prencha todos os campos.",{position:'top-center', }) ;
+toast.error("Prencha todos os campos.",{position:'top-center', theme: "dark"}) ;
 }
 else {console.log('ok')
 setMsgWaitBtn(true) ;
@@ -32,26 +32,26 @@ setAdmToStorage(prevState => ({...prevState,nanoId:nanoid()}));
  }
 
 return     <form onSubmit={ClickNewAdm} 
-className={`${ThemeForComponent} flex flex-col content-around rounded-lg bg-gray-200 w-full max-w-[350px] p-2 max-h-[400px] h-full  mt-5 shadow-2xl`}>
+className={`${ThemeForComponent} flex flex-col content-around rounded-lg bg-gray-200 w-full max-w-[350px] p-2 max-h-[400px] h-full shadow-2xl`}>
 <ToastContainer/>
-<label className="flex flex-col ">
+<label className="flex flex-col mb-1">
  Digite seu nome
 <input onChange={ChangeInput} autoFocus type="text" name="name" placeholder="nome" 
-className={`${ThemeForInput}  rounded-full px-3 py-1`} />
+className={`${ThemeForInput}  rounded-full text-lg px-3 py-1`} />
 </label>
 
 
-<label className="flex flex-col ">
+<label className="flex flex-col mb-1">
  Digite seu e-mail
 <input onChange={ChangeInput} type="email" name="email" placeholder="e-mail" 
-className={`${ThemeForInput}  rounded-full px-3 py-1`} />
+className={`${ThemeForInput}  rounded-full text-lg px-3 py-1`} />
 
 </label>
 
 <label className="flex flex-col mb-2">
 Digite sua senha   
 <input onChange={ChangeInput} type="password" name="password" placeholder="senha" 
-className={`${ThemeForInput}  rounded-full px-3 py-1`} />
+className={`${ThemeForInput}  rounded-full text-lg px-3 py-1`} />
 
 </label>
 

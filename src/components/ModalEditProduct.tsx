@@ -61,13 +61,13 @@ return (<div>
  <div className="w-screen bg-custom-black h-[100%] top-0 left-0 fixed justify-center align-middle flex py-1"
  onClick={()=> {setModalEdit( prevState => ({...prevState,modalIsOpen:false})) }}> 
 
-<div className='bg-opacity-50 flex justify-center items-center'>
+<div className='bg-opacity-50 flex justify-center items-center w-full'>
 
-<div className={`${ThemeForModal} rounded-md pt-1 p-2 flex flex-col justify-around max-w-[350px]  h-screen500:h-full h-screen500:overflow-y-scroll`} 
+<div className={`${ThemeForModal} rounded-md pt-1 p-2 flex flex-col justify-around h-screen500:h-full h-screen500:overflow-y-scroll w-full mx-1 max-w-[420px]`} 
  onClick={(e)=> e.stopPropagation()}>
 <div className=" flex justify-between">
 
-    <h3>Editar produto</h3>
+    <h3 className="text-lg font-semibold">Editar produto</h3>
 <button onClick={CloseModal} className=" text-2xl"><IoClose /></button>
 
 </div>

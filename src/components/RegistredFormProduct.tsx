@@ -13,10 +13,10 @@ function RegistredFormProduct({Product,setProduct,Status,setStatus}:TstateProduc
 function ClickUpdate(e: React.FormEvent<HTMLFormElement>) {
   e.preventDefault();
 if (!Product.name) {
-toast.error("Somente a descriçao pode ficar em branco,Prencha o nome",{position:'top-center', }) ;  
+toast.error("Somente a descriçao pode ficar em branco,Prencha o nome",{position:'top-center',theme: "dark" }) ;  
 }
 else if (!Product.price) {
-  toast.error("Somente a descriçao pode ficar em branco,Prencha o preço",{position:'top-center', }) ;  
+  toast.error("Somente a descriçao pode ficar em branco,Prencha o preço",{position:'top-center',theme: "dark" }) ;  
 }
 else{
 setStatus({hasProductToUpdt:false,msgBtnWait:true}); 
@@ -37,7 +37,7 @@ console.log(value.length)
 
     return <div >
 <div className='flex justify-between mb-1 z-10'>
-<label>
+<label >
  Nome do produto:
 </label>
 
@@ -45,19 +45,19 @@ console.log(value.length)
     <form  className='z-10' onSubmit={ClickUpdate}>
 
 <input  value={Product.name} onChange={ChangeInput}
-autoFocus type="text" name="name" placeholder="nome" className={`${ThemeForInput} rounded-full px-3 font-semibold py-0 w-full`} />
+autoFocus type="text" name="name" placeholder="nome" className={`${ThemeForInput} rounded-full px-3 font-semibold py-0 w-full text-lg`} />
 
 <label className="flex flex-col ">
  Valor do produto:
 <input value={Product.price} onChange={ChangeInput}
  type="number" name="price" placeholder="valor" 
- className={`${ThemeForInput} ${ModeTheme.themeIsDark ? 'text-red-400':'text-red-800'} rounded-full px-3 font-semibold py-0 `} />
+ className={`${ThemeForInput} ${ModeTheme.themeIsDark ? 'text-red-400':'text-red-800'} rounded-full px-3 font-semibold text-lg`} />
 </label>
 
 <label className="flex flex-col ">
  Descrição do produto:
 <textarea  value={Product.description} onChange={ChangeInput}
- name="description" placeholder="descrição" className={`${ThemeForInput} rounded-xl px-3 py-0 resize-none`} />
+ name="description" placeholder="descrição" className={`${ThemeForInput} rounded-xl px-3 py-0 resize-none text-lg`} />
 
 </label>
 

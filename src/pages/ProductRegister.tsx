@@ -55,7 +55,7 @@ return(
 <div className={`${ThemeForContainer} w-full pb-2`}>
 
 <div className="sm:w-auto mx-auto sm:max-w-[1100px] px-2 flex flex-col items-center  min-h-[calc(95vh)] ">
-   <h1 className="font-bold block w-full text-center text-2xl">Cadastrar produto</h1>
+   <h1 className="font-bold block w-full text-center text-2xl my-2">Cadastrar produto</h1>
 
 <div className={`${ThemeForComponent} flex flex-col content-around rounded-lg w-full max-w-[350px] p-2 mx-1 mt-5 shadow-2xl`} >
 <ImgRegisterProduct Product={Product} setProduct={setProduct} MsgBtnWait={MsgBtnWait} 

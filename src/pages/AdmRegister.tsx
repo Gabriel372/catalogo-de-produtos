@@ -51,24 +51,20 @@ navigate('/ProductRegister') ;
 
 return  (
 <motion.div initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
-    <div className={`${ThemeForContainer} px-1`}>
+    <div className={`${ThemeForContainer} px-1 pb-2`}>
 <div className={`${ThemeForContainer} flex pt-1`}>
-<Link to='/' className="h-[30px] w-[25px] mt-1 ml-1">
+{/* <Link to='/' className="h-[30px] w-[25px] mt-1 ml-1">
  <IoArrowBackSharp />
- </Link>
+ </Link> */}
 
-    <h3 className="font-bold block w-full text-center">Cadastre-se como administrador</h3>
+    <h3 className="font-bold block w-full text-center my-1">Cadastre-se como administrador</h3>
 
 </div>
 
-    <div className="sm:w-auto mx-auto sm:max-w-[1100px] px-2 flex justify-center min-h-[calc(95vh)] ">
+    <div className="sm:w-auto mx-auto sm:max-w-[1100px] px-2 flex justify-center min-h-[calc(60vh)] items-center">
    <FormAdmRegist AdmToStorage={AdmToStorage} setAdmToStorage={setAdmToStorage} MsgWaitBtn={MsgWaitBtn} setMsgWaitBtn={setMsgWaitBtn}/>
  
-    {/* <div className="border rounded-lg bg-gray-200 w-full max-w-[350px] p-2 max-h-[400px] h-full  mt-5" >    
-    </div> */}
-    
     </div>
-    <button onClick={()=> console.log(AdmToStorage)}>TESTE</button>  
     </div> 
 </motion.div>
 

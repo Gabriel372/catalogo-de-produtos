@@ -11,7 +11,7 @@ function FormAdmLog({AdmLog,setAdmLog}:TstateAdmLog) {
 function ClickLog(e: React.FormEvent<HTMLFormElement>) {
  e.preventDefault();
  if (AdmLog.email === '' || AdmLog.password === '' ) {
- toast.error("Prencha os campos.",{position:'top-center', }) ; 
+ toast.error("Prencha os campos.",{position:'top-center',theme: "dark"}) ; 
  }     
 else {
 setAdmLog(PrevState=>({...PrevState,msgBtnWait:true}))
@@ -28,17 +28,17 @@ return <form onSubmit={ClickLog} className="flex flex-col content-around"  >
 
 <h3 className="font-bold block w-full text-center">Login</h3>
 
-<label className="flex flex-col ">
+<label className="flex flex-col mb-1">
  Digite seu e-mail
 <input onChange={ChangeInput}  autoFocus type="email" name="email" placeholder="seu e-mail" value={AdmLog.email}
-className={`${ThemeForInput} rounded-full px-3 py-1`} />
+className={`${ThemeForInput} rounded-full px-3 py-1 text-lg`} />
 
 </label>
 
 <label className="flex flex-col mb-2">
 Digite sua senha   
 <input type="password" name="password" placeholder="sua senha" value={AdmLog.password}
-onChange={ChangeInput} className={`${ThemeForInput} rounded-full px-3 py-1`}/>
+onChange={ChangeInput} className={`${ThemeForInput} rounded-full px-3 py-1 text-lg`}/>
 
 </label>
 

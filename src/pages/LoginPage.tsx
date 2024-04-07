@@ -50,11 +50,11 @@ navigate('/ProductRegister');
 return (
   <motion.div initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
 
-<div className={`${ThemeForContainer} `}>
+<div className={`${ThemeForContainer} pb-2`}>
 
  {/* <ToastContainer /> */}
 
-<div className="sm:w-auto mx-auto sm:max-w-[1100px] px-2 flex justify-center  min-h-[calc(68vh)] ">
+<div className="sm:w-auto mx-auto sm:max-w-[1100px] px-2 flex justify-center  min-h-[calc(68vh)] items-center">
 
 <div className={`${ThemeForComponent}  rounded-lg w-full max-w-[350px] p-2 max-h-[400px] h-full mx-1 mt-5 shadow-2xl`} >
 

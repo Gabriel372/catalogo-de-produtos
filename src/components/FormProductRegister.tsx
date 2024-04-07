@@ -12,13 +12,13 @@ function FormProductRegister({Product,setProduct,MsgBtnWait,setMsgBtnWait}:Tstat
 function ClickRegist(e: React.FormEvent<HTMLFormElement>) {
  e.preventDefault();
  if (Product.name === '' && Product.price === '') {
-    toast.error("Somene a descição pode ficar em branco,digite o nome e o preço",{position:'bottom-center',theme: "dark"}) ;     
+    toast.error("Somene a descição pode ficar em branco,digite o nome e o preço",{position:'top-center',theme: "dark"}) ;     
 }
 else if (Product.name === '') {
-toast.error("Somene a descição pode ficar em branco,digite o nome",{position:'bottom-center',theme: "dark"}) ;     
+toast.error("Somene a descição pode ficar em branco,digite o nome",{position:'top-center',theme: "dark"}) ;     
 }
 else if (Product.price === '') {
-toast.error("Somene a descição pode ficar em branco,digite o preço",{position:'bottom-center',theme: "dark" }) ;     
+toast.error("Somene a descição pode ficar em branco,digite o preço",{position:'top-center',theme: "dark" }) ;     
 }
 else{
 setMsgBtnWait(true)
