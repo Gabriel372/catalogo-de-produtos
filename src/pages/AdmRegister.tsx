@@ -1,6 +1,5 @@
 
-import { IoArrowBackSharp } from "react-icons/io5";
-import { Link,useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Tadm,TstateModeTheme } from "../components/Types";
 import { useState,useEffect,useContext } from 'react';
 import FormAdmRegist from '../components/FormAdmRegist'
@@ -10,7 +9,6 @@ import { motion } from 'framer-motion';
 import { pageVariants,pageTransition } from "../components/AnimationMotion";
 import {CatalogContext} from '../components/CatalogContext'
 import {  toast } from "react-toastify";
-
 
 function AdmRegister() {
 const [AdmToStorage, setAdmToStorage] = useState<Tadm>({name: '',email: '',password: '',nanoId:'',id:''}); 
@@ -65,10 +63,6 @@ return  (
     </div>
     </div> 
 </motion.div>
-
-    )
-
-      
+    )     
 }
-
 export default AdmRegister

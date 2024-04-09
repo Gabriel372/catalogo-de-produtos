@@ -15,7 +15,6 @@ const EmptyValues = {name:'',price:'',description:'',image:'',formatImg:'',nanoI
 const { ModeTheme,setBoxProduct,BoxProduct } = useContext(CatalogContext) as TBoxProduct & TstateModeTheme
 const ThemeForModal = ModeTheme?.themeIsDark ? 'text-white bg-neutral-700 duration-500 border border-gray-600':'bg-gray-200 duration-500  '
 
-
 useEffect( () => { 
 if (ModalEdit.hasProductValueToPass) {
 setModalEdit( prevState => ({...prevState,hasProductValueToPass:false}))  ;
@@ -47,7 +46,6 @@ function UpdtBoxProduct() {
     setStatus( (prevState) => ({...prevState,msgBtnWait:false,hasProductToUpdt:false}))
 },4000);
 }
-
 
 function CloseModal() {   
 setProduct(EmptyValues);

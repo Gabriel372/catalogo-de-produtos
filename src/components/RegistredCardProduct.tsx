@@ -6,7 +6,6 @@ import { SlPencil } from "react-icons/sl";
 import {useContext } from 'react';
 import { CatalogContext } from './CatalogContext';
 
-
 function RegistredCardProduct({setModalDel,product,setModalEdit}:TModDel ) {
   const { ModeTheme } = useContext(CatalogContext) as TstateModeTheme;
   const ThemeForComponent = ModeTheme?.themeIsDark ? 'border border-gray-700 text-white bg-neutral-800 duration-500':'bg-gray-200 duration-500 border border-gray-300'
@@ -28,7 +27,6 @@ onClick={()=>setModalEdit({modalIsOpen:true,hasProductValueToPass:true,productEd
 <SlPencil className="mr-1"/>Editar</button>
 
 </div>
-
 
     </li>  
   }

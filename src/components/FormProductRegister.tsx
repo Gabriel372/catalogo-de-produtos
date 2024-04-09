@@ -3,10 +3,10 @@ import { ToastContainer, toast } from "react-toastify";
 import { CgSpinner } from "react-icons/cg";
 import {nanoid} from "nanoid";
 import { CatalogContext } from './CatalogContext';
-import { useState,useEffect,useContext } from 'react';
+import { useContext } from 'react';
 
 function FormProductRegister({Product,setProduct,MsgBtnWait,setMsgBtnWait}:TstateProduct) {
-    const { ModeTheme,AdmOn} = useContext(CatalogContext) as TadmOn & TstateModeTheme
+    const { ModeTheme} = useContext(CatalogContext) as TadmOn & TstateModeTheme
     const ThemeForInput = ModeTheme?.themeIsDark ? 'bg-gray-900 border-solid border-gray-600 border duration-500':'border border-solid border-gray-300  duration-500'
 
 function ClickRegist(e: React.FormEvent<HTMLFormElement>) {

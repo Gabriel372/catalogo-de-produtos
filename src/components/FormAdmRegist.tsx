@@ -20,7 +20,6 @@ toast.error("Prencha todos os campos.",{position:'top-center', theme: "dark"}) ;
 else {console.log('ok')
 setMsgWaitBtn(true) ;
 }
-
   } 
 
 function ChangeInput(e:React.ChangeEvent<HTMLInputElement>) {
@@ -28,7 +27,6 @@ setAdmToStorage(prevState => ({...prevState,[e.target.name]:e.target.value}));
 if (e.target.name === 'password') {
 setAdmToStorage(prevState => ({...prevState,nanoId:nanoid()}));       
 }
-
  }
 
 return     <form onSubmit={ClickNewAdm} 
@@ -39,7 +37,6 @@ className={`${ThemeForComponent} flex flex-col content-around rounded-lg bg-gray
 <input onChange={ChangeInput} autoFocus type="text" name="name" placeholder="nome" 
 className={`${ThemeForInput}  rounded-full text-lg px-3 py-1`} />
 </label>
-
 
 <label className="flex flex-col mb-1">
  Digite seu e-mail

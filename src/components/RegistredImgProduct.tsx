@@ -7,7 +7,6 @@ function RegistredImgProduct({product}:TproductProp) {
   const { ModeTheme } = useContext(CatalogContext) as TstateModeTheme;
   const ThemeForDiv = ModeTheme.themeIsDark ? 'bg-gray-500 text-gray-700':'bg-white text-gray-400'   
 
-
   return <div className="flex justify-center">
   <div className={`${ThemeForDiv} flex justify-center  rounded-lg mb-2
   ${product.image === '' ? ' items-center h-[150px] w-[150px]' :

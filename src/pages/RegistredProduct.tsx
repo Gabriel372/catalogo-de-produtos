@@ -43,14 +43,12 @@ ModalEdit={ModalEdit} setModalEdit={setModalEdit}/>
 
 </div>
 
-
 </div>
 
   </motion.div>
 <ModalDelProduct ModalDel={ModalDel} setModalDel={setModalDel}/>
 <ModalEditProduct ModalEdit={ModalEdit} setModalEdit={setModalEdit}/>
 </div>
-
 
 )
 

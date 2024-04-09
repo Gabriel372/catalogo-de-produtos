@@ -13,19 +13,16 @@ const { AdmIsLoggedin,setAdmIsLoggedin } = useContext(CatalogContext) as TadmIsL
 const ActualPage = sessionStorage.getItem('ActualPage')?.replace(/\/%22|\/\//g, '') || '/';
 const navigate = useNavigate();
 const [AdmGetOut,setAdmGetOut] = useState<boolean>(false)
-const { AdmOn,ModeTheme,setModeTheme ,setAdmOn, BoxAdm } = useContext(CatalogContext) as TadmOn & TboxAdm & TstateModeTheme;
+const { ModeTheme ,setAdmOn, BoxAdm } = useContext(CatalogContext) as TadmOn & TboxAdm & TstateModeTheme;
 const admOnNanoId = sessionStorage.getItem('admOnNanoId')
 const foundAdm = BoxAdm.find((adm) => JSON.stringify(adm.nanoId) === admOnNanoId);
 const ThemeForComponent = ModeTheme?.themeIsDark ? 'text-white bg-neutral-800 duration-500':'bg-gray-200 duration-500  '
-
-
 
 useEffect( () => { 
 if (foundAdm) {
     setAdmOn(foundAdm)    
 }    
 CheckStatusPageForNavigate();
-
 },[AdmIsLoggedin,ActualPage,AdmGetOut,foundAdm ])
 
 function CheckStatusPageForNavigate() {

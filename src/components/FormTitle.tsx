@@ -6,7 +6,7 @@ import {db} from '../components/firebase'
 import { doc,updateDoc } from "firebase/firestore";
 import { useContext,useEffect,useState } from 'react';
 
-function FormTitle({FormIsOpen,setFormIsOpen}:TstateFormTitle) {
+function FormTitle({setFormIsOpen}:TstateFormTitle) {
     const {ModeTheme,InfoCompany, setInfoCompany  } = useContext(CatalogContext) as & TstateInfoCompany & TstateModeTheme;
     const [MsgBtnWait, setMsgBtnWait] = useState<boolean>(false) 
     const [InputValue, setInputValue] = useState<string>(InfoCompany.titlePage);     
@@ -61,8 +61,6 @@ value={InputValue} onChange={ChangeInput}/>
 </button>
 
 </form>
-
-
 )
 
 }

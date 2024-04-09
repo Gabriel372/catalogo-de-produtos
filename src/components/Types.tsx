@@ -68,7 +68,6 @@ price:string ;
 description:string ;
 image:string
 formatImg:string  
-// nanoIdAdm:string
 nanoId:string
 id:string
 }

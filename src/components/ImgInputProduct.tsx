@@ -48,7 +48,6 @@ setImgUpload({show:'',filename:null,formatIsLandscape:undefined,hasFormatImgToCh
 fileIsLoading:false,hasInputFileToClean:false});
 }
 
-
 function RemoveImg() {
 if (inputFileRef.current) {
 inputFileRef.current.value = ''    
@@ -75,7 +74,6 @@ onChange={(event)=>ChangeImg(event)}  ref={inputFileRef}/>
 
 {ImgUpload.fileIsLoading && <p className="IRMmsgLoad">Carregando foto ...</p> }
 
-
 <div className='flex flex-row justify-around w-full w-screen300:flex-col items-center'>
 
 <button className='flex flex-row bg-red-600 text-white rounded-full py-1 hover:bg-red-700  px-2 items-center max-w-36 justify-center'
@@ -91,9 +89,7 @@ Selecionar foto
 </span>
 </label>
 
-
 </div>
-
 
 </div>
 

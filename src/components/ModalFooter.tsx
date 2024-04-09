@@ -5,11 +5,11 @@ import { useContext,useEffect,useState } from 'react';
 import { CatalogContext } from './CatalogContext';
 import { updateDoc,doc } from "firebase/firestore"; 
 import {db} from '../components/firebase';
-import {  ToastContainer,toast } from "react-toastify";
+import {  toast } from "react-toastify";
 
 function ModalFooter({ModalIsOpen,setModalIsOpen}:TstateModalisOpen) {
 const [MsgBtnWait,setMsgBtnWait] = useState<boolean>(false)
-const {InfoCompany,setInfoCompany} = useContext(CatalogContext) as TstateInfoCompany ;
+const {setInfoCompany} = useContext(CatalogContext) as TstateInfoCompany ;
 const EmptyValuesForm = {celphone:'',addresStore:'',servicePeriod:'',titlePage:'',nanoId:'',id:'',acceptPayCredit:false,acceptPayDebit:false,acceptPayMoney:false,acceptPayPix:false}
 const [FormValue,setFormValue] = useState<TinfoCompany>(EmptyValuesForm);
 const { ModeTheme } = useContext(CatalogContext) as TstateModeTheme;
@@ -62,7 +62,6 @@ onClick={(e)=> e.stopPropagation()}>
 
   </div>
     
-
     </div>}
 
 </div>)    

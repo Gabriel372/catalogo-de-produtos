@@ -1,4 +1,4 @@
-import { ToastContainer, toast } from "react-toastify";
+import {  toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link,useNavigate } from 'react-router-dom';
 import {TboxAdm,TadmLog,TstateModeTheme } from '../components/Types'
@@ -7,7 +7,6 @@ import {CatalogContext} from '../components/CatalogContext'
 import FormAdmLog from '../components/FormAdmLog'
 import { motion } from 'framer-motion';
 import { pageVariants,pageTransition } from "../components/AnimationMotion";
-
 
 function LoginPage() {
   const {  BoxAdm,ModeTheme } = useContext(CatalogContext) as TboxAdm & TstateModeTheme
@@ -20,7 +19,6 @@ function LoginPage() {
 if (AdmLog.msgBtnWait) {
   CheckAdmToLogin()  
 }
-
   },[AdmLog])
 
 function CheckAdmToLogin() {
@@ -28,7 +26,6 @@ setAdmLog(PrevState=>({...PrevState,msgBtnWait:false}));
 const AdmIsOk = BoxAdm.find((adm)=> adm.email === AdmLog.email  && adm.password === AdmLog.password );
 const EmailAdmIsOk = BoxAdm.find((adm)=> adm.email === AdmLog.email );
 const PasswordAdmIsOk = BoxAdm.find((adm)=> adm.password === AdmLog.password );
-
 
 if (!EmailAdmIsOk && PasswordAdmIsOk) {
   toast.error("Email incorreto",{position:'top-center',theme:'dark' }) ; 
@@ -46,13 +43,10 @@ navigate('/ProductRegister');
 }  
 }
 
-
 return (
   <motion.div initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
 
 <div className={`${ThemeForContainer} pb-2`}>
-
- {/* <ToastContainer /> */}
 
 <div className="sm:w-auto mx-auto sm:max-w-[1100px] px-2 flex justify-center  min-h-[calc(68vh)] items-center">
 

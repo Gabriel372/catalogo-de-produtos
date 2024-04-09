@@ -5,7 +5,6 @@ import { toast } from "react-toastify";
 import { CgSpinner } from "react-icons/cg";
 import { CatalogContext } from './CatalogContext';
 
-
 function RegistredFormProduct({Product,setProduct,Status,setStatus}:TstateProductEdit) {
   const { ModeTheme} = useContext(CatalogContext) as TstateModeTheme
   const ThemeForInput = ModeTheme?.themeIsDark ? 'bg-gray-900 border-solid border-gray-600 border duration-500':'border border-solid border-gray-300  duration-500'
@@ -20,7 +19,6 @@ else if (!Product.price) {
 }
 else{
 setStatus({hasProductToUpdt:false,msgBtnWait:true}); 
-
 }
 }
 
@@ -69,8 +67,6 @@ autoFocus type="text" name="name" placeholder="nome" className={`${ThemeForInput
     </form>  
 
     </div> 
-    
-
   }
   
   export default RegistredFormProduct

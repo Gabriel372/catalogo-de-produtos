@@ -40,7 +40,6 @@ async function UploadImgMember(img:any,nanoId:number|string) {
     setImgUpload(prevState => ({...prevState,hasInputFileToClean:true}));
     setMsgBtnWait(false);
     setInputHasValue(true)   ;
- //   ClearInputFile();
 return url; }
 
 return <div>

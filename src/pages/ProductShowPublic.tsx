@@ -8,16 +8,12 @@ import ProductItem from '../components/ProductItem'
 function ProductShowPublic() {
 const {  BoxProduct,InfoCompany,BoxProductIsEmpty,ModeTheme } = useContext(CatalogContext) as TadmOn & TBoxProduct & TstateInfoCompany & TstateBoxProductIsEmpty & TstateModeTheme;
 const ThemeForContainer = ModeTheme?.themeIsDark ? 'bg-black duration-500 text-white':'bg-white duration-500'
-const ThemeForComponent = ModeTheme?.themeIsDark ? 'text-white bg-gray-800 duration-500':'bg-gray-200 duration-500'
 
 return  (
   <motion.div initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
 
 <div className={`${ThemeForContainer} w-full`}>
-
 <div className={` sm:w-auto mx-auto max-w-[1100px] px-2 flex  flex-col min-h-[calc(68vh)] pb-2`}>
-
-
 <h3 className='text-2xl text-center my-2'>{InfoCompany.titlePage}</h3>
 
 <div>
@@ -36,25 +32,11 @@ return  (
 
 </div>
 
-
 </div>  
 
-
 </div>
-
-
-  
-
-
-
-
-
 </motion.div>
-
 )
-
-
-
 }
 
 export default ProductShowPublic

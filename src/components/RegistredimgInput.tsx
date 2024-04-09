@@ -16,6 +16,7 @@ filename:null,formatIsLandscape:undefined,hasFormatImgToCheck:false,
 fileIsLoading:false,hasInputFileToClean:false});    
 const { ModeTheme } = useContext(CatalogContext) as TstateModeTheme;
 const ThemeForSpan = ModeTheme.themeIsDark ? 'bg-gray-500 text-gray-700':'bg-white text-gray-400'   
+const ThemeForLoad = ModeTheme?.themeIsDark ? 'bg-gray-500 text-white':'bg-white text-black'
 
 useEffect(() => {    
 if (Status.msgBtnWait && ImgEdit.filename) {
@@ -109,7 +110,7 @@ id='file-input' type="file" accept="image/*,.heic,.heif" className='hidden'
 
 </>)}
 
-{ImgEdit.fileIsLoading && <p >Carregando foto ...</p>}
+{ImgEdit.fileIsLoading && <p className={`${ThemeForLoad} h-[150px] w-[150px] flex justify-center items-center`}>Carregando foto ...</p>}
 </div>
 
 <div className='flex flex-row justify-around w-full w-screen300:flex-col items-center'>

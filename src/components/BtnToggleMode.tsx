@@ -1,9 +1,8 @@
 
-import {useState,useContext} from "react";
+import {useContext} from "react";
 import DarkModeToggle from "react-dark-mode-toggle";
 import { CatalogContext } from './CatalogContext';
 import { TstateModeTheme } from './Types';
-
 
 function BtnToggleMode() {
     const {ModeTheme,setModeTheme} = useContext(CatalogContext) as TstateModeTheme ;

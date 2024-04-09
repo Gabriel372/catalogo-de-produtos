@@ -5,15 +5,12 @@ import { CatalogContext } from './CatalogContext'
 function RegistredDataProduct({ product }: { product: Tproduct }) {
   const { ModeTheme} = useContext(CatalogContext) as TstateModeTheme
 
-
 function AddZeroToPrice(value:string) {
 if (value.length === 1) {
 return `${value},00`  
 }
 else {return value}  
 }
-
-
 
 return ( 
 <div className=' h-full max-h-36 flex flex-col justify-around' >
@@ -26,12 +23,8 @@ return (
   <span className='font-semibold'> {product.description} </span>
   </p>}
 
-
 </div>
 )
-
-
-
   }
   
   export default RegistredDataProduct

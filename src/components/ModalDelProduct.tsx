@@ -75,13 +75,9 @@ onClick={ClickDelProductInFirebase}>
 
 </div>
 
-
 </div>
 
-
 }    
-
-
 
 </div>
 

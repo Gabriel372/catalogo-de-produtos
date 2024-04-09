@@ -7,8 +7,6 @@ import { PiMapPinBold } from "react-icons/pi";
 import { BsWhatsapp } from "react-icons/bs";
 import { LuAlarmClock } from "react-icons/lu";
 import { GiReceiveMoney } from "react-icons/gi";
-import {  ToastContainer,toast } from "react-toastify";
-
 
 function Footer() {
 const {InfoCompany ,AdmIsLoggedin,ModeTheme} = useContext(CatalogContext) as TstateInfoCompany & TadmIsLoggedin & TstateModeTheme
@@ -51,7 +49,6 @@ Horário de atendimento:<span className=" font-normal ml-1">{InfoCompany.service
 }
 
 return <footer className={`${ThemeForComponent} pb-3 pt-2`}>
-{/* <ToastContainer/> */}
 
 <div  className="w-full sm:w-auto mx-auto max-w-[1100px] px-2 flex justify-between h-full max-h-[700px] flex-col ">
 
@@ -64,9 +61,6 @@ className={`${!ModeTheme.themeIsDark && 'border-black'}  border  rounded-full px
 <SlPencil className="mr-1"/>{infoIsEmpty && 'Editar informaçoes'} </button>
 </div>
 }
-
-
-
 
 </div>
 <ModalFooter ModalIsOpen={ModalIsOpen} setModalIsOpen={setModalIsOpen}/>
