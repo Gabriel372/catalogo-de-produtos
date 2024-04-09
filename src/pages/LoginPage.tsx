@@ -31,13 +31,13 @@ const PasswordAdmIsOk = BoxAdm.find((adm)=> adm.password === AdmLog.password );
 
 
 if (!EmailAdmIsOk && PasswordAdmIsOk) {
-  toast.error("Email incorreto",{position:'bottom-center', }) ; 
+  toast.error("Email incorreto",{position:'top-center',theme:'dark' }) ; 
 }
 else if (!PasswordAdmIsOk && EmailAdmIsOk) {
-  toast.error("Senha incorreta",{position:'bottom-center', }) ; 
+  toast.error("Senha incorreta",{position:'top-center',theme:'dark' }) ; 
 }
 else if (!EmailAdmIsOk && !PasswordAdmIsOk) {
-  toast.error("Esse administrador não está cadstrado",{position:'bottom-center', }) ; 
+  toast.error("Esse administrador não está cadstrado",{position:'top-center',theme:'dark'  }) ; 
 }
 else if (AdmIsOk) {
 sessionStorage.setItem('admOnNanoId',JSON.stringify(AdmIsOk.nanoId));

@@ -35,7 +35,7 @@ className={`${ThemeForInput} rounded-full px-3 py-1 text-lg`} />
 
 </label>
 
-<label className="flex flex-col mb-2">
+<label className="flex flex-col mb-3">
 Digite sua senha   
 <input type="password" name="password" placeholder="sua senha" value={AdmLog.password}
 onChange={ChangeInput} className={`${ThemeForInput} rounded-full px-3 py-1 text-lg`}/>

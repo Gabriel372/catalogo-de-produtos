@@ -20,7 +20,7 @@ const [FormIsOpen,setFormIsOpen] = useState<boolean>(false)
 </h3>
 
 <button onClick={() => setFormIsOpen(true)}
-className=" text-black ml-1" >
+className=" ml-2" >
 <BsPencil/>
 </button>
 </div>

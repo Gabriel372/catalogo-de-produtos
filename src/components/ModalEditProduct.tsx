@@ -43,7 +43,7 @@ function UpdtBoxProduct() {
     NewBox[index] = Product 
     setBoxProduct(NewBox);
  setTimeout(()=>{
-    toast.success("Editado com sucesso",{position:'bottom-center', theme: "dark",});
+    toast.success("Editado com sucesso",{position:'top-center', theme: "dark",});
     setStatus( (prevState) => ({...prevState,msgBtnWait:false,hasProductToUpdt:false}))
 },4000);
 }

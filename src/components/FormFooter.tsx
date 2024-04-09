@@ -1,6 +1,7 @@
 import { useState,useContext,useEffect } from 'react';
 import { TformFooter,TadmOn,TboxAdm,TstateInfoCompany,TstateModalFooter,TstateModeTheme } from './Types';
 import { CatalogContext } from './CatalogContext';
+import { ToastContainer } from 'react-toastify';
 
 
 function FormFooter({MsgBtnWait,setMsgBtnWait,FormValue,setFormValue}:TstateModalFooter) {
@@ -38,6 +39,7 @@ else {
 
 
 return (<form onSubmit={ClickUpdate} className=' flex flex-col'>
+    {/* <ToastContainer/> */}
 <label className="flex flex-col mb-2">
    Whatzapp do atendente
    <input autoFocus type="number" name="celphone" placeholder="whatzapp" value={FormValue.celphone}
@@ -57,26 +59,26 @@ Descreva o horário de atendimento
    </label>
 
 <label className="flex flex-col mb-2">
-Marque suas formas de pagamento:    
-<label>
+<span className=' font-medium'>Marque suas formas de pagamento:</span>
+<label className=' mb-1'>
 Cartão de crédito: 
 <input type="checkbox" name="acceptPayCredit" checked={FormValue.acceptPayCredit}
  onChange={ChangeInput}/>  
 </label>
 
-<label>
+<label className=' mb-1'>
 Cartão de Débito: 
 <input type="checkbox" name="acceptPayDebit" checked={FormValue.acceptPayDebit}
  onChange={ChangeInput}/>  
 </label>
 
-<label>
+<label className=' mb-1'>
 Dinheiro: 
 <input type="checkbox" name="acceptPayMoney" checked={FormValue.acceptPayMoney}
  onChange={ChangeInput}/>  
 </label>
 
-<label>
+<label className=' mb-1'>
 Pix:
 <input type="checkbox" name="acceptPayPix" checked={FormValue.acceptPayPix}
  onChange={ChangeInput}/>  

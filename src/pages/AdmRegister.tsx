@@ -9,6 +9,7 @@ import {db} from '../components/firebase'
 import { motion } from 'framer-motion';
 import { pageVariants,pageTransition } from "../components/AnimationMotion";
 import {CatalogContext} from '../components/CatalogContext'
+import {  toast } from "react-toastify";
 
 
 function AdmRegister() {
@@ -45,17 +46,14 @@ AdmLogin();
 function AdmLogin() {
 sessionStorage.setItem('admOnNanoId',JSON.stringify(AdmToStorage.nanoId));
 sessionStorage.setItem('ActualPage','/ProductRegister') ;
-navigate('/ProductRegister') ;  
+toast.success("Cadastrado com sucesso!",{position:'top-center', theme: "dark"}) ;
+setTimeout(()=> navigate('/ProductRegister') ,3500);
 }
-
 
 return  (
 <motion.div initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
     <div className={`${ThemeForContainer} px-1 pb-2`}>
 <div className={`${ThemeForContainer} flex pt-1`}>
-{/* <Link to='/' className="h-[30px] w-[25px] mt-1 ml-1">
- <IoArrowBackSharp />
- </Link> */}
 
     <h3 className="font-bold block w-full text-center my-1">Cadastre-se como administrador</h3>
 

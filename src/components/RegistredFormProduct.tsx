@@ -32,7 +32,6 @@ else if (name === 'price' && value.length < 20) {
 setProduct(prevState => ({...prevState,[e.target.name]:e.target.value}));} 
 else if (name === 'description' && value.length < 300) {
   setProduct(prevState => ({...prevState,[e.target.name]:e.target.value}));} 
-console.log(value.length)
 }
 
     return <div >

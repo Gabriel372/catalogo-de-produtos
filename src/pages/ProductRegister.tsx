@@ -46,7 +46,7 @@ function InsertProductInBox() {
 BoxProduct.length === 0 && setBoxProductIsEmpty(false);    
 setBoxProduct(prevState => [...prevState,Product]);  
 setProduct({name:'',price:'',description:'',image:'',formatImg:'',nanoId:'',id:''});
-toast.success("cadastrado com sucesso",{position:'bottom-center', theme: "dark",}) 
+toast.success("cadastrado com sucesso",{position:'top-center', theme: "dark",}) 
 }
 
 
@@ -57,7 +57,7 @@ return(
 <div className="sm:w-auto mx-auto sm:max-w-[1100px] px-2 flex flex-col items-center  min-h-[calc(95vh)] ">
    <h1 className="font-bold block w-full text-center text-2xl my-2">Cadastrar produto</h1>
 
-<div className={`${ThemeForComponent} flex flex-col content-around rounded-lg w-full max-w-[350px] p-2 mx-1 mt-5 shadow-2xl`} >
+<div className={`${ThemeForComponent} flex flex-col content-around rounded-lg p-2 mt-5 shadow-2xl w-full mx-1 max-w-[420px]`} >
 <ImgRegisterProduct Product={Product} setProduct={setProduct} MsgBtnWait={MsgBtnWait} 
 setMsgBtnWait={setMsgBtnWait} InputHasValue={InputHasValue} setInputHasValue={setInputHasValue}/>
 <FormProductRegister Product={Product} setProduct={setProduct} MsgBtnWait={MsgBtnWait} setMsgBtnWait={setMsgBtnWait}/>
