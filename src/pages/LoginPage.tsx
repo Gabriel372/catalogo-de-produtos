@@ -48,9 +48,9 @@ return (
 
 <div className={`${ThemeForContainer} pb-2`}>
 
-<div className="sm:w-auto mx-auto sm:max-w-[1100px] px-2 flex justify-center  min-h-[calc(68vh)] items-center">
+<div className="sm:w-auto mx-auto sm:max-w-[1100px] px-2 flex justify-center  min-h-[calc(71vh)] items-center">
 
-<div className={`${ThemeForComponent}  rounded-lg w-full max-w-[350px] p-2 max-h-[400px] h-full mx-1 mt-5 shadow-2xl`} >
+<div className={`${ThemeForComponent}  rounded-lg w-full max-w-[400px] p-2 max-h-[400px] h-full mt-5 shadow-2xl`} >
 
 <FormAdmLog AdmLog={AdmLog} setAdmLog={setAdmLog}/>
 

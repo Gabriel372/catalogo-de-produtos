@@ -13,6 +13,7 @@ import Footer from './components/Footer';
 import {useContext} from "react";
 import { CatalogContext } from './components/CatalogContext';
 import { TstateModeTheme } from './components/Types';
+import AccountAdm from './pages/AccountAdm';
 
 function App() {
 const {ModeTheme} = useContext(CatalogContext) as TstateModeTheme ;
@@ -30,6 +31,7 @@ const {ModeTheme} = useContext(CatalogContext) as TstateModeTheme ;
 <Route  path='/AdmRegister' element={<AdmRegister/>}/>
 <Route  path='/ProductRegister' element={<ProductRegister/>}/>
 <Route  path='/RegistredProduct' element={<RegistredProduct/>}/>
+<Route  path='/AccountAdm' element={<AccountAdm/>}/>
 </Routes>
 
 <Footer/>

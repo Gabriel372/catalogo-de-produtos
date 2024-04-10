@@ -52,14 +52,14 @@ setState:React.Dispatch<React.SetStateAction<T>>;
 export type TadmToStorage = {
 AdmToStorage:Tadm;
 setAdmToStorage:React.Dispatch<React.SetStateAction<Tadm>>; 
-MsgWaitBtn:boolean
-setMsgWaitBtn:React.Dispatch<React.SetStateAction<boolean>>; 
+Status:TstatusAdmRegist
+setStatus:React.Dispatch<React.SetStateAction<TstatusAdmRegist>>; 
 
 }
 export type TadmIsLoggedin = {
     AdmIsLoggedin:boolean;
     setAdmIsLoggedin:React.Dispatch<React.SetStateAction<boolean>>; 
-    }
+}
 
 
 export type Tproduct = {
@@ -186,3 +186,33 @@ export type TstateModeTheme= {
     ModeTheme:TmodeTheme
     setModeTheme:React.Dispatch<React.SetStateAction<TmodeTheme>>; 
 }
+export type TModDelAdm = {
+    ModalDelIsOpen:boolean;
+    setModalDelIsOpen:React.Dispatch<React.SetStateAction<boolean>>;
+}
+export type TstatusAdmRegist = {
+msgBtnWait:boolean;
+hasAdmToPost:boolean;
+}
+export type TstateAdmGetOut = {
+AdmGetOut:boolean;
+setAdmGetOut: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+// export type TGenericState<T>= {
+// state: T;
+// setState: React.Dispatch<React.SetStateAction<T>>;
+// }
+  
+// export type TstateAdmGetOut = TGenericState<boolean>
+
+// export type TGenericState<T> = {
+//     state: T;
+//     setState: React.Dispatch<React.SetStateAction<T>>;
+//   }
+  
+//   type TModDelAdm = TGenericState<boolean>;
+//   type TstateAdmGetOut = TGenericState<boolean>;
+
+
+

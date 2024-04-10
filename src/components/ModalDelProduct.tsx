@@ -64,7 +64,8 @@ onClick={(e)=> e.stopPropagation()}>
  >Não</button>  
 :
 <button className='bg-black text-white rounded-full py-1 cursor-pointer hover:bg-gray-700 max-w-[120px] w-full' 
-onClick={()=>setModalDel({modalIsOpen:false,deleteTarget:undefined})} >Não</button>  }
+onClick={()=>setModalDel({modalIsOpen:false,deleteTarget:undefined})} >Não</button>  
+}
 
 <button className='bg-red-600 text-white rounded-full py-1 cursor-pointer hover:bg-red-700 w-full max-w-[120px] ml-2'
 onClick={ClickDelProductInFirebase}>

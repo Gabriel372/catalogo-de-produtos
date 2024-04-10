@@ -1,6 +1,7 @@
 import { useState,useContext,useEffect } from 'react';
 import { TadmOn,TboxAdm,TstateInfoCompany,TstateModalFooter,TstateModeTheme } from './Types';
 import { CatalogContext } from './CatalogContext';
+import { CgSpinner } from "react-icons/cg";
 
 function FormFooter({MsgBtnWait,setMsgBtnWait,FormValue,setFormValue}:TstateModalFooter) {
 const { ModeTheme, InfoCompany} = useContext(CatalogContext) as TadmOn & TboxAdm & TstateInfoCompany & TstateModeTheme;
@@ -79,7 +80,10 @@ Pix:
 </label>
 
 <button className=" rounded-full px-3 py-1 flex flex-row items-center bg-black text-white justify-center hover:bg-gray-800">
-{MsgBtnWait ? 'Aguarde...':'Atualizar'}</button>
+{MsgBtnWait ? <p className='flex justify-center align-middle'>
+<CgSpinner  className='text-2xl mr-1 animate-spin'/>Aguarde</p> 
+:'Atualizar'}</button>
+
 </form>)    
 }
 

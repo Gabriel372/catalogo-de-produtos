@@ -21,6 +21,7 @@ titlePage:'',addresStore:'',servicePeriod:'', celphone:'',
 nanoId:'',id:'',acceptPayCredit:false,acceptPayDebit:false,
 acceptPayMoney:false,acceptPayPix:false,});
 const ActualThemeIsDark =  JSON.parse(localStorage.getItem('ActualThemeIsDark') || 'null')
+const [AdmGetOut,setAdmGetOut] = useState<boolean>(false)
 
 
 
@@ -51,8 +52,8 @@ setInfoCompany(data[0])
 }
 
   return (
-    <CatalogContext.Provider value={{ BoxAdm,AdmIsLoggedin,BoxProduct,AdmOn,InfoCompany,BoxProductIsEmpty,ModeTheme,
-   setModeTheme,setBoxProductIsEmpty,setInfoCompany,setAdmOn,setBoxAdm,setAdmIsLoggedin,setBoxProduct}}>
+    <CatalogContext.Provider value={{ BoxAdm,AdmIsLoggedin,BoxProduct,AdmOn,InfoCompany,BoxProductIsEmpty,ModeTheme,AdmGetOut
+    ,setAdmGetOut,setModeTheme,setBoxProductIsEmpty,setInfoCompany,setAdmOn,setBoxAdm,setAdmIsLoggedin,setBoxProduct}}>
       {children}
     </CatalogContext.Provider>
   );

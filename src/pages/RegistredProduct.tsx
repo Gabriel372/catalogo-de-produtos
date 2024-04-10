@@ -20,7 +20,7 @@ return (<div>
     <motion.div initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
  
  <div className={`${ThemeForContainer} w-full`}>
-<div className='sm:w-auto mx-auto max-w-[1100px] px-2 flex  flex-col min-h-[calc(60vh)] pb-2'>
+<div className='sm:w-auto mx-auto max-w-[1100px] px-2 flex  flex-col min-h-[calc(70vh)] pb-2'>
 
 <Title/>
 

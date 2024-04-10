@@ -23,7 +23,7 @@ function MenuMobile() {
         sessionStorage.setItem('ActualPage',page)
       }
       
-return (<div className=' hidden w-screen800:block ' >
+return (<div className=' hidden w-screen850:block ' >
 
 <button className={`${ThemeForComponent} text-2xl transition duration-500 ease-in-out transform`}
 onClick={() => {setInt(!interrupt)}}>
@@ -35,7 +35,7 @@ onClick={() => {setInt(!interrupt)}}>
 <div className={`flex justify-end z-20 absolute left-0 top-0 w-full box-border max-h-0 transition-all duration-200 ease-in
 ${interrupt && '  h-[100vh] max-h-[100vh] transition-all duration-200 ease-in'}`} onClick={()=> setInt(!interrupt)} > 
 
-<ul className={`${ThemeForUlMenu} ${interrupt ? `z-20 text-left flex flex-col  relative pb-2 m-0 ml-1.25  rounded-md right-1 top-[55px] p-2 h-screen400:top-[40px] shadow-2xl text-xl max-h-40`:
+<ul className={`${ThemeForUlMenu} ${interrupt ? `z-20 text-left flex flex-col  relative pb-2 m-0 ml-1.25  rounded-md right-1 top-[55px] p-2 h-screen400:top-[40px] shadow-2xl text-xl max-h-48`:
 'hidden'}`}> 
 
 <Link onClick={()=>SaveActualPage('/')} to='/' 
@@ -44,6 +44,10 @@ className={`pb-2 rounded-md `}>Ver produtos</Link>
  className=' pb-2 rounded-md'>Produtos cadastrados</Link>      
 <Link onClick={()=>SaveActualPage('/ProductRegister')} to='/ProductRegister'
  className=' pb-2 rounded-md '>Cadastrar Produtos</Link> 
+
+<Link onClick={()=>SaveActualPage('/AccountAdm')} to='/AccountAdm'
+ className=' pb-2 rounded-md '>Minha Conta</Link> 
+
 <Link onClick={RemoveAdmEpage} to='/LoginPage' className=' rounded-md '>
  Sair </Link> 
 

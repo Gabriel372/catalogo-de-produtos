@@ -11,7 +11,7 @@ function FormAdmLog({AdmLog,setAdmLog}:TstateAdmLog) {
 function ClickLog(e: React.FormEvent<HTMLFormElement>) {
  e.preventDefault();
  if (AdmLog.email === '' || AdmLog.password === '' ) {
- toast.error("Prencha os campos.",{position:'top-center',theme: "dark"}) ; 
+ toast.error("Prencha os campos",{position:'top-center',theme: "dark"}) ; 
  }     
 else {
 setAdmLog(PrevState=>({...PrevState,msgBtnWait:true}))

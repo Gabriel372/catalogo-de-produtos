@@ -21,6 +21,7 @@ module.exports = {
 
     },
     screens: {
+      'w-screen850': {'max': '850px'},
       'w-screen800': {'max': '800px'},
       'w-screen750': {'max': '750px'},
       'w-screen700': {'max': '700px'},

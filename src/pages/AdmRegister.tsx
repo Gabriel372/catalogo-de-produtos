@@ -8,44 +8,47 @@ import {db} from '../components/firebase'
 import { motion } from 'framer-motion';
 import { pageVariants,pageTransition } from "../components/AnimationMotion";
 import {CatalogContext} from '../components/CatalogContext'
-import {  toast } from "react-toastify";
+import { TboxAdm,TstatusAdmRegist } from '../components/Types';
 
 function AdmRegister() {
 const [AdmToStorage, setAdmToStorage] = useState<Tadm>({name: '',email: '',password: '',nanoId:'',id:''}); 
-const [MsgWaitBtn,setMsgWaitBtn] = useState<boolean>(false);
 const navigate = useNavigate();
-const {  ModeTheme } = useContext(CatalogContext) as TstateModeTheme
+const {  ModeTheme ,setBoxAdm,BoxAdm } = useContext(CatalogContext) as TstateModeTheme & TboxAdm
 const ThemeForContainer = ModeTheme?.themeIsDark ? 'bg-black duration-500 text-white':'bg-white duration-500'
+const [Status,setStatus] = useState<TstatusAdmRegist>({msgBtnWait:false,hasAdmToPost:false});
 
 useEffect(() => {
-if (MsgWaitBtn) {
+if (Status.hasAdmToPost) {
 PostAdmInFirebase()  }
-
-}, [MsgWaitBtn]) ;
+else if (Status.msgBtnWait && AdmToStorage.id ) {
+InsertAdmInBox()    
+}
+}, [Status,AdmToStorage]) ;
 
 async function PostAdmInFirebase() {
+setStatus(({msgBtnWait:true,hasAdmToPost:false})); 
 try { 
 const docRef = await addDoc(collection(db,"AdmCDP"),AdmToStorage).then((docRef)=> {
 setAdmToStorage((prevState => ({...prevState,id:docRef.id})));
-InsertAdmInBox();
 })
 }
 catch (e) {
 console.error("Error adding document: ", e);
-setMsgWaitBtn(false);
+setStatus(({msgBtnWait:false,hasAdmToPost:false})); 
 }
 }
 
 function InsertAdmInBox() {
+setBoxAdm(prevState=>([...prevState,AdmToStorage]));
+sessionStorage.setItem('admOnNanoId',JSON.stringify(AdmToStorage.nanoId));
 setAdmToStorage({name: '',email: '',password: '',nanoId:'',id:''}); 
-setMsgWaitBtn(false);
 AdmLogin();
 }
+
 function AdmLogin() {
-sessionStorage.setItem('admOnNanoId',JSON.stringify(AdmToStorage.nanoId));
 sessionStorage.setItem('ActualPage','/ProductRegister') ;
-toast.success("Cadastrado com sucesso!",{position:'top-center', theme: "dark"}) ;
-setTimeout(()=> navigate('/ProductRegister') ,3500);
+setStatus(({msgBtnWait:false,hasAdmToPost:false})); 
+navigate('/ProductRegister') 
 }
 
 return  (
@@ -57,8 +60,8 @@ return  (
 
 </div>
 
-    <div className="sm:w-auto mx-auto sm:max-w-[1100px] px-2 flex justify-center min-h-[calc(60vh)] items-center">
-   <FormAdmRegist AdmToStorage={AdmToStorage} setAdmToStorage={setAdmToStorage} MsgWaitBtn={MsgWaitBtn} setMsgWaitBtn={setMsgWaitBtn}/>
+    <div className="sm:w-auto mx-auto sm:max-w-[1100px] flex justify-center min-h-[calc(68vh)] items-center">
+   <FormAdmRegist AdmToStorage={AdmToStorage} setAdmToStorage={setAdmToStorage} Status={Status} setStatus={setStatus}/>
  
     </div>
     </div> 

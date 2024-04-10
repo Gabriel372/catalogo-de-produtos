@@ -42,8 +42,8 @@ setProduct(prevState => ({...prevState,nanoId:nanoid()}));
 
 
    <label className="flex flex-col mb-2">
-    Digite o valor
-   <input onChange={ChangeInput}   type="number" name="price" placeholder="valor" value={Product.price}
+    Digite o preço
+   <input onChange={ChangeInput}   type="number" name="price" placeholder="preço" value={Product.price}
   className={`${ThemeForInput} rounded-full px-3 py-1`} />
    </label>
    
