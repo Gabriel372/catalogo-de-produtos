@@ -1,46 +1,28 @@
-# Getting Started with Create React App
+🛒 # Catálogo de Produtos
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Sobre
+Este é um catálogo de produtos personalizável onde o usuário se cadastra para poder cadastrar, editar ou deletar produtos e informações na parte inferior. Os produtos cadastrados são exibidos na página inicial para o público que visitar o site. O usuário também pode digitar um título para exibir.
 
-## Available Scripts
+##Objetivo:
+Ajudar o comerciante usuário a divulgar seus produtos 
 
-In the project directory, you can run:
+## Tecnologias Utilizadas
 
-### `npm start`
+### React JS com TypeScript
+Utilizado para fazer a interação com o usuário.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Tailwind
+Utilizado para dar estilo a cada componente do site.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Framer Motion
+Utilizado para adicionar efeitos animados ao trocar de página.
 
-### `npm test`
+### GitHub Pages
+Utilizado para hospedar o site.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Firebase
+Utilizado para armazenar imagens e informações.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
