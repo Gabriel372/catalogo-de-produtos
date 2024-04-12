@@ -1,14 +1,14 @@
 import {useRef,useEffect,useState,useContext  } from 'react'
 import { BsFilePersonFill } from "react-icons/bs";
 import { FaTrashAlt } from "react-icons/fa";
-import { TRegistImg, TstateEditProduct,TstateModeTheme } from './Types';
+import { TRegistImg, TstateEditProduct2,TstateModeTheme } from './Types';
 import heic2any from 'heic2any';
 import { CheckFormatImgIsLandScape } from './ImgRegisterProduct';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "./firebase";
 import { CatalogContext } from './CatalogContext';
 
-function RegistredimgInput({Product,setProduct,Status,setStatus}:TstateEditProduct) {
+function RegistredimgInput({Product,setProduct,Status,setStatus}:TstateEditProduct2) {
 const inputFileRef = useRef<HTMLInputElement>(null);
 const ImgValuesEmpty = {show:'',filename:null,formatIsLandscape:undefined,hasFormatImgToCheck:false,fileIsLoading:false,hasInputFileToClean:false}
 const [ImgEdit, setImgEdit] = useState<TRegistImg>({show:Product.image,
@@ -21,7 +21,7 @@ const ThemeForLoad = ModeTheme?.themeIsDark ? 'bg-gray-500 text-white':'bg-white
 useEffect(() => {    
 if (Status.msgBtnWait && ImgEdit.filename) {
  UploadImgMember(ImgEdit.filename,Product.nanoId)   
-}    
+}  
 else if (Status.msgBtnWait &&  !Status.hasProductToUpdt) {
 setStatus(prevState => ({...prevState,hasProductToUpdt:true}));  
 }
@@ -63,13 +63,8 @@ setImgEdit((prevState:TRegistImg) => ({
     reader.onload = () => {
 setImgEdit((prevState:TRegistImg) => ({
     ...prevState,show:reader.result as string,filename:file,hasFormatImgToCheck:true}));
-
-    }
-    reader.readAsDataURL(file);
-    } 
-}
-
-}
+  }
+  reader.readAsDataURL(file) } }}
 
 async function UploadImgMember(img:any,nanoId:number|string) {
     const storageRef = ref(storage, `CatalogoDeProdutos/(${nanoId})`);

@@ -1,15 +1,18 @@
 import {CatalogContext} from '../components/CatalogContext'
-import { useContext } from 'react';
-import {TBoxProduct,TadmOn,TstateInfoCompany,TstateBoxProductIsEmpty,TstateModeTheme} from '../components/Types'
+import { useContext,useState } from 'react';
+import {TBoxProduct,TadmOn,TstateInfoCompany,TstateBoxProductIsEmpty,TstateModeTheme,TmodalShow} from '../components/Types'
 import { motion } from 'framer-motion';
 import { pageVariants,pageTransition } from "../components/AnimationMotion";
 import ProductItem from '../components/ProductItem'
+import ModalShowProduct from '../components/ModalShowProduct';
 
 function ProductShowPublic() {
 const {  BoxProduct,InfoCompany,BoxProductIsEmpty,ModeTheme } = useContext(CatalogContext) as TadmOn & TBoxProduct & TstateInfoCompany & TstateBoxProductIsEmpty & TstateModeTheme;
 const ThemeForContainer = ModeTheme?.themeIsDark ? 'bg-black duration-500 text-white':'bg-white duration-500'
+const EmptyValues = {name:'',price:'',description:'',image:'',formatImg:'',nanoId:'',id:''}
+const [ModalShow,setModalShow] = useState<TmodalShow>({modalIsOpen:false,product:EmptyValues})
 
-return  (
+return  ( <div>
   <motion.div initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
 
 <div className={`${ThemeForContainer} w-full`}>
@@ -22,7 +25,7 @@ return  (
 <ul className='w-screen650:grid w-screen650:grid-cols-1 w-screen650:max-w-[300px] m-auto
  w-screen800:grid-cols-2 grid-cols-3   grid gap-3' >
   {BoxProduct.map((product)=>(
-   <ProductItem key={product.nanoId} product={product}/>   
+   <ProductItem key={product.nanoId} product={product} ModalShow={ModalShow} setModalShow={setModalShow}/>   
 ))}
 </ul>}
 
@@ -36,6 +39,9 @@ return  (
 
 </div>
 </motion.div>
+
+<ModalShowProduct ModalShow={ModalShow} setModalShow={setModalShow}/>
+</div>
 )
 }
 

@@ -1,14 +1,15 @@
-import { Tproduct,TstateModeTheme } from "./Types"
+import { TstateModalShow,TstateModeTheme } from "./Types"
 import {CatalogContext} from '../components/CatalogContext'
 import { useContext } from 'react';
 
-function ProductItem({ product }: { product: Tproduct }) {
+function ProductItem({product,setModalShow}:TstateModalShow ) {
 const { ModeTheme } = useContext(CatalogContext) as TstateModeTheme;
 const ThemeForComponent = ModeTheme?.themeIsDark ? 'border border-gray-700 text-white bg-neutral-800 duration-500':'bg-gray-200 duration-500 border border-gray-300'
 const ThemeForDiv = ModeTheme.themeIsDark ? 'bg-gray-500 text-gray-700':'bg-white text-gray-400'   
 
 return (<li key={product.id} className={`${ThemeForComponent} rounded-lg bg-gray-200 p-1 max-w-[350px] shadow-2xl
-card transform transition-transform duration-200 hover:-translate-y-1 flex flex-col justify-around `}> 
+card transform transition-transform duration-200 hover:-translate-y-1 flex flex-col justify-around cursor-pointer`}
+onClick={()=> {setModalShow( prevState => ({...prevState,modalIsOpen:true,product:product}))}} > 
 
 <div className="flex justify-center">
 

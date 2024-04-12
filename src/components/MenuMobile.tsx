@@ -43,10 +43,10 @@ className={`pb-2 rounded-md `}>Ver produtos</Link>
 <Link onClick={()=>SaveActualPage('/RegistredProduct')} to='/RegistredProduct'
  className=' pb-2 rounded-md'>Produtos cadastrados</Link>      
 <Link onClick={()=>SaveActualPage('/ProductRegister')} to='/ProductRegister'
- className=' pb-2 rounded-md '>Cadastrar Produtos</Link> 
+ className=' pb-2 rounded-md '>Cadastrar produtos</Link> 
 
 <Link onClick={()=>SaveActualPage('/AccountAdm')} to='/AccountAdm'
- className=' pb-2 rounded-md '>Minha Conta</Link> 
+ className=' pb-2 rounded-md '>Minha conta</Link> 
 
 <Link onClick={RemoveAdmEpage} to='/LoginPage' className=' rounded-md '>
  Sair </Link> 

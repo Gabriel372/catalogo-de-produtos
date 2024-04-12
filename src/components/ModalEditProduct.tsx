@@ -7,6 +7,7 @@ import { doc,updateDoc } from "firebase/firestore";
 import {db} from '../components/firebase'
 import { CatalogContext } from '../components/CatalogContext';
 import { toast,ToastContainer } from 'react-toastify';
+import DelPrevImgProduct from "./DelPrevImgProduct";
 
 function ModalEditProduct({ModalEdit,setModalEdit}:TstateModEditProduct) {
 const [Product,setProduct] = useState<Tproduct>(ModalEdit.productEdit)
@@ -70,7 +71,11 @@ return (<div>
 
 </div>
 
-<RegistredimgInput Product={Product} setProduct={setProduct} Status={Status} setStatus={setStatus}/>
+<RegistredimgInput Product={Product} setProduct={setProduct} Status={Status} setStatus={setStatus} />
+
+<DelPrevImgProduct Product={Product} setProduct={setProduct} Status={Status} setStatus={setStatus} 
+ModalEdit={ModalEdit} setModalEdit={setModalEdit}/>
+
 <RegistredFormProduct Product={Product} setProduct={setProduct} Status={Status} setStatus={setStatus}/>
 
 </div>

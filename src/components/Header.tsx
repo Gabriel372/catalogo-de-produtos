@@ -61,9 +61,9 @@ className={`${ModeTheme.themeIsDark ? 'hover:bg-gray-700':'hover:bg-gray-300' } 
 <Link onClick={()=>SaveActualPage('/RegistredProduct')} to='/RegistredProduct'
 className={`${ModeTheme.themeIsDark ? 'hover:bg-gray-700':'hover:bg-gray-300' } mr-2 p-1 rounded-md `}>Produtos cadastrados</Link>      
 <Link onClick={()=>SaveActualPage('/ProductRegister')} to='/ProductRegister'
- className={`${ModeTheme.themeIsDark ? 'hover:bg-gray-700':'hover:bg-gray-300' } mr-2 p-1 rounded-md `}>Cadastrar Produtos</Link> 
+ className={`${ModeTheme.themeIsDark ? 'hover:bg-gray-700':'hover:bg-gray-300' } mr-2 p-1 rounded-md `}>Cadastrar produtos</Link> 
 <Link onClick={()=>SaveActualPage('/AccountAdm')} to='/AccountAdm'
- className={`${ModeTheme.themeIsDark ? 'hover:bg-gray-700':'hover:bg-gray-300' } mr-2 p-1 rounded-md `}>Minha Conta</Link> 
+ className={`${ModeTheme.themeIsDark ? 'hover:bg-gray-700':'hover:bg-gray-300' } mr-2 p-1 rounded-md `}>Minha conta</Link> 
 <Link onClick={AdmExit} to='/LoginPage' 
 className={`${ModeTheme.themeIsDark ? 'hover:bg-gray-700':'hover:bg-gray-300' } mr-2 p-1 rounded-md `}>
  Sair </Link> 

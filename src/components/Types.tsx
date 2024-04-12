@@ -171,7 +171,11 @@ export type TstateEditProduct = {
     setProduct:React.Dispatch<React.SetStateAction<Tproduct>>; 
     Status:TstatusEdit
     setStatus:React.Dispatch<React.SetStateAction<TstatusEdit>>; 
+ModalEdit:TmodEditProduct
+setModalEdit:React.Dispatch<React.SetStateAction<TmodEditProduct>>; 
 }
+export type TstateEditProduct2 = Omit<TstateEditProduct,'ModalEdit' | 'setModalEdit'> ;
+
 export type TstateBoxProductIsEmpty = {
     BoxProductIsEmpty:boolean
     setBoxProductIsEmpty:React.Dispatch<React.SetStateAction<boolean>>; 
@@ -198,21 +202,14 @@ export type TstateAdmGetOut = {
 AdmGetOut:boolean;
 setAdmGetOut: React.Dispatch<React.SetStateAction<boolean>>;
 }
-
-// export type TGenericState<T>= {
-// state: T;
-// setState: React.Dispatch<React.SetStateAction<T>>;
-// }
-  
-// export type TstateAdmGetOut = TGenericState<boolean>
-
-// export type TGenericState<T> = {
-//     state: T;
-//     setState: React.Dispatch<React.SetStateAction<T>>;
-//   }
-  
-//   type TModDelAdm = TGenericState<boolean>;
-//   type TstateAdmGetOut = TGenericState<boolean>;
-
-
+export type TmodalShow = {
+modalIsOpen:boolean;
+product:Tproduct;
+}
+export type TstateModalShow = {
+ModalShow:TmodalShow;
+setModalShow: React.Dispatch<React.SetStateAction<TmodalShow>>;
+product:Tproduct
+}
+export type TstateModalShow2 = Omit<TstateModalShow,'product'> 
 

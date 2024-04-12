@@ -9,6 +9,8 @@ function ImgInputProduct({ImgUpload,setImgUpload}:TstateImgUpload,{}) {
 const inputFileRef = useRef<HTMLInputElement>(null);
 const { ModeTheme } = useContext(CatalogContext) as TstateModeTheme 
 const ThemeForDiv = ModeTheme.themeIsDark ? 'bg-gray-500 text-gray-700':'bg-white text-gray-400'   
+const ThemeForLoad = ModeTheme?.themeIsDark ? 'bg-gray-500 text-white':'bg-white text-black'
+
 
 useEffect(() => {
 if (ImgUpload.filename && ImgUpload.fileIsLoading) {
@@ -69,10 +71,14 @@ onChange={(event)=>ChangeImg(event)}  ref={inputFileRef}/>
 {ImgUpload.show === '' ?
 <span className=''>Sem foto</span>:
  <img src={ImgUpload.show} alt="Foto" className={`${ImgUpload.show !== '' && ImgUpload.formatIsLandscape ? 'max-w-[280px]':'max-h-[250px]'}`}/>
-}    
+}  
 </div>}
 
-{ImgUpload.fileIsLoading && <p className="IRMmsgLoad">Carregando foto ...</p> }
+{ImgUpload.fileIsLoading &&
+<div className=' rounded-md justify-around flex flex-col items-center py-2 px-2 pt-0'>
+<p className={`${ThemeForLoad} h-[150px] w-[150px] flex justify-center items-center rounded-md`}>Carregando foto ...</p>
+</div>
+}
 
 <div className='flex flex-row justify-around w-full w-screen300:flex-col items-center'>
 
