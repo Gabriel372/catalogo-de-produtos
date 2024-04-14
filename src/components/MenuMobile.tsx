@@ -12,16 +12,14 @@ function MenuMobile() {
     const ThemeForComponent = ModeTheme?.themeIsDark ? 'text-white bg-gray-800 duration-500':'text-back bg-gray-200 duration-500' 
     const ThemeForUlMenu = ModeTheme?.themeIsDark ? 'border border-gray-500 text-white bg-neutral-800 duration-500':'border border-gray-300  text-back bg-gray-200 duration-500' 
 
-    function RemoveAdmEpage() {
-        sessionStorage.removeItem('ActualPage');  
-        sessionStorage.removeItem('admOnNanoId'); 
-        setAdmGetOut(true);
-        setAdmIsLoggedin(false);
-    }
+function AdmExit() {
+sessionStorage.removeItem('admOnNanoId'); 
+setAdmGetOut(true);
+SaveActualPage('/LoginPage')
+setAdmIsLoggedin(false) }
     
-    function SaveActualPage(page:string) {
-        sessionStorage.setItem('ActualPage',page)
-      }
+function SaveActualPage(page:string) {
+sessionStorage.setItem('ActualPage',page) }
       
 return (<div className=' hidden w-screen850:block ' >
 
@@ -48,7 +46,7 @@ className={`pb-2 rounded-md `}>Ver produtos</Link>
 <Link onClick={()=>SaveActualPage('/AccountAdm')} to='/AccountAdm'
  className=' pb-2 rounded-md '>Minha conta</Link> 
 
-<Link onClick={RemoveAdmEpage} to='/LoginPage' className=' rounded-md '>
+<Link onClick={AdmExit} to='/LoginPage' className=' rounded-md '>
  Sair </Link> 
 
 </ul> 

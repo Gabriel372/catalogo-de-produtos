@@ -16,7 +16,6 @@ function ClickNewAdm (e: React.FormEvent<HTMLFormElement>) {
  const {name,email,password,nanoId,id} = AdmToStorage ;
 const AdmIsComplete = name && email && password ; 
 const EmailIsRepeated = BoxAdm.find((adm)=> adm.email === email );
-
 if (!AdmIsComplete) {
 toast.error("Prencha todos os campos.",{position:'top-center', theme: "dark"}) ;
 }
@@ -25,17 +24,14 @@ toast.error("E-mail já cadastrado,utilize outro",{position:'top-center', theme:
 }
 else {
 setStatus(({msgBtnWait:true,hasAdmToPost:true})); 
-}
-  } 
+} } 
 
 function ChangeInput(e:React.ChangeEvent<HTMLInputElement>) {
 setAdmToStorage(prevState => ({...prevState,[e.target.name]:e.target.value}));   
 if (e.target.name === 'password') {
-setAdmToStorage(prevState => ({...prevState,nanoId:nanoid()}));       
-}
- }
+setAdmToStorage(prevState => ({...prevState,nanoId:nanoid()}));   } }
 
-return     <form onSubmit={ClickNewAdm} 
+return <form onSubmit={ClickNewAdm} 
 className={`${ThemeForComponent} flex flex-col content-around rounded-lg bg-gray-200 w-full max-w-[400px] p-2 max-h-[400px] h-full shadow-2xl`}>
 <ToastContainer/>
 <label className="flex flex-col mb-1">

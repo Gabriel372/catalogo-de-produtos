@@ -19,8 +19,7 @@ useEffect(() => {
     if (InfoCompany.titlePage === InputValue) {
       setHasInfoToUpdt(false);
       UpdtInfoCompanyInFirebase();
-    }
-  }
+ }  }
 }, [HasInfoToUpdt, InfoCompany.titlePage, InputValue]);
 
 async function UpdtInfoCompanyInFirebase() {
@@ -30,25 +29,21 @@ await updateDoc(Source,docRef);
 setMsgBtnWait(false);
 setFormIsOpen(false);
           } catch (erro) {
-        console.error('Erro ao atualizar: ', erro);
-        setMsgBtnWait(false) ;   
-        setFormIsOpen(false);
-}
-}
+console.error('Erro ao atualizar: ', erro);
+setMsgBtnWait(false) ;   
+setFormIsOpen(false) } }
 
 function clickSaveTitle(e: React.FormEvent<HTMLFormElement>){
 e.preventDefault();
 setMsgBtnWait(true);
 if (InfoCompany.titlePage === InputValue) {
   setMsgBtnWait(false);
-  setFormIsOpen(false);
+  setFormIsOpen(false)
 }
-else { setHasInfoToUpdt(true);}
-}
+else { setHasInfoToUpdt(true) } }
 
 function ChangeInput(e:React.ChangeEvent<HTMLInputElement>) {
-setInputValue(e.target.value);
-}
+setInputValue(e.target.value) }
 
 return (
 <form onSubmit={clickSaveTitle} className="flex flex-row min-h-[50px] items-center w-full justify-center">

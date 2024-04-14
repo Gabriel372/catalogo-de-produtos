@@ -10,16 +10,14 @@ const [HasValueToPass,setHasValueToPass] = useState<boolean>(true)
 const ThemeForInput = ModeTheme?.themeIsDark ? 'bg-gray-900 border-solid border-gray-600 border duration-500':'border border-solid border-gray-300  duration-500'
 
 useEffect(() => {
-    if (HasValueToPass) {
-    setHasValueToPass(false);    
-    setFormValue(InfoCompany);    
-    }
-    }, [HasValueToPass]) 
+if (HasValueToPass) {
+setHasValueToPass(false);    
+setFormValue(InfoCompany) }
+}, [HasValueToPass]) 
 
 function ClickUpdate(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-setMsgBtnWait(true)
-}
+setMsgBtnWait(true) }
 
 function ChangeInput(e:React.ChangeEvent<HTMLInputElement>) {
     const { name, checked, value } = e.target;
@@ -28,9 +26,7 @@ if (eventPayNames.includes(name)) {
 }
 else {
     setFormValue(PrevState => ({...PrevState,[name]:value})) 
-}
-}
-
+}}
 
 return (<form onSubmit={ClickUpdate} className=' flex flex-col'>
 <label className="flex flex-col mb-2">

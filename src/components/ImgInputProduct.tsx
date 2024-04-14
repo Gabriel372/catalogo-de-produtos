@@ -11,7 +11,6 @@ const { ModeTheme } = useContext(CatalogContext) as TstateModeTheme
 const ThemeForDiv = ModeTheme.themeIsDark ? 'bg-gray-500 text-gray-700':'bg-white text-gray-400'   
 const ThemeForLoad = ModeTheme?.themeIsDark ? 'bg-gray-500 text-white':'bg-white text-black'
 
-
 useEffect(() => {
 if (ImgUpload.filename && ImgUpload.fileIsLoading) {
 setImgUpload(prevState => ({...prevState,fileIsLoading:false}));  
@@ -47,16 +46,14 @@ function ClearInputFile() {
 inputFileRef.current.value = '';
  }
 setImgUpload({show:'',filename:null,formatIsLandscape:undefined,hasFormatImgToCheck:false,
-fileIsLoading:false,hasInputFileToClean:false});
-}
+fileIsLoading:false,hasInputFileToClean:false}) }
 
 function RemoveImg() {
 if (inputFileRef.current) {
 inputFileRef.current.value = ''    
 }    
 setImgUpload({show:'',filename:null,formatIsLandscape:undefined,
-hasFormatImgToCheck:false,fileIsLoading:false,hasInputFileToClean:false}) ;
- }
+hasFormatImgToCheck:false,fileIsLoading:false,hasInputFileToClean:false}) }
 
 return <div>
 <input id='file-input' type="file" accept="image/*,.heic,.heif" className='hidden' 

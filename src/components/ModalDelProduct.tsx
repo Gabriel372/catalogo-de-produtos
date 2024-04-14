@@ -18,34 +18,27 @@ async function ClickDelProductInFirebase() {
         await deleteDoc(userDoc);
         DeleteProductInBox();
     } catch (error) {
-        console.error("Erro ao excluir:", error);
-} }
+        console.error("Erro ao excluir:", error) } }
 
 function DeleteProductInBox() {
 BoxProduct.length === 1 && setBoxProductIsEmpty(true);
 setBoxProduct(BoxProduct.filter((item)=> item.nanoId !== ModalDel.deleteTarget?.nanoId));
 if (ModalDel.deleteTarget?.image) {
-DeleteImg()    
+DeleteImg() 
 }
 else{
 setMsgLoadBtn(false);
-setModalDel({modalIsOpen:false,deleteTarget:undefined});
-}
-}
+setModalDel({modalIsOpen:false,deleteTarget:undefined}) }}
 
 function DeleteImg() {
-  if (ModalDel.deleteTarget) {
-        const storage = getStorage();
-            const desertRef = ref(storage,`${ModalDel.deleteTarget.image}`);
-            deleteObject(desertRef).then(() => {
-                setMsgLoadBtn(false);
-                setModalDel({modalIsOpen:false,deleteTarget:undefined});
-            }).catch((error) => {
-                console.log('ERRO:',error);
-            });     
-}
-}
-
+if (ModalDel.deleteTarget) {
+const storage = getStorage();
+const desertRef = ref(storage,`${ModalDel.deleteTarget.image}`);
+ deleteObject(desertRef).then(() => {
+setMsgLoadBtn(false);
+setModalDel({modalIsOpen:false,deleteTarget:undefined});
+}).catch((error) => {
+console.log('ERRO:',error) }) } }
 
 return <div>
 {ModalDel.modalIsOpen && 
@@ -56,9 +49,7 @@ onClick={()=>setModalDel(prevState=>({...prevState,modalIsOpen:false}))}>
 onClick={(e)=> e.stopPropagation()}>
 
 <h4 className='text-lg font-semibold'>Deseja deletar esse Produto ?</h4>
-
 <div className='flex flex-row justify-around'>
-
 {MsgLoadBtn ? 
 <button className='bg-gray-300 text-gray-500 rounded-full py-1 w-full border border-gray-400 border-1 cursor-default max-w-32' 
  >Não</button>  
@@ -66,7 +57,6 @@ onClick={(e)=> e.stopPropagation()}>
 <button className='bg-black text-white rounded-full py-1 cursor-pointer hover:bg-gray-700 max-w-[120px] w-full' 
 onClick={()=>setModalDel({modalIsOpen:false,deleteTarget:undefined})} >Não</button>  
 }
-
 <button className='bg-red-600 text-white rounded-full py-1 cursor-pointer hover:bg-red-700 w-full max-w-[120px] ml-2'
 onClick={ClickDelProductInFirebase}>
 {MsgLoadBtn ? <span className=' flex flex-row px-2'><CgSpinner  className='text-2xl mr-1 animate-spin'/>Aguarde</span>:'sim'}    
@@ -76,12 +66,9 @@ onClick={ClickDelProductInFirebase}>
 
 </div>
 
-</div>
-
-}    
+</div>}    
 
 </div>
-
 }
 
 export default ModalDelProduct

@@ -1,7 +1,6 @@
-import {useState} from 'react'
+import {useState,useContext} from 'react'
 import { FaTrashAlt } from "react-icons/fa";
 import { TboxAdm,TstateModeTheme } from '../components/Types';
-import { useContext } from 'react';
 import { CatalogContext } from '../components/CatalogContext';
 import { motion } from 'framer-motion';
 import { pageVariants,pageTransition } from "../components/AnimationMotion";
@@ -37,8 +36,6 @@ onClick={()=>setModalDelIsOpen(true)} >
 </div>
 </div>
     </div>
-
-
     </div>
 
     </motion.div>

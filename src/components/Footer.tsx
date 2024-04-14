@@ -43,17 +43,12 @@ Horário de atendimento:<span className=" font-normal ml-1">{InfoCompany.service
  
     </li>}
 </ul>
-
-)
-
-}
+)}
 
 return <footer className={`${ThemeForComponent} pb-3 pt-2`}>
 
 <div  className="w-full sm:w-auto mx-auto max-w-[1100px] px-2 flex justify-between h-full max-h-[700px] flex-col ">
-
 {ShowInfoCompany()}
-
 {AdmIsLoggedin &&
 <div>
 <button onClick={()=>setModalIsOpen(true)} 
@@ -61,7 +56,6 @@ className={`${!ModeTheme.themeIsDark && 'border-black'}  border  rounded-full px
 <SlPencil className="mr-1"/>{infoIsEmpty && 'Editar informaçoes'} </button>
 </div>
 }
-
 </div>
 <ModalFooter ModalIsOpen={ModalIsOpen} setModalIsOpen={setModalIsOpen}/>
 </footer>    

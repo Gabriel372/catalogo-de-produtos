@@ -21,24 +21,20 @@ try {
     await deleteDoc(userDoc);
     DeleteAdmInBox();
 } catch (error) {
-    console.error("Erro ao excluir", error);
-} }
+    console.error("Erro ao excluir", error) } }
 
 function DeleteAdmInBox() {
     const BoxFiltred = BoxAdm.filter((adm)=> adm.nanoId !== AdmDel.nanoId)
     setBoxAdm(BoxFiltred);
 setMsgLoadBtn(false);
-AdmExit()
-}
+AdmExit() }
 
 function AdmExit() {
     sessionStorage.removeItem('admOnNanoId'); 
     sessionStorage.setItem('ActualPage','/LoginPage')
     setAdmGetOut(true);
-    setAdmIsLoggedin(false);
-}
+    setAdmIsLoggedin(false) }
 
-    
     return <div>
 {ModalDelIsOpen && 
         <div className="bg-custom-black fixed w-full h-full top-0 flex justify-center items-center" onClick={()=> {setModalDelIsOpen(false) }}>

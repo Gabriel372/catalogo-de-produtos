@@ -23,8 +23,6 @@ acceptPayMoney:false,acceptPayPix:false,});
 const ActualThemeIsDark =  JSON.parse(localStorage.getItem('ActualThemeIsDark') || 'null')
 const [AdmGetOut,setAdmGetOut] = useState<boolean>(false)
 
-
-
   useEffect( () => { 
     GetAdmToBox() ;
   },[])

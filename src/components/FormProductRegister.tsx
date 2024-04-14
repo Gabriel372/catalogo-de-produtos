@@ -21,16 +21,12 @@ else if (Product.price === '') {
 toast.error("Somene a descição pode ficar em branco,digite o preço",{position:'top-center',theme: "dark" }) ;     
 }
 else{
-setMsgBtnWait(true)
-}             
-}
+setMsgBtnWait(true) } }
          
 function ChangeInput(e:React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     setProduct(PrevState => ({...PrevState,[e.target.name]: e.target.value})) 
     if (e.target.name === 'price') {
-setProduct(prevState => ({...prevState,nanoId:nanoid()}));  
-}
-}  
+setProduct(prevState => ({...prevState,nanoId:nanoid()}));  } }  
     return<form onSubmit={ClickRegist}>
     <ToastContainer />
       
@@ -39,7 +35,6 @@ setProduct(prevState => ({...prevState,nanoId:nanoid()}));
    <input autoFocus type="text" name="name" placeholder="nome" value={Product.name}
    onChange={ChangeInput} className={`${ThemeForInput} rounded-full px-3 py-1`}/>
    </label>
-
 
    <label className="flex flex-col mb-2">
     Digite o preço

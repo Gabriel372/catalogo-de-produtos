@@ -17,8 +17,7 @@ const ThemeForModal = ModeTheme?.themeIsDark ? 'text-white bg-neutral-700 durati
 
 useEffect(() => {
 if (MsgBtnWait) {
-UpdtFormValueInFirebase()    
-}
+UpdtFormValueInFirebase() }
 }, [MsgBtnWait]) 
 
 async function UpdtFormValueInFirebase() {
@@ -28,16 +27,13 @@ async function UpdtFormValueInFirebase() {
    setInfoCompany(docRef);
     setMsgBtnWait(false);
 toast.success("Editado com sucesso",{position:'top-center',theme:'dark' }) ; 
-    } catch (erro) {
-        console.error('Erro ao atualizar: ', erro);
-        setMsgBtnWait(false)
-      }    
-}
+} catch (erro) {
+ console.error('Erro ao atualizar: ', erro);
+setMsgBtnWait(false) } }
 
 function CloseModal() {
 setFormValue(EmptyValuesForm);    
-setModalIsOpen(false);    
-}
+setModalIsOpen(false) }
 
 return (<div >
 

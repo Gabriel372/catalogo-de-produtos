@@ -22,9 +22,7 @@ setModalEdit( prevState => ({...prevState,hasProductValueToPass:false}))  ;
 setProduct(ModalEdit.productEdit);
 }
 else if (Status.hasProductToUpdt) {
-UpdtProductInFirebase()
-}
-
+UpdtProductInFirebase() }
 }, [ModalEdit,Status])
 
 async function UpdtProductInFirebase() {
@@ -32,10 +30,9 @@ async function UpdtProductInFirebase() {
         const Source = doc(db, "ProductCDP", docRef.id);
         await updateDoc(Source,docRef);
         UpdtBoxProduct() 
-      } catch (erro) {
-        console.error('Erro ao atualizar: ', erro);
-      }    
-}
+} catch (erro) {
+console.error('Erro ao atualizar: ', erro);
+}  }
 
 function UpdtBoxProduct() {
     let NewBox = BoxProduct    
@@ -45,13 +42,11 @@ function UpdtBoxProduct() {
  setTimeout(()=>{
     toast.success("Editado com sucesso",{position:'top-center', theme: "dark",});
     setStatus( (prevState) => ({...prevState,msgBtnWait:false,hasProductToUpdt:false}))
-},4000);
-}
+},4000)}
 
 function CloseModal() {   
 setProduct(EmptyValues);
-setModalEdit({modalIsOpen:false,hasProductValueToPass:false,productEdit:EmptyValues})    
-    }
+setModalEdit({modalIsOpen:false,hasProductValueToPass:false,productEdit:EmptyValues}) }
 
 return (<div>
     <ToastContainer />

@@ -17,8 +17,7 @@ function LoginPage() {
 
   useEffect( () => { 
 if (AdmLog.msgBtnWait) {
-  CheckAdmToLogin()  
-}
+  CheckAdmToLogin()  }
   },[AdmLog])
 
 function CheckAdmToLogin() {

@@ -1,5 +1,5 @@
 import { Link,useNavigate } from 'react-router-dom';
-import { useState,useEffect,useContext } from 'react';
+import { useEffect,useContext } from 'react';
 import { CatalogContext } from './CatalogContext';
 import { TadmIsLoggedin,TadmOn,TboxAdm,TstateModeTheme,TstateAdmGetOut} from './Types'
 import { FaShoppingBasket } from "react-icons/fa";
@@ -30,25 +30,20 @@ setAdmIsLoggedin(false);
 navigate(ActualPage);  
 }
 else if(!admOnNanoId && !AdmGetOut){
-    navigate('/'); 
-}
-}
+    navigate('/') } }
  
-
 function AdmExit() {
     SaveActualPage('/LoginPage')
     sessionStorage.removeItem('admOnNanoId'); 
     setAdmGetOut(true);
-    setAdmIsLoggedin(false);
-}
+    setAdmIsLoggedin(false) }
 
 function SaveActualPage(page:string) {
-    sessionStorage.setItem('ActualPage',page)
-  }
+    sessionStorage.setItem('ActualPage',page) }
   
     return <header className={ThemeForComponent}>
     <nav className="w-full sm:w-auto mx-auto max-w-[1100px] px-2 flex flex-row justify-between h-[calc(12vh)] items-center w-screen800:h-[calc(10vh)]">
- <Link to='./' onClick={()=>SaveActualPage('/')}
+ <Link to='/' onClick={()=>SaveActualPage('/')}
  className='text-red-400 text-3xl ml-2'>
 <FaShoppingBasket />
         </Link>

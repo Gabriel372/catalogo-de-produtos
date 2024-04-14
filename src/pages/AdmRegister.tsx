@@ -1,4 +1,3 @@
-
 import { useNavigate } from 'react-router-dom';
 import { Tadm,TstateModeTheme } from "../components/Types";
 import { useState,useEffect,useContext } from 'react';
@@ -21,8 +20,7 @@ useEffect(() => {
 if (Status.hasAdmToPost) {
 PostAdmInFirebase()  }
 else if (Status.msgBtnWait && AdmToStorage.id ) {
-InsertAdmInBox()    
-}
+InsertAdmInBox()   }
 }, [Status,AdmToStorage]) ;
 
 async function PostAdmInFirebase() {

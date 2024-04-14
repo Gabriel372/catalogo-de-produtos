@@ -23,8 +23,7 @@ if (InputHasValue) {
 PostProductToFirebase()   
 }
 else if (Product.id !== '') {
-InsertProductInBox();    
-}
+InsertProductInBox() }
 }, [InputHasValue,Product]) ;    
 
 async function PostProductToFirebase() {
@@ -36,16 +35,13 @@ setMsgBtnWait(false);
 }
 catch (e) {
 console.error("Error adding document: ", e);
-setMsgBtnWait(false);
- }
-}
+setMsgBtnWait(false) }}
 
 function InsertProductInBox() {  
 BoxProduct.length === 0 && setBoxProductIsEmpty(false);    
 setBoxProduct(prevState => [...prevState,Product]);  
 setProduct({name:'',price:'',description:'',image:'',formatImg:'',nanoId:'',id:''});
-toast.success("cadastrado com sucesso",{position:'top-center', theme: "dark",}) 
-}
+toast.success("cadastrado com sucesso",{position:'top-center', theme: "dark",}) }
 
 return(
 <motion.div initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>

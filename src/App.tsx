@@ -19,12 +19,10 @@ function App() {
 const {ModeTheme} = useContext(CatalogContext) as TstateModeTheme ;
 
   return (  <div className={ModeTheme && ModeTheme.themeIsDark ? ' styleDark':'styleLight'}>
-
     <CatalogContextProvider>
 <BrowserRouter>
 <Header/>
 <ToastContainer />
-
 <Routes>
  <Route  path='/' element={<ProductShowPublic/>}/>
 <Route  path='/LoginPage' element={<LoginPage/>}/>
@@ -33,13 +31,12 @@ const {ModeTheme} = useContext(CatalogContext) as TstateModeTheme ;
 <Route  path='/RegistredProduct' element={<RegistredProduct/>}/>
 <Route  path='/AccountAdm' element={<AccountAdm/>}/>
 </Routes>
-
 <Footer/>
 </BrowserRouter>
     </CatalogContextProvider>
 </div>
 
-  );
+  )
 }
 
 export default App;
