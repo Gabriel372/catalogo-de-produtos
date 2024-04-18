@@ -28,6 +28,9 @@ onClick={()=>setModalEdit({modalIsOpen:true,hasProductValueToPass:true,productEd
 
 </div>
 
+<button onClick={()=> console.log('ok')}>TESTE</button>
+
+
     </li>  
   }
   

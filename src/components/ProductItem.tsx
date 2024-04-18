@@ -27,7 +27,7 @@ onClick={()=> {setModalShow( prevState => ({...prevState,modalIsOpen:true,produc
   </div>  
 
 <p className='text-lg font-semibold'>{product.name}</p>
-<p >R$: <span className={`${ModeTheme.themeIsDark ? 'text-red-400':'text-red-800'} text-lg font-bold`}>{product.price}</span> </p>
+<p >R$: <span className={`${ModeTheme.themeIsDark ? 'text-red-400':'text-red-800'} text-lg font-bold`}>{product.price.replace('.',',')}</span> </p>
 {product.description && 
 <p className='text-sm'>Descriçao:  
 <span className='font-semibold'> {product.description} </span>

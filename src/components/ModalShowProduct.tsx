@@ -37,7 +37,7 @@ onClick={(e)=> e.stopPropagation()}>
 </div>
 
 <p className='text-lg font-semibold'>{ModalShow.product.name}</p>
-<p >R$: <span className={`${ModeTheme.themeIsDark ? 'text-red-400':'text-red-800'} text-lg font-bold`}>{ModalShow.product.price}</span> </p>
+<p >R$: <span className={`${ModeTheme.themeIsDark ? 'text-red-400':'text-red-800'} text-lg font-bold`}>{ModalShow.product.price.replace('.',',')}</span> </p>
 {ModalShow.product.description && 
 <p className='text-sm'>Descriçao:  
 <span className='font-semibold'> {ModalShow.product.description} </span>

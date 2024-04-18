@@ -48,6 +48,7 @@ ModalEdit={ModalEdit} setModalEdit={setModalEdit}/>
   </motion.div>
 <ModalDelProduct ModalDel={ModalDel} setModalDel={setModalDel}/>
 <ModalEditProduct ModalEdit={ModalEdit} setModalEdit={setModalEdit}/>
+
 </div>
 
 )
