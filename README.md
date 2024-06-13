@@ -26,6 +26,11 @@ Utilizado para hospedar o site.
 ### Firebase
 Utilizado para armazenar imagens e informações.
 
+video parte 1
 
+https://github.com/Gabriel372/catalogo-de-produtos/assets/124525153/b15be764-62da-4181-b52f-34f7ecfee99c
 
+video parte 2
+
+https://github.com/Gabriel372/catalogo-de-produtos/assets/124525153/0137cd81-9574-461a-91d8-6de55f2ece79
 
