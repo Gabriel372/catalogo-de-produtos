@@ -51,7 +51,7 @@ onClick={(e)=> e.stopPropagation()}>
 <IoClose className=" text-2xl"/></button>
 
 </div>
-<p className=' mb-1 font-medium'>Preencha somente informaçõoes que deseja exibir</p>
+<p className=' mb-1 font-medium'>Preencha somente informações que deseja exibir</p>
 
     <FormFooter MsgBtnWait={MsgBtnWait} setMsgBtnWait={setMsgBtnWait} 
     FormValue={FormValue} setFormValue={setFormValue}/>
